@@ -163,6 +163,10 @@ var krpanoplugin = function() {
                     var m = e.caption,
                         u = "_krpcbx_" + h + "_" + c.name + "_item" + a,
                         p = T == a ? "color:" + Ba + ";text-shadow:0px 0px 1px " + Ca + ";" : "";
+                    //d3vin-start
+                    m = GLUE_LIST[a];
+                    if(typeof(m)=="undefined")continue;
+                    //d3vin-end
                     e._htmlid = u;
                     d += "<div id='" + u + "' style='width:100%;border-bottom:1px solid " + na + ";" + (0 == a ? "border-top:1px solid " + na + ";" : "") + l + p + "'>" + m + "</div>"
                 }
@@ -360,6 +364,9 @@ var krpanoplugin = function() {
             if (0 < z.count) {
                 var d = z.getItem(T);
                 d && d.caption && (e = d.caption)
+                //d3vin-start
+                e = GLUE_LIST[0];
+                //d3vin-end
             }
             d = "" + E * v * p + "px " + aa;
             0 <= K.indexOf("italic") && (d = "Italic " + d);
@@ -652,6 +659,12 @@ var krpanoplugin = function() {
                     A(x, "down", Qa, !0);
                     qa = x.getContext("2d");
                     c.sprite.appendChild(x);
+                    //d3vin-start
+                    c.sprite.parentNode.appendChild(GLUE_IFRAME_DIV);
+                    console.log(c.sprite.parentNode.childNodes[2].style.display);
+                    c.sprite.parentNode.childNodes[2].style.display = 'none';
+                    c.sprite.parentNode.childNodes[3].style.display = 'none';
+                    //d3vin-end
                     H(!0)
                 } else Y();
                 j.set("events[_combobox_" + c.name + "].keep", !0);

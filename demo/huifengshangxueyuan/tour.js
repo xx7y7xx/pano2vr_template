@@ -1407,6 +1407,7 @@ function embedhtml5(gd, Bb) {
         ha.loadfile = function(a, b, c) {
             ha.loadfile2(a, null, b, c)
         };
+        //d3vin:load plugins
         ha.loadfile2 = function(a, b, c, d) {
             var e = {
                 errmsg: !0
@@ -1552,6 +1553,11 @@ function embedhtml5(gd, Bb) {
                 e > d && (d = e);
                 0 < d && (c = c.slice(0, d + 1), ce(a, c))
             },
+            //d3vin-start
+            //function name : resolvexmlencryption
+            //a : xml document, <encrypted>...
+            //b : xml filename, tour.xml
+            //d3vin-end
             ee = function(a, b) {
                 var c = ae(a, _[332]);
                 if (c) {
@@ -1559,7 +1565,19 @@ function embedhtml5(gd, Bb) {
                         e, f;
                     f = c.childNodes.length;
                     for (e = 0; e < f; e++) d += c.childNodes[e].nodeValue;
-                    if (c = ya.resolvecontentencryption(b, d)) return (c = (new DOMParser).parseFromString(c, _[20])) && c.documentElement && _[31] == c.documentElement.nodeName ? ($(3, b + _[18]), null) : c;
+                    if (c = ya.resolvecontentencryption(b, d))
+                    {
+                      //d3vin-start
+                      var xml_dom_after_decrypt = (c = (new DOMParser).parseFromString(c, _[20])) && c.documentElement && _[31] == c.documentElement.nodeName ? ($(3, b + _[18]), null) : c;
+                      //d3vin-end
+                      //d3vin-start
+                      var xhttp = new XMLHttpRequest();
+                      xhttp.open("GET", b.replace(".xml", ".decrypted.xml"), false);
+                      xhttp.send();
+                      xml_dom_after_decrypt = xhttp.responseXML;
+                      //d3vin-end
+                      return xml_dom_after_decrypt;
+                    }
                     ka(b + _[46]);
                     return null
                 }
@@ -1573,6 +1591,10 @@ function embedhtml5(gd, Bb) {
                         ka(e + _[18]);
                         return
                     }
+                    //d3vin-start
+                    //d=xml dom (encrypted)
+                    //a.url="skin/vtourskin.xml"
+                    //d3vin-end
                     d = ee(d, a.url);
                     if (null == d) return;
                     de(d.childNodes, e);
@@ -1637,6 +1659,7 @@ function embedhtml5(gd, Bb) {
                                         f = !0;
                                         w = p.nodeValue;
                                         P.xmlIncludeNode = c;
+                                        //d3vin: load skin/vtourskin.xml
                                         var q = ya.parsePath(w),
                                             n = new XMLHttpRequest;
                                         n.url = q;
@@ -2165,6 +2188,11 @@ function embedhtml5(gd, Bb) {
                         c = N(_[115] + b + _[34]),
                         d = N(_[115] + b + _[345]);
                     d && (d += ";");
+                    // d3vin-start
+                    alert(GLUE_URL[b]);
+                    //document.getElementById("pano-iframe").src = GLUE_URL[b];
+                    return;
+                    // d3vin-end
                     null == c ? $(3, 'loadscene() - scene "' + b + '" not found') : (m.xml.scene = b, ma.loadxml(_[369] + c + _[342], a[1], a[2], a[3], d))
                 }
             };
@@ -3643,6 +3671,9 @@ function embedhtml5(gd, Bb) {
                 Je()
             },
             db = ma;
+        //d3vin-start
+        //a:tour.xml
+        //d3vin-end
         db.loadpano = function(a, b, c, d, e) {
             Aa.count++;
             Aa.id = Aa.count;
@@ -3661,7 +3692,7 @@ function embedhtml5(gd, Bb) {
                         if (f == Aa.id && 4 == k.readyState) {
                             var l = k.status;
                             if (0 == l || 200 == l || 304 == l) {
-                                var j = k.responseXML;//tour.xml
+                                var j = k.responseXML;
                                 if (j && j.childNodes) {
                                     var h = j.childNodes,
                                         p = h.length;
@@ -3675,6 +3706,7 @@ function embedhtml5(gd, Bb) {
                         }
                     };
                     try {
+                        //d3vin: load tour.xml
                         k.open("GET", a, !0), k.send(null)
                     } catch (l) {
                         ka(a + _[154] + l)

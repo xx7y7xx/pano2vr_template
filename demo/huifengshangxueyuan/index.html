@@ -2,7 +2,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>汇丰商学院360全景展示</title>
+	<title>测试场景</title>
+	<!--<title>汇丰商学院360全景展示</title>-->
 	<meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
@@ -12,6 +13,11 @@
 		@media only screen and (min-device-width: 800px) { html { overflow:hidden; } }
 		html { height:100%; }
 		body { height:100%; overflow:hidden; margin:0; padding:0; font-family:Arial, Helvetica, sans-serif; font-size:16px; color:#FFFFFF; background-color:#000000; }
+		/* Added by d3vin */
+    #content
+    {
+        position:absolute; left: 0; right: 0; bottom: 0; top: 0px; 
+    }
 	</style>
 </head>
 <body>
@@ -21,10 +27,17 @@
 
 <script>
 GLUE_LIST = [
-  "测试1",
+  "红英本部 - 操场",
   "测试2",
   "测试3"
 ];
+GLUE_URL = {
+  "scene_001": "http://192.168.2.21/share/jiandan001/prj/hongyingxiaoxue/caochang_hongyingxiaoxue/",
+  "scene_002": "http://192.168.2.21/share/jiandan001/prj/hongyingxiaoxue/caochang_hongyingxiaoxue/"
+};
+GLUE_IFRAME_DIV = document.createElement("div");
+GLUE_IFRAME_DIV.id = "content";
+GLUE_IFRAME_DIV.innerHTML = '<iframe id="pano-iframe" width="100%" height="100%" frameborder="0" src="http://192.168.2.21/share/jiandan001/prj/hongyingxiaoxue/caochang_hongyingxiaoxue/" />';
 </script>
 
 <div id="pano" style="width:100%;height:100%;">
@@ -34,6 +47,12 @@ GLUE_LIST = [
 		embedpano({swf:"tour.swf", xml:"tour.xml", target:"pano", html5:"auto", passQueryParameters:true});
 	</script>
 </div>
+
+<!-- Added by d3vin -->
+<!--<div id="content">
+  <ifram id="pano-iframe" width="100%" height="100%" frameborder="0"
+    src="http://192.168.2.21/share/jiandan001/prj/hongyingxiaoxue/caochang_hongyingxiaoxue/" />
+</div>-->
 
 </body>
 </html>
