@@ -1,0 +1,4708 @@
+<krpano version="1.16" title="汇丰商学院" onstart="startup();">
+
+
+	
+
+	<include url="skin/vtourskin.xml"/>
+
+	                                                                            
+	<skin_settings bingmaps="false" bingmaps_key="" bingmaps_zoombuttons="false" gyro="true" thumbs_width="120" thumbs_height="80" thumbs_padding="10" thumbs_crop="0|40|240|160" thumbs_opened="false" thumbs_text="true" thumbs_dragging="true" thumbs_onhoverscrolling="false" thumbs_scrollbuttons="true" thumbs_scrollindicator="false" tooltips_thumbs="false" tooltips_hotspots="true" tooltips_mapspots="false" controlbar_offset="20"/>
+
+
+
+<plugin name="logo" keep="true" url="skin/logo.png" zorder="6" align="leftop" edge="leftop" x="15" y="20"/>
+    
+      <autorotate enabled="true" waittime="5.0" accel="1" speed="4" tofov="90"/>
+
+	 <plugin name="box" keep="true" url="%SWFPATH%/plugins/combobox.swf" alturl="%SWFPATH%/plugins/combobox.js" native="false" align="righttop" x="0%" y="2%" onloaded="fill_with_scenes();"/>
+
+
+                                                                      
+<action name="fill_with_scenes">
+for(set(i,0), i LT scene.count, inc(i),
+txtadd(itemcall, 'loadscene(',get(scene[get(i)].name),',null,MERGE,BLEND(1));');
+addIdItem(get(scene[get(i)].name), get(scene[get(i)].title), get(itemcall));
+);
+</action>
+
+                                                                       
+<action name="select_box_item">
+if(plugin[box].loaded,
+plugin[box].selectIdItem(%1);
+  ,
+delayedcall(0.1, select_box_item(%1));
+  );
+</action>
+	 
+	 
+	 
+	  <contextmenu fullscreen="false">
+      <item name="item_0" caption="摄制支持：333ddd.com" onclick="openurl('http://www.shi-tuo.com',_blank)"/>
+      <item name="quanping" caption="全屏观看/退出全屏" onclick="switch(fullscreen);"/>
+      </contextmenu>
+
+	<action name="startup">
+		if(startscene === null, copy(startscene,scene[0].name));
+		loadscene(get(startscene), null, MERGE);
+		bombtimer(0)
+	</action>
+
+		
+		
+
+
+
+
+
+<scene name="scene_001" title="大楼门口" onstart="delayedcall(2.0, normalview());" thumburl="panos/001.tiles/thumb.jpg" lat="" lng="" heading="">
+    
+     <view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+    <view stereographic="true" fisheye="1.0" fov="155" fovtype="VFOV" fovmax="180" hlookat="20" vlookat="90"/> 
+		  
+		  
+   <action name="normalview">
+     	wait(3.0);
+		tween(view.hlookat, 0, 2.5, easeInOutQuad);
+		tween(view.vlookat, -10, 2.5, easeInOutQuad);
+		tween(view.fov,     90,  2.5, easeInOutQuad);
+		tween(view.fisheye, 0.0, 2.5, easeInOutQuad);
+	   
+	</action>
+
+
+
+
+
+
+
+
+
+<preview url="panos/001.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/001.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/001.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		
+
+	<hotspot name="spot1" style="skin_hotspotstyle" ath="3.497" atv="7.588" linkedscene="scene_002"/>
+		         
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-129.847" atv="14.227" linkedscene="scene_019"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="126.248" atv="11.380" linkedscene="scene_020"/>
+		
+		<hotspot name="spot5" style="skin_hotspotstyle" ath="-79.228" atv="-35.329" linkedscene="scene_231"/>
+		
+	</scene>
+
+	<scene name="scene_002" title="大堂走廊" onstart="" thumburl="panos/002.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/002.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/002.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/002.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-178.977" atv="7.589" linkedscene="scene_001"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-85.208" atv="1.148" linkedscene="scene_047"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="-3.051" atv="11.320" linkedscene="scene_003"/>
+		
+		
+		<hotspot name="spot6" style="skin_hotspotstyle" ath="82.594" atv="7.883" linkedscene="scene_011"/>
+		
+
+	</scene>
+
+	<scene name="scene_003" title="大堂中央" onstart="" thumburl="panos/003.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/003.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/003.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/003.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="165.912" atv="9.751" linkedscene="scene_002"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-91.123" atv="3.456" linkedscene="scene_004"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="83.041" atv="5.140" linkedscene="scene_009"/>
+		<hotspot name="spot4" style="skin_hotspotstyle" ath="-24.387" atv="7.598" linkedscene="scene_234"/>
+
+	</scene>
+	
+		<scene name="scene_036" title="二楼走廊1" onstart="" thumburl="panos/036.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/036.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/036.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/036.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-118.501" atv="7.885" linkedscene="scene_035"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="101.188" atv="10.702" linkedscene="scene_037"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="-171.109" atv="8.823" linkedscene="scene_067"/>
+
+	</scene>
+	
+		<scene name="scene_072" title="三楼走廊1" onstart="" thumburl="panos/072.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/072.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/072.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/072.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-92.674" atv="8.215" linkedscene="scene_071"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="125.027" atv="8.979" linkedscene="scene_073"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="-144.219" atv="5.913" linkedscene="scene_102"/>
+
+	</scene>
+	
+		<scene name="scene_106" title="四楼走廊1" onstart="" thumburl="panos/106.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/106.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/106.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/106.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-103.260" atv="12.225" linkedscene="scene_105"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-238.824" atv="9.556" linkedscene="scene_107"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="-147.811" atv="6.445" linkedscene="scene_130"/>
+
+	</scene>
+
+	<scene name="scene_134" title="五楼走廊1" onstart="" thumburl="panos/134.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/134.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/134.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/134.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-101.102" atv="11.266" linkedscene="scene_133"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="111.953" atv="7.164" linkedscene="scene_135"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="-175.912" atv="9.063" linkedscene="scene_160"/>
+
+	</scene>
+
+	<scene name="scene_163" title="六楼走廊1" onstart="" thumburl="panos/163.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/163.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/163.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/163.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-99.700" atv="7.357" linkedscene="scene_162"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="124.450" atv="2.247" linkedscene="scene_164"/>
+
+	</scene>
+
+	<scene name="scene_193" title="七楼走廊1" onstart="" thumburl="panos/193.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/193.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/193.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/193.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-140.860" atv="9.580" linkedscene="scene_192"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="76.622" atv="8.114" linkedscene="scene_194"/>
+
+	</scene>
+
+	<scene name="scene_022" title="负一楼走廊1" onstart="" thumburl="panos/022.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/022.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/022.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/022.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="150.845" atv="3.131" linkedscene="scene_006"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-4.421" atv="4.919" linkedscene="scene_023"/>
+
+	</scene>
+	
+		<scene name="scene_028" title="负二楼走廊1" onstart="" thumburl="panos/028.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/028.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/028.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/028.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-32.228" atv="14.920" linkedscene="scene_029"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="74.404" atv="2.646" linkedscene="scene_031"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="-626.424" atv="-4.469" linkedscene="scene_023"/>
+
+	</scene>
+
+	<scene name="scene_025" title="负一楼车库1" onstart="" thumburl="panos/025.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/025.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/025.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/025.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="58.901" atv="3.637" linkedscene="scene_026"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="43.335" atv="5.811" linkedscene="scene_024"/>
+
+	</scene>
+	
+		<scene name="scene_032" title="负二楼车库1" onstart="" thumburl="panos/032.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/032.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/032.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/032.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="38.954" atv="2.883" linkedscene="scene_033"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="20.435" atv="5.574" linkedscene="scene_031"/>
+
+	</scene>
+	<scene name="scene_231" title="楼顶东北角" onstart="" thumburl="panos/231.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/231.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/231.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/231.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-179.564" atv="10.950" linkedscene="scene_230"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-93.730" atv="17.575" linkedscene="scene_232"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="-48.026" atv="30.934" linkedscene="scene_001"/>
+
+	</scene>
+	
+	<scene name="scene_234" title="大堂中庭" onstart="" thumburl="panos/234.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/234.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/234.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/234.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-113.344" atv="4.088" linkedscene="scene_003"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="123.953" atv="4.341" linkedscene="scene_006"/>
+
+	</scene>
+	<scene name="scene_004" title="大堂东北角" onstart="" thumburl="panos/004.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/004.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/004.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/004.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-22.790" atv="7.956" linkedscene="scene_007"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-62.043" atv="4.392" linkedscene="scene_005"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="92.951" atv="7.029" linkedscene="scene_018"/>
+		<hotspot name="spot4" style="skin_hotspotstyle" ath="129.113" atv="6.000" linkedscene="scene_016"/>
+		<hotspot name="spot5" style="skin_hotspotstyle" ath="-162.790" atv="11.172" linkedscene="scene_017"/>
+		<hotspot name="spot6" style="skin_hotspotstyle" ath="37.012" atv="5.072" linkedscene="scene_003"/>
+
+	</scene>
+
+	<scene name="scene_005" title="大堂东南角" onstart="" thumburl="panos/005.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/005.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/005.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/005.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-31.898" atv="9.658" linkedscene="scene_007"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="13.240" atv="3.931" linkedscene="scene_004"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="-98.802" atv="5.124" linkedscene="scene_006"/>
+		<hotspot name="spot4" style="skin_hotspotstyle" ath="133.171" atv="14.570" linkedscene="scene_014"/>
+
+	</scene>
+
+	<scene name="scene_006" title="大堂西南角" onstart="" thumburl="panos/006.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/006.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/006.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/006.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-177.820" atv="3.501" linkedscene="scene_005"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-4.827" atv="13.235" linkedscene="scene_008"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="83.401" atv="8.125" linkedscene="scene_022"/>
+		<hotspot name="spot4" style="skin_hotspotstyle" ath="-130.161" atv="6.833" linkedscene="scene_042"/>
+		<hotspot name="spot5" style="skin_hotspotstyle" ath="135.965" atv="5.042" linkedscene="scene_234"/>
+
+	</scene>
+
+	<scene name="scene_007" title="大堂休息区" onstart="" thumburl="panos/007.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/007.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/007.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/007.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-57.245" atv="7.021" linkedscene="scene_004"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="51.138" atv="8.462" linkedscene="scene_005"/>
+
+	</scene>
+
+	<scene name="scene_008" title="尚书坊" onstart="" thumburl="panos/008.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/008.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/008.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/008.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="11.497" atv="12.832" linkedscene="scene_006"/>
+
+	</scene>
+
+	<scene name="scene_009" title="添砖加瓦" onstart="" thumburl="panos/009.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/009.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/009.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/009.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-132.811" atv="8.079" linkedscene="scene_003"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="84.840" atv="21.638" linkedscene="scene_010"/>
+
+	</scene>
+
+	<scene name="scene_010" title="星巴克" onstart="" thumburl="panos/010.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/010.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/010.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/010.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="11.538" atv="12.054" linkedscene="scene_009"/>
+
+	</scene>
+
+	<scene name="scene_011" title="一楼电梯口" onstart="" thumburl="panos/011.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/011.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/011.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/011.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-4.682" atv="4.584" linkedscene="scene_002"/>
+		
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-45.267" atv="12.149" linkedscene="scene_024"/>
+		
+		 <hotspot name="spot3" style="skin_hotspotstyle" ath="38.098" atv="14.359" linkedscene="scene_035"/>
+	
+		
+		<hotspot name="spot4" style="skin_hotspotstyle" ath="-90.429" atv="9.273" linkedscene="scene_012"/>
+
+	</scene>
+
+	<scene name="scene_012" title="emba门口" onstart="" thumburl="panos/012.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/012.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/012.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/012.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="4.957" atv="13.580" linkedscene="scene_013"/>
+		
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="-65.655" atv="9.787" linkedscene="scene_011"/>
+
+	</scene>
+
+	<scene name="scene_013" title="emba办公室" onstart="" thumburl="panos/013.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/013.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/013.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/013.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-49.400" atv="13.791" linkedscene="scene_012"/>
+
+	</scene>
+
+	<scene name="scene_014" title="edp办公室-1" onstart="" thumburl="panos/014.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/014.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/014.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/014.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-136.280" atv="24.516" linkedscene="scene_015"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="166.328" atv="25.689" linkedscene="scene_005"/>
+		
+
+	</scene>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	<scene name="scene_015" title="edp办公室-2" onstart="" thumburl="panos/015.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/015.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/015.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/015.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="129.435" atv="14.421" linkedscene="scene_014"/>
+
+	</scene>
+
+	<scene name="scene_016" title="mba办公室" onstart="" thumburl="panos/016.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/016.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/016.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/016.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-120.221" atv="6.511" linkedscene="scene_004"/>
+
+	</scene>
+
+	<scene name="scene_017" title="博硕办公室" onstart="" thumburl="panos/017.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/017.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/017.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/017.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-43.537" atv="12.746" linkedscene="scene_004"/>
+
+	</scene>
+
+	<scene name="scene_018" title="总务办公室" onstart="" thumburl="panos/018.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/018.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/018.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/018.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-178.617" atv="11.101" linkedscene="scene_004"/>
+
+	</scene>
+
+	<scene name="scene_019" title="大楼东北角" onstart="" thumburl="panos/019.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/019.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/019.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/019.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-53.421" atv="4.972" linkedscene="scene_021"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="48.242" atv="4.289" linkedscene="scene_001"/>
+
+	</scene>
+
+	<scene name="scene_020" title="大楼西北角" onstart="" thumburl="panos/020.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/020.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/020.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/020.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-57.747" atv="8.578" linkedscene="scene_001"/>
+
+	</scene>
+
+	<scene name="scene_021" title="地下车库口" onstart="" thumburl="panos/021.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/021.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/021.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/021.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-34.722" atv="9.066" linkedscene="scene_027"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="51.010" atv="4.757" linkedscene="scene_019"/>
+
+	</scene>
+
+
+	<scene name="scene_023" title="负一楼走廊2" onstart="" thumburl="panos/023.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/023.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/023.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/023.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="134.059" atv="8.052" linkedscene="scene_022"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-4.470" atv="14.253" linkedscene="scene_028"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="158.101" atv="8.253" linkedscene="scene_024"/>
+
+	</scene>
+
+	<scene name="scene_024" title="负一楼电梯口" onstart="" thumburl="panos/024.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/024.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/024.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/024.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-141.182" atv="4.795" linkedscene="scene_023"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="33.486" atv="10.740" linkedscene="scene_025"/>
+
+				<hotspot name="spot3" url="skin\vtourskin_hotspot.png" scale="0.5" edge="top" oy="0" ath="-16.315" atv="12.221" zoom="false" distorted="true" onclick="if(linkedscene, tween(scale,0.25,0.5); tween(oy,-20,0.5); tween(alpha,0,0.5); looktohotspot(); loadscene(get(linkedscene),null,MERGE,BLEND(1)); skin_updatescroll(); );" onhover="if(skin_settings.tooltips_hotspots, if(linkedscene, showtext(get(scene[get(linkedscene)].title),SKIN_TOOLTIPS)) );showtext('负二楼电梯口')" linkedscene="scene_031"/>
+	
+		
+		<hotspot name="spot4" url="skin\vtourskin_hotspot.png" scale="0.5" edge="top" oy="0" ath="73.801" atv="20.558" zoom="false" distorted="true" onclick="if(linkedscene, tween(scale,0.25,0.5); tween(oy,-20,0.5); tween(alpha,0,0.5); looktohotspot(); loadscene(get(linkedscene),null,MERGE,BLEND(1)); skin_updatescroll(); );" onhover="if(skin_settings.tooltips_hotspots, if(linkedscene, showtext(get(scene[get(linkedscene)].title),SKIN_TOOLTIPS)) );showtext('一楼电梯口')" linkedscene="scene_011"/>
+
+	</scene>
+
+
+
+	<scene name="scene_026" title="负一楼车库2" onstart="" thumburl="panos/026.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/026.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/026.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/026.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-68.113" atv="3.243" linkedscene="scene_025"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="53.722" atv="3.890" linkedscene="scene_027"/>
+
+	</scene>
+
+	<scene name="scene_027" title="负一楼车库口" onstart="" thumburl="panos/027.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/027.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/027.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/027.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-10.502" atv="9.230" linkedscene="scene_034"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="29.942" atv="6.672" linkedscene="scene_026"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="-170.325" atv="0.814" linkedscene="scene_021"/>
+
+	</scene>
+
+
+
+	<scene name="scene_029" title="报告厅" onstart="" thumburl="panos/029.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/029.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/029.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/029.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="38.670" atv="-0.526" linkedscene="scene_030"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="138.601" atv="6.949" linkedscene="scene_028"/>
+
+	</scene>
+
+	<scene name="scene_030" title="报告厅主席台" onstart="" thumburl="panos/030.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/030.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/030.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/030.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-71.695" atv="6.059" linkedscene="scene_029"/>
+
+	</scene>
+
+	<scene name="scene_031" title="负二楼电梯口" onstart="" thumburl="panos/031.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/031.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/031.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/031.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-64.165" atv="4.573" linkedscene="scene_028"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="121.845" atv="9.135" linkedscene="scene_032"/>
+		
+		<hotspot name="spot3" url="skin\vtourskin_hotspot.png" scale="0.5" edge="top" oy="0" ath="54.555" atv="12.748" zoom="false" distorted="true" onclick="if(linkedscene, tween(scale,0.25,0.5); tween(oy,-20,0.5); tween(alpha,0,0.5); looktohotspot(); loadscene(get(linkedscene),null,MERGE,BLEND(1)); skin_updatescroll(); );" onhover="if(skin_settings.tooltips_hotspots, if(linkedscene, showtext(get(scene[get(linkedscene)].title),SKIN_TOOLTIPS)) );showtext('负一楼电梯口')" linkedscene="scene_024"/>
+		
+
+	</scene>
+
+
+	<scene name="scene_033" title="负二楼车库2" onstart="" thumburl="panos/033.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/033.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/033.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/033.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="6.110" atv="7.338" linkedscene="scene_034"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-95.359" atv="5.395" linkedscene="scene_032"/>
+
+	</scene>
+
+	<scene name="scene_034" title="负二楼车库口" onstart="" thumburl="panos/034.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/034.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/034.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/034.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="165.776" atv="-4.338" linkedscene="scene_027"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="77.383" atv="7.051" linkedscene="scene_033"/>
+
+	</scene>
+
+	<scene name="scene_035" title="二楼电梯口" onstart="" thumburl="panos/035.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/035.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/035.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/035.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		
+				<hotspot name="spot1" url="skin\vtourskin_hotspot.png" scale="0.5" edge="top" oy="0" ath="-62.914" atv="13.766" zoom="false" distorted="true" onclick="if(linkedscene, tween(scale,0.25,0.5); tween(oy,-20,0.5); tween(alpha,0,0.5); looktohotspot(); loadscene(get(linkedscene),null,MERGE,BLEND(1)); skin_updatescroll(); );" onhover="if(skin_settings.tooltips_hotspots, if(linkedscene, showtext(get(scene[get(linkedscene)].title),SKIN_TOOLTIPS)) );showtext('一楼电梯口')" linkedscene="scene_011"/>
+		
+		<hotspot name="spot2" url="skin\vtourskin_hotspot.png" scale="0.5" edge="top" oy="0" ath="14.776" atv="13.654" zoom="false" distorted="true" onclick="if(linkedscene, tween(scale,0.25,0.5); tween(oy,-20,0.5); tween(alpha,0,0.5); looktohotspot(); loadscene(get(linkedscene),null,MERGE,BLEND(1)); skin_updatescroll(); );" onhover="if(skin_settings.tooltips_hotspots, if(linkedscene, showtext(get(scene[get(linkedscene)].title),SKIN_TOOLTIPS)) );showtext('三楼电梯口')" linkedscene="scene_071"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="56.806" atv="8.061" linkedscene="scene_036"/>
+		<hotspot name="spot4" style="skin_hotspotstyle" ath="-120.105" atv="15.235" linkedscene="scene_051"/>
+
+	</scene>
+
+
+
+	<scene name="scene_037" title="二楼走廊2" onstart="" thumburl="panos/037.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/037.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/037.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/037.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-84.685" atv="7.533" linkedscene="scene_036"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="15.792" atv="9.151" linkedscene="scene_038"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="88.712" atv="9.829" linkedscene="scene_040"/>
+		<hotspot name="spot4" style="skin_hotspotstyle" ath="-126.692" atv="14.158" linkedscene="scene_066"/>
+		
+		
+
+	</scene>
+
+	<scene name="scene_038" title="二楼休息区1" onstart="" thumburl="panos/038.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/038.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/038.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/038.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-3.003" atv="6.281" linkedscene="scene_037"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="169.475" atv="6.285" linkedscene="scene_044"/>
+
+	</scene>
+
+	<scene name="scene_039" title="二楼西南角" onstart="" thumburl="panos/039.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/039.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/039.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/039.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="9.259" atv="6.707" linkedscene="scene_040"/>
+
+	</scene>
+
+	<scene name="scene_040" title="二楼走廊3" onstart="" thumburl="panos/040.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/040.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/040.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/040.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-84.339" atv="3.224" linkedscene="scene_037"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-171.496" atv="10.592" linkedscene="scene_039"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="9.116" atv="7.753" linkedscene="scene_041"/>
+		<hotspot name="spot4" style="skin_hotspotstyle" ath="-124.523" atv="6.737" linkedscene="scene_065"/>
+
+	</scene>
+
+	<scene name="scene_041" title="二楼走廊4" onstart="" thumburl="panos/041.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/041.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/041.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/041.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-93.910" atv="8.530" linkedscene="scene_040"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="91.671" atv="5.833" linkedscene="scene_042"/>
+
+	</scene>
+
+	<scene name="scene_042" title="二楼走廊5" onstart="" thumburl="panos/042.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/042.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/042.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/042.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-9.448" atv="25.061" linkedscene="scene_006"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-45.258" atv="11.889" linkedscene="scene_041"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="169.248" atv="4.666" linkedscene="scene_069"/>
+		<hotspot name="spot4" style="skin_hotspotstyle" ath="100.097" atv="8.086" linkedscene="scene_077"/>
+
+	</scene>
+
+	<scene name="scene_043" title="二楼走廊6" onstart="" thumburl="panos/043.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/043.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/043.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/043.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-132.892" atv="8.002" linkedscene="scene_069"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="44.037" atv="3.527" linkedscene="scene_044"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="100.105" atv="8.786" linkedscene="scene_045"/>
+		<hotspot name="spot4" style="skin_hotspotstyle" ath="131.579" atv="3.285" linkedscene="scene_062"/>
+		<hotspot name="spot5" style="skin_hotspotstyle" ath="160.186" atv="6.492" linkedscene="scene_063"/>
+		
+
+	</scene>
+
+	<scene name="scene_044" title="二楼走廊7" onstart="" thumburl="panos/044.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/044.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/044.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/044.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="43.868" atv="4.092" linkedscene="scene_045"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-94.493" atv="3.652" linkedscene="scene_038"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="133.218" atv="6.876" linkedscene="scene_043"/>
+
+	</scene>
+
+	<scene name="scene_045" title="二楼走廊8" onstart="" thumburl="panos/045.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/045.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/045.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/045.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-46.928" atv="4.113" linkedscene="scene_044"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="131.770" atv="5.075" linkedscene="scene_061"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="-76.177" atv="4.139" linkedscene="scene_043"/>
+		<hotspot name="spot4" style="skin_hotspotstyle" ath="113.930" atv="6.461" linkedscene="scene_046"/>
+
+	</scene>
+
+	<scene name="scene_046" title="二楼走廊9" onstart="" thumburl="panos/046.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/046.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/046.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/046.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-52.341" atv="3.424" linkedscene="scene_045"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="5.311" atv="8.529" linkedscene="scene_047"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="36.450" atv="7.008" linkedscene="scene_048"/>
+		<hotspot name="spot4" style="skin_hotspotstyle" ath="-170.518" atv="8.088" linkedscene="scene_233"/>
+
+	</scene>
+	
+		<scene name="scene_233" title="210教室" onstart="" thumburl="panos/233.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/233.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/233.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/233.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="149.285" atv="7.997" linkedscene="scene_046"/>
+		</scene>
+
+	<scene name="scene_047" title="二楼楼梯口" onstart="" thumburl="panos/047.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/047.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/047.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/047.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="8.000" atv="29.690" linkedscene="scene_002"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="167.062" atv="6.001" linkedscene="scene_046"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="103.584" atv="9.162" linkedscene="scene_048"/>
+
+	</scene>
+
+	<scene name="scene_048" title="二楼走廊10" onstart="" thumburl="panos/048.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/048.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/048.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/048.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="57.391" atv="6.692" linkedscene="scene_049"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-121.343" atv="7.910" linkedscene="scene_046"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="-25.028" atv="9.531" linkedscene="scene_047"/>
+		<hotspot name="spot4" style="skin_hotspotstyle" ath="140.357" atv="6.530" linkedscene="scene_056"/>
+
+	</scene>
+
+	<scene name="scene_049" title="二楼走廊11" onstart="" thumburl="panos/049.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/049.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/049.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/049.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="125.155" atv="4.422" linkedscene="scene_048"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-50.770" atv="4.277" linkedscene="scene_050"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="87.995" atv="12.187" linkedscene="scene_059"/>
+		<hotspot name="spot4" style="skin_hotspotstyle" ath="-17.126" atv="8.150" linkedscene="scene_060"/>
+
+	</scene>
+
+	<scene name="scene_050" title="二楼走廊12" onstart="" thumburl="panos/050.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/050.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/050.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/050.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="47.618" atv="3.778" linkedscene="scene_049"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-133.206" atv="6.319" linkedscene="scene_051"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="-42.702" atv="5.985" linkedscene="scene_054"/>
+		<hotspot name="spot4" style="skin_hotspotstyle" ath="18.984" atv="10.092" linkedscene="scene_058"/>
+
+	</scene>
+
+	<scene name="scene_051" title="二楼走廊13" onstart="" thumburl="panos/051.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="-690.355" vlookat="2.664" fovtype="MFOV" fov="100.000" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/051.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/051.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/051.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-155.872" atv="4.296" linkedscene="scene_050"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-66.505" atv="9.612" linkedscene="scene_035"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="24.716" atv="5.637" linkedscene="scene_052"/>
+		<hotspot name="spot4" style="skin_hotspotstyle" ath="56.319" atv="14.908" linkedscene="scene_057"/>
+
+	</scene>
+
+	<scene name="scene_052" title="二楼走廊14" onstart="" thumburl="panos/052.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/052.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/052.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/052.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="37.280" atv="6.263" linkedscene="scene_051"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="-55.962" atv="7.526" linkedscene="scene_070"/>
+
+	</scene>
+
+	<scene name="scene_053" title="二楼走廊15" onstart="" thumburl="panos/053.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/053.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/053.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/053.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-6.193" atv="8.708" linkedscene="scene_070"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-178.379" atv="6.417" linkedscene="scene_054"/>
+
+	</scene>
+
+	<scene name="scene_054" title="二楼走廊16" onstart="" thumburl="panos/054.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/054.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/054.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/054.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-96.885" atv="13.525" linkedscene="scene_053"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="91.409" atv="0.946" linkedscene="scene_055"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="-177.203" atv="6.740" linkedscene="scene_050"/>
+
+	</scene>
+
+	<scene name="scene_055" title="二楼走廊17" onstart="" thumburl="panos/055.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/055.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/055.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/055.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-176.918" atv="10.513" linkedscene="scene_054"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-0.063" atv="4.932" linkedscene="scene_056"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="90.935" atv="6.932" linkedscene="scene_049"/>
+		<hotspot name="spot4" style="skin_hotspotstyle" ath="169.807" atv="5.399" linkedscene="scene_091"/>
+
+	</scene>
+
+	<scene name="scene_056" title="二楼走廊18" onstart="" thumburl="panos/056.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/056.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/056.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/056.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="4.381" atv="7.670" linkedscene="scene_055"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-88.464" atv="8.230" linkedscene="scene_048"/>
+		
+
+	</scene>
+
+	<scene name="scene_057" title="学生活动中心" onstart="" thumburl="panos/057.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/057.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/057.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/057.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-178.823" atv="5.806" linkedscene="scene_051"/>
+
+	</scene>
+
+	<scene name="scene_058" title="205教室" onstart="" thumburl="panos/058.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/058.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/058.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/058.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="19.145" atv="7.135" linkedscene="scene_050"/>
+
+	</scene>
+
+	<scene name="scene_059" title="206教室" onstart="" thumburl="panos/059.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/059.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/059.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/059.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-123.493" atv="3.525" linkedscene="scene_049"/>
+
+	</scene>
+
+	<scene name="scene_060" title="207教室" onstart="" thumburl="panos/060.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/060.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/060.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/060.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="160.896" atv="11.025" linkedscene="scene_049"/>
+
+	</scene>
+
+	<scene name="scene_061" title="211教室" onstart="" thumburl="panos/061.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/061.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/061.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/061.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-70.752" atv="2.266" linkedscene="scene_045"/>
+
+	</scene>
+
+	<scene name="scene_062" title="216教室" onstart="" thumburl="panos/062.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/062.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/062.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/062.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="42.818" atv="2.573" linkedscene="scene_043"/>
+
+	</scene>
+
+	<scene name="scene_063" title="217教室" onstart="" thumburl="panos/063.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/063.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/063.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/063.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="77.070" atv="3.744" linkedscene="scene_043"/>
+
+	</scene>
+
+	<scene name="scene_064" title="219教室" onstart="" thumburl="panos/064.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/064.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/064.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/064.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-100.744" atv="5.638" linkedscene="scene_069"/>
+
+	</scene>
+
+	<scene name="scene_065" title="227教室" onstart="" thumburl="panos/065.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/065.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/065.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/065.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="37.142" atv="7.382" linkedscene="scene_040"/>
+
+	</scene>
+
+	<scene name="scene_066" title="229教室" onstart="" thumburl="panos/066.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/066.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/066.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/066.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-19.400" atv="12.843" linkedscene="scene_037"/>
+
+	</scene>
+
+	<scene name="scene_067" title="232教室" onstart="" thumburl="panos/067.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/067.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/067.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/067.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-101.231" atv="9.127" linkedscene="scene_036"/>
+
+	</scene>
+
+	<scene name="scene_068" title="二楼东北角" onstart="" thumburl="panos/068.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/068.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/068.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/068.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+
+	</scene>
+
+	<scene name="scene_069" title="二楼东南角" onstart="" thumburl="panos/069.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/069.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/069.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/069.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-36.232" atv="5.384" linkedscene="scene_042"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="51.537" atv="6.712" linkedscene="scene_043"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="155.279" atv="13.604" linkedscene="scene_064"/>
+
+	</scene>
+
+	<scene name="scene_070" title="二楼西北角" onstart="" thumburl="panos/070.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/070.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/070.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/070.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-38.291" atv="6.197" linkedscene="scene_053"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="50.343" atv="7.825" linkedscene="scene_052"/>
+
+	</scene>
+
+	<scene name="scene_071" title="三楼电梯口" onstart="" thumburl="panos/071.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/071.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/071.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/071.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="84.009" atv="8.558" linkedscene="scene_072"/>
+		
+		<hotspot name="spot2" url="skin\vtourskin_hotspot.png" scale="0.5" edge="top" oy="0" ath="33.550" atv="10.819" zoom="false" distorted="true" onclick="if(linkedscene, tween(scale,0.25,0.5); tween(oy,-20,0.5); tween(alpha,0,0.5); looktohotspot(); loadscene(get(linkedscene),null,MERGE,BLEND(1)); skin_updatescroll(); );" onhover="if(skin_settings.tooltips_hotspots, if(linkedscene, showtext(get(scene[get(linkedscene)].title),SKIN_TOOLTIPS)) );showtext('四楼电梯口')" linkedscene="scene_105"/>
+	
+		<hotspot name="spot3" url="skin\vtourskin_hotspot.png" scale="0.5" edge="top" oy="0" ath="-52.413" atv="11.479" zoom="false" distorted="true" onclick="if(linkedscene, tween(scale,0.25,0.5); tween(oy,-20,0.5); tween(alpha,0,0.5); looktohotspot(); loadscene(get(linkedscene),null,MERGE,BLEND(1)); skin_updatescroll(); );" onhover="if(skin_settings.tooltips_hotspots, if(linkedscene, showtext(get(scene[get(linkedscene)].title),SKIN_TOOLTIPS)) );showtext('二楼电梯口')" linkedscene="scene_035"/>
+		<hotspot name="spot4" style="skin_hotspotstyle" ath="-98.604" atv="10.048" linkedscene="scene_087"/>
+
+	</scene>
+
+
+
+	<scene name="scene_073" title="三楼走廊2" onstart="" thumburl="panos/073.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/073.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/073.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/073.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="14.227" atv="5.012" linkedscene="scene_074"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="91.730" atv="7.425" linkedscene="scene_075"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="107.174" atv="4.410" linkedscene="scene_100"/>
+		<hotspot name="spot4" style="skin_hotspotstyle" ath="-119.944" atv="9.888" linkedscene="scene_101"/>
+		<hotspot name="spot5" style="skin_hotspotstyle" ath="-80.812" atv="3.119" linkedscene="scene_072"/>
+
+	</scene>
+
+	<scene name="scene_074" title="三楼休息区1" onstart="" thumburl="panos/074.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/074.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/074.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/074.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="85.383" atv="6.534" linkedscene="scene_073"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-109.064" atv="8.362" linkedscene="scene_081"/>
+
+	</scene>
+
+	<scene name="scene_075" title="三楼西南角" onstart="" thumburl="panos/075.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/075.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/075.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/075.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-33.348" atv="4.364" linkedscene="scene_073"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="48.092" atv="10.376" linkedscene="scene_076"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="85.374" atv="4.490" linkedscene="scene_099"/>
+
+	</scene>
+
+	<scene name="scene_076" title="三楼走廊3" onstart="" thumburl="panos/076.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/076.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/076.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/076.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-133.465" atv="4.601" linkedscene="scene_075"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-27.087" atv="8.119" linkedscene="scene_077"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="142.659" atv="14.447" linkedscene="scene_098"/>
+		<hotspot name="spot4" style="skin_hotspotstyle" ath="41.178" atv="7.409" linkedscene="scene_078"/>
+		
+
+	</scene>
+
+	<scene name="scene_077" title="三楼走廊4" onstart="" thumburl="panos/077.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/077.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/077.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/077.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="113.077" atv="4.634" linkedscene="scene_076"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="7.029" atv="-0.345" linkedscene="scene_078"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="72.803" atv="-1.142" linkedscene="scene_110"/>
+		<hotspot name="spot4" style="skin_hotspotstyle" ath="8.613" atv="19.046" linkedscene="scene_042"/>
+
+	</scene>
+
+	<scene name="scene_078" title="三楼走廊5" onstart="" thumburl="panos/078.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/078.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/078.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/078.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-74.275" atv="6.185" linkedscene="scene_077"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="100.571" atv="4.084" linkedscene="scene_079"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="-145.457" atv="13.015" linkedscene="scene_076"/>
+		<hotspot name="spot4" style="skin_hotspotstyle" ath="153.272" atv="10.504" linkedscene="scene_097"/>
+
+	</scene>
+
+	<scene name="scene_079" title="三楼东南角" onstart="" thumburl="panos/079.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/079.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/079.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/079.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-30.202" atv="3.320" linkedscene="scene_078"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="52.302" atv="8.620" linkedscene="scene_080"/>
+
+	</scene>
+
+	<scene name="scene_080" title="三楼走廊6" onstart="" thumburl="panos/080.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/080.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/080.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/080.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="71.131" atv="9.476" linkedscene="scene_081"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-89.204" atv="10.269" linkedscene="scene_079"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="-157.137" atv="9.877" linkedscene="scene_096"/>
+		<hotspot name="spot4" style="skin_hotspotstyle" ath="93.036" atv="8.529" linkedscene="scene_082"/>
+
+	</scene>
+
+	<scene name="scene_081" title="三楼走廊7" onstart="" thumburl="panos/081.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/081.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/081.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/081.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-65.986" atv="6.413" linkedscene="scene_080"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-145.533" atv="2.474" linkedscene="scene_082"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="94.040" atv="7.018" linkedscene="scene_074"/>
+
+	</scene>
+
+	<scene name="scene_082" title="三楼走廊8" onstart="" thumburl="panos/082.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/082.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/082.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/082.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-73.014" atv="16.944" linkedscene="scene_081"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="91.206" atv="11.905" linkedscene="scene_083"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="110.381" atv="9.194" linkedscene="scene_094"/>
+		<hotspot name="spot4" style="skin_hotspotstyle" ath="-105.096" atv="6.403" linkedscene="scene_095"/>
+		<hotspot name="spot5" style="skin_hotspotstyle" ath="-89.956" atv="7.822" linkedscene="scene_080"/>
+
+	</scene>
+
+	<scene name="scene_083" title="三楼东北角" onstart="" thumburl="panos/083.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/083.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/083.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/083.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-62.207" atv="7.609" linkedscene="scene_082"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="28.691" atv="8.024" linkedscene="scene_084"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="162.024" atv="6.587" linkedscene="scene_093"/>
+
+	</scene>
+
+	<scene name="scene_084" title="三楼走廊9" onstart="" thumburl="panos/084.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/084.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/084.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/084.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="172.305" atv="9.826" linkedscene="scene_083"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-378.178" atv="10.143" linkedscene="scene_085"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="66.803" atv="19.288" linkedscene="scene_104"/>
+
+	</scene>
+
+	<scene name="scene_085" title="三楼走廊10" onstart="" thumburl="panos/085.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/085.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/085.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/085.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="6.691" atv="8.001" linkedscene="scene_086"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-172.286" atv="7.425" linkedscene="scene_084"/>
+
+	</scene>
+
+	<scene name="scene_086" title="三楼走廊11" onstart="" thumburl="panos/086.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/086.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/086.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/086.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-149.132" atv="9.374" linkedscene="scene_085"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="28.730" atv="8.485" linkedscene="scene_087"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="121.107" atv="13.511" linkedscene="scene_091"/>
+
+	</scene>
+
+	<scene name="scene_087" title="三楼走廊12" onstart="" thumburl="panos/087.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/087.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/087.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/087.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-96.626" atv="7.227" linkedscene="scene_086"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-1.391" atv="8.580" linkedscene="scene_071"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="89.913" atv="9.501" linkedscene="scene_088"/>
+		<hotspot name="spot4" style="skin_hotspotstyle" ath="149.990" atv="16.397" linkedscene="scene_092"/>
+
+	</scene>
+
+	<scene name="scene_088" title="三楼走廊13" onstart="" thumburl="panos/088.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/088.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/088.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/088.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="11.239" atv="6.661" linkedscene="scene_087"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-76.895" atv="13.840" linkedscene="scene_089"/>
+
+	</scene>
+
+	<scene name="scene_089" title="三楼西北角" onstart="" thumburl="panos/089.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/089.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/089.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/089.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="76.798" atv="10.326" linkedscene="scene_088"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="7.511" atv="12.905" linkedscene="scene_090"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="-152.406" atv="19.148" linkedscene="scene_103"/>
+
+	</scene>
+
+	<scene name="scene_090" title="三楼走廊14" onstart="" thumburl="panos/090.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/090.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/090.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/090.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-121.573" atv="16.694" linkedscene="scene_089"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="174.905" atv="11.369" linkedscene="scene_087"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="111.532" atv="18.658" linkedscene="scene_091"/>
+
+	</scene>
+
+	<scene name="scene_091" title="三楼走廊15" onstart="" thumburl="panos/091.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/091.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/091.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/091.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-2.544" atv="15.482" linkedscene="scene_086"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-69.913" atv="18.853" linkedscene="scene_055"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="66.053" atv="15.456" linkedscene="scene_124"/>
+
+	</scene>
+
+	<scene name="scene_092" title="303研讨室" onstart="" thumburl="panos/092.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/092.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/092.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/092.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="82.576" atv="17.422" linkedscene="scene_087"/>
+
+	</scene>
+
+	<scene name="scene_093" title="317会议室" onstart="" thumburl="panos/093.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/093.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/093.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/093.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="130.263" atv="12.656" linkedscene="scene_083"/>
+
+	</scene>
+
+	<scene name="scene_094" title="319教室" onstart="" thumburl="panos/094.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/094.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/094.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/094.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-104.014" atv="6.718" linkedscene="scene_082"/>
+
+	</scene>
+
+	<scene name="scene_095" title="321教室" onstart="" thumburl="panos/095.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/095.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/095.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/095.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-98.433" atv="10.186" linkedscene="scene_082"/>
+
+	</scene>
+
+	<scene name="scene_096" title="323教室" onstart="" thumburl="panos/096.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/096.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/096.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/096.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="29.476" atv="5.730" linkedscene="scene_080"/>
+
+	</scene>
+
+	<scene name="scene_097" title="329教室" onstart="" thumburl="panos/097.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/097.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/097.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/097.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="135.726" atv="10.040" linkedscene="scene_078"/>
+
+	</scene>
+
+	<scene name="scene_098" title="331教室" onstart="" thumburl="panos/098.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/098.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/098.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/098.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="162.057" atv="12.398" linkedscene="scene_076"/>
+
+	</scene>
+
+	<scene name="scene_099" title="333教室" onstart="" thumburl="panos/099.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/099.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/099.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/099.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-27.863" atv="5.330" linkedscene="scene_075"/>
+
+	</scene>
+
+	<scene name="scene_100" title="335教室" onstart="" thumburl="panos/100.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/100.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/100.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/100.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-122.629" atv="7.740" linkedscene="scene_073"/>
+
+	</scene>
+
+	<scene name="scene_101" title="337教室" onstart="" thumburl="panos/101.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/101.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/101.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/101.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="50.693" atv="13.841" linkedscene="scene_073"/>
+
+	</scene>
+
+	<scene name="scene_102" title="339教室" onstart="" thumburl="panos/102.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/102.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/102.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/102.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-65.093" atv="5.021" linkedscene="scene_072"/>
+
+	</scene>
+
+	<scene name="scene_103" title="345会议室" onstart="" thumburl="panos/103.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/103.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/103.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/103.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-90.428" atv="16.687" linkedscene="scene_089"/>
+
+	</scene>
+
+	<scene name="scene_104" title="309研讨室" onstart="" thumburl="panos/104.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/104.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/104.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/104.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-42.396" atv="11.950" linkedscene="scene_084"/>
+
+	</scene>
+
+	<scene name="scene_105" title="四楼电梯口" onstart="" thumburl="panos/105.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/105.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/105.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/105.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		
+		<hotspot name="spot1" url="skin\vtourskin_hotspot.png" scale="0.5" edge="top" oy="0" ath="-48.433" atv="9.898" zoom="false" distorted="true" onclick="if(linkedscene, tween(scale,0.25,0.5); tween(oy,-20,0.5); tween(alpha,0,0.5); looktohotspot(); loadscene(get(linkedscene),null,MERGE,BLEND(1)); skin_updatescroll(); );" onhover="if(skin_settings.tooltips_hotspots, if(linkedscene, showtext(get(scene[get(linkedscene)].title),SKIN_TOOLTIPS)) );showtext('三楼电梯口')" linkedscene="scene_071"/>
+
+
+		
+		<hotspot name="spot2" url="skin\vtourskin_hotspot.png" scale="0.5" edge="top" oy="0" ath="40.421" atv="12.959" zoom="false" distorted="true" onclick="if(linkedscene, tween(scale,0.25,0.5); tween(oy,-20,0.5); tween(alpha,0,0.5); looktohotspot(); loadscene(get(linkedscene),null,MERGE,BLEND(1)); skin_updatescroll(); );" onhover="if(skin_settings.tooltips_hotspots, if(linkedscene, showtext(get(scene[get(linkedscene)].title),SKIN_TOOLTIPS)) );showtext('五楼电梯口')" linkedscene="scene_133"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="84.077" atv="11.525" linkedscene="scene_106"/>
+		<hotspot name="spot4" style="skin_hotspotstyle" ath="-93.970" atv="13.769" linkedscene="scene_123"/>
+
+	</scene>
+
+
+
+	<scene name="scene_107" title="四楼走廊2" onstart="" thumburl="panos/107.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/107.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/107.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/107.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-88.474" atv="8.429" linkedscene="scene_106"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="89.777" atv="10.521" linkedscene="scene_109"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="12.746" atv="10.468" linkedscene="scene_108"/>
+		<hotspot name="spot4" style="skin_hotspotstyle" ath="105.390" atv="6.919" linkedscene="scene_128"/>
+		<hotspot name="spot5" style="skin_hotspotstyle" ath="-116.364" atv="6.989" linkedscene="scene_129"/>
+
+	</scene>
+
+	<scene name="scene_108" title="四楼休息区1" onstart="" thumburl="panos/108.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/108.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/108.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/108.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="84.532" atv="6.450" linkedscene="scene_107"/>
+
+	</scene>
+
+	<scene name="scene_109" title="四楼西南角" onstart="" thumburl="panos/109.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/109.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/109.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/109.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-43.053" atv="7.185" linkedscene="scene_107"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="24.301" atv="7.247" linkedscene="scene_110"/>
+
+	</scene>
+
+	<scene name="scene_110" title="四楼走廊3" onstart="" thumburl="panos/110.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/110.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/110.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/110.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-124.897" atv="6.065" linkedscene="scene_109"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="104.545" atv="9.373" linkedscene="scene_111"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="-85.730" atv="2.771" linkedscene="scene_139"/>
+		<hotspot name="spot4" style="skin_hotspotstyle" ath="99.863" atv="33.917" linkedscene="scene_077"/>
+
+	</scene>
+
+	<scene name="scene_111" title="四楼走廊4" onstart="" thumburl="panos/111.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/111.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/111.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/111.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-80.120" atv="4.013" linkedscene="scene_110"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="94.610" atv="6.097" linkedscene="scene_112"/>
+
+	</scene>
+
+	<scene name="scene_112" title="四楼走廊5" onstart="" thumburl="panos/112.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/112.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/112.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/112.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-86.675" atv="5.271" linkedscene="scene_111"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="88.592" atv="8.122" linkedscene="scene_113"/>
+
+	</scene>
+
+	<scene name="scene_113" title="四楼东南角" onstart="" thumburl="panos/113.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/113.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/113.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/113.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-42.595" atv="9.815" linkedscene="scene_112"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="46.420" atv="10.487" linkedscene="scene_114"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="-138.058" atv="8.333" linkedscene="scene_131"/>
+
+	</scene>
+
+	<scene name="scene_114" title="四楼走廊6" onstart="" thumburl="panos/114.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/114.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/114.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/114.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-81.830" atv="9.636" linkedscene="scene_113"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="37.989" atv="12.556" linkedscene="scene_115"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="88.750" atv="8.173" linkedscene="scene_116"/>
+
+	</scene>
+
+	<scene name="scene_115" title="四楼走廊7" onstart="" thumburl="panos/115.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/115.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/115.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/115.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-89.714" atv="6.704" linkedscene="scene_114"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-134.828" atv="-0.849" linkedscene="scene_116"/>
+
+	</scene>
+
+	<scene name="scene_116" title="四楼走廊8" onstart="" thumburl="panos/116.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/116.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/116.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/116.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-49.514" atv="8.815" linkedscene="scene_114"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="4.876" atv="7.077" linkedscene="scene_115"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="136.056" atv="7.083" linkedscene="scene_117"/>
+
+	</scene>
+
+	<scene name="scene_117" title="四楼走廊9" onstart="" thumburl="panos/117.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/117.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/117.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/117.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-84.377" atv="10.292" linkedscene="scene_116"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="144.585" atv="10.224" linkedscene="scene_118"/>
+		
+
+	</scene>
+
+	<scene name="scene_118" title="四楼走廊10" onstart="" thumburl="panos/118.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/118.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/118.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/118.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-65.507" atv="5.436" linkedscene="scene_117"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="37.118" atv="7.635" linkedscene="scene_120"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="144.638" atv="4.789" linkedscene="scene_127"/>
+
+	</scene>
+
+	<scene name="scene_119" title="四楼东北角" onstart="" thumburl="panos/119.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/119.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/119.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/119.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-88.348" atv="6.432" linkedscene="scene_120"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-39.296" atv="9.721" linkedscene="scene_121"/>
+
+	</scene>
+
+	<scene name="scene_120" title="四楼走廊11" onstart="" thumburl="panos/120.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/120.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/120.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/120.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="45.965" atv="7.833" linkedscene="scene_118"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-52.056" atv="9.136" linkedscene="scene_119"/>
+
+	</scene>
+
+	<scene name="scene_121" title="四楼走廊12" onstart="" thumburl="panos/121.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/121.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/121.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/121.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="81.426" atv="4.265" linkedscene="scene_119"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-103.353" atv="8.806" linkedscene="scene_122"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="-123.458" atv="6.578" linkedscene="scene_126"/>
+
+	</scene>
+
+	<scene name="scene_122" title="四楼走廊13" onstart="" thumburl="panos/122.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/122.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/122.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/122.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-55.087" atv="12.310" linkedscene="scene_121"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="68.719" atv="12.343" linkedscene="scene_123"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="44.055" atv="12.044" linkedscene="scene_125"/>
+
+	</scene>
+
+	<scene name="scene_123" title="四楼走廊14" onstart="" thumburl="panos/123.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/123.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/123.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/123.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-118.716" atv="12.602" linkedscene="scene_122"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="114.517" atv="9.328" linkedscene="scene_124"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="1.203" atv="11.227" linkedscene="scene_105"/>
+
+	</scene>
+
+	<scene name="scene_124" title="四楼西北角" onstart="" thumburl="panos/124.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/124.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/124.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/124.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="67.585" atv="10.566" linkedscene="scene_123"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-20.025" atv="34.462" linkedscene="scene_091"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="40.256" atv="10.571" linkedscene="scene_153"/>
+
+	</scene>
+
+	<scene name="scene_125" title="401阶梯教室" onstart="" thumburl="panos/125.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/125.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/125.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/125.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="101.126" atv="8.518" linkedscene="scene_122"/>
+
+	</scene>
+
+	<scene name="scene_126" title="403阶梯教室" onstart="" thumburl="panos/126.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/126.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/126.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/126.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="113.961" atv="13.160" linkedscene="scene_121"/>
+
+	</scene>
+
+	<scene name="scene_127" title="408会议室" onstart="" thumburl="panos/127.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/127.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/127.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/127.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="8.448" atv="4.798" linkedscene="scene_118"/>
+
+	</scene>
+
+	<scene name="scene_128" title="421教室" onstart="" thumburl="panos/128.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/128.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/128.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/128.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="116.690" atv="8.197" linkedscene="scene_107"/>
+
+	</scene>
+
+	<scene name="scene_129" title="423教室" onstart="" thumburl="panos/129.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/129.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/129.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/129.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="116.844" atv="11.666" linkedscene="scene_107"/>
+
+	</scene>
+
+	<scene name="scene_130" title="425教室" onstart="" thumburl="panos/130.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/130.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/130.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/130.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="117.694" atv="8.897" linkedscene="scene_106"/>
+
+	</scene>
+
+	<scene name="scene_131" title="机房走廊" onstart="" thumburl="panos/131.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/131.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/131.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/131.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-96.643" atv="13.011" linkedscene="scene_113"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-48.232" atv="10.717" linkedscene="scene_132"/>
+
+	</scene>
+
+	<scene name="scene_132" title="4楼机房" onstart="" thumburl="panos/132.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/132.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/132.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/132.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-92.704" atv="9.897" linkedscene="scene_131"/>
+		
+
+	</scene>
+
+	<scene name="scene_133" title="五楼电梯口" onstart="" thumburl="panos/133.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/133.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/133.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/133.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+	
+		
+				<hotspot name="spot4" url="skin\vtourskin_hotspot.png" scale="0.5" edge="top" oy="0" ath="-14.674" atv="14.374" zoom="false" distorted="true" onclick="if(linkedscene, tween(scale,0.25,0.5); tween(oy,-20,0.5); tween(alpha,0,0.5); looktohotspot(); loadscene(get(linkedscene),null,MERGE,BLEND(1)); skin_updatescroll(); );" onhover="if(skin_settings.tooltips_hotspots, if(linkedscene, showtext(get(scene[get(linkedscene)].title),SKIN_TOOLTIPS)) );showtext('四楼电梯口')" linkedscene="scene_105"/>
+
+		<hotspot name="spot1" url="skin\vtourskin_hotspot.png" scale="0.5" edge="top" oy="0" ath="76.024" atv="14.213" zoom="false" distorted="true" onclick="if(linkedscene, tween(scale,0.25,0.5); tween(oy,-20,0.5); tween(alpha,0,0.5); looktohotspot(); loadscene(get(linkedscene),null,MERGE,BLEND(1)); skin_updatescroll(); );" onhover="if(skin_settings.tooltips_hotspots, if(linkedscene, showtext(get(scene[get(linkedscene)].title),SKIN_TOOLTIPS)) );showtext('六楼电梯口')" linkedscene="scene_162"/>
+		
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="114.387" atv="8.150" linkedscene="scene_134"/>
+	
+		<hotspot name="spot5" style="skin_hotspotstyle" ath="-65.262" atv="10.345" linkedscene="scene_154"/>
+
+	</scene>
+
+
+
+	<scene name="scene_135" title="五楼走廊2" onstart="" thumburl="panos/135.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/135.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/135.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/135.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="1.990" atv="8.900" linkedscene="scene_136"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-100.473" atv="4.467" linkedscene="scene_134"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="77.084" atv="8.409" linkedscene="scene_138"/>
+		<hotspot name="spot4" style="skin_hotspotstyle" ath="65.766" atv="12.860" linkedscene="scene_137"/>
+
+	</scene>
+
+	<scene name="scene_136" title="五楼休息区1" onstart="" thumburl="panos/136.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/136.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/136.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/136.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-20.690" atv="11.358" linkedscene="scene_146"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-166.978" atv="6.868" linkedscene="scene_135"/>
+		
+
+	</scene>
+
+	<scene name="scene_137" title="五楼走廊3" onstart="" thumburl="panos/137.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/137.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/137.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/137.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="116.374" atv="6.521" linkedscene="scene_138"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-143.932" atv="10.538" linkedscene="scene_135"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="-85.793" atv="16.540" linkedscene="scene_139"/>
+		<hotspot name="spot4" style="skin_hotspotstyle" ath="-164.982" atv="9.248" linkedscene="scene_159"/>
+		<hotspot name="spot5" style="skin_hotspotstyle" ath="72.421" atv="-3.377" linkedscene="scene_158"/>
+
+	</scene>
+
+	<scene name="scene_138" title="五楼西南角" onstart="" thumburl="panos/138.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/138.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/138.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/138.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-38.867" atv="5.337" linkedscene="scene_135"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-727.929" atv="7.675" linkedscene="scene_137"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="41.878" atv="6.373" linkedscene="scene_141"/>
+		<hotspot name="spot4" style="skin_hotspotstyle" ath="63.876" atv="9.059" linkedscene="scene_158"/>
+		
+
+	</scene>
+
+	<scene name="scene_139" title="五楼走廊4" onstart="" thumburl="panos/139.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/139.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/139.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/139.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="71.288" atv="37.839" linkedscene="scene_110"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="114.809" atv="13.302" linkedscene="scene_137"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="175.199" atv="13.946" linkedscene="scene_135"/>
+
+	</scene>
+
+	<scene name="scene_140" title="五楼走廊5" onstart="" thumburl="panos/140.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/140.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/140.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/140.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+
+	</scene>
+
+	<scene name="scene_141" title="五楼走廊6" onstart="" thumburl="panos/141.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/141.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/141.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/141.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-94.436" atv="2.751" linkedscene="scene_138"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="92.375" atv="6.779" linkedscene="scene_142"/>
+
+	</scene>
+
+	<scene name="scene_142" title="五楼东南角" onstart="" thumburl="panos/142.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/142.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/142.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/142.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="135.022" atv="4.125" linkedscene="scene_141"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-138.004" atv="8.596" linkedscene="scene_143"/>
+
+	</scene>
+
+	<scene name="scene_143" title="五楼休息区2" onstart="" thumburl="panos/143.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/143.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/143.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/143.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="2.709" atv="5.497" linkedscene="scene_142"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-141.767" atv="13.696" linkedscene="scene_144"/>
+
+	</scene>
+
+	<scene name="scene_144" title="五楼走廊8" onstart="" thumburl="panos/144.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/144.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/144.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/144.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-81.501" atv="10.870" linkedscene="scene_143"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-94.305" atv="7.703" linkedscene="scene_142"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="12.847" atv="8.891" linkedscene="scene_145"/>
+		<hotspot name="spot4" style="skin_hotspotstyle" ath="88.435" atv="5.322" linkedscene="scene_147"/>
+		
+
+	</scene>
+
+	<scene name="scene_145" title="五楼走廊9" onstart="" thumburl="panos/145.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/145.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/145.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/145.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="36.643" atv="6.292" linkedscene="scene_136"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-149.130" atv="5.592" linkedscene="scene_144"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="53.128" atv="10.138" linkedscene="scene_146"/>
+
+	</scene>
+
+	<scene name="scene_146" title="五楼走廊10" onstart="" thumburl="panos/146.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/146.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/146.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/146.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-149.524" atv="3.348" linkedscene="scene_145"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-71.794" atv="4.728" linkedscene="scene_136"/>
+
+	</scene>
+
+	<scene name="scene_147" title="五楼走廊11" onstart="" thumburl="panos/147.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/147.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/147.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/147.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-91.521" atv="5.247" linkedscene="scene_144"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="96.012" atv="9.910" linkedscene="scene_148"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="140.764" atv="7.152" linkedscene="scene_157"/>
+
+	</scene>
+
+	<scene name="scene_148" title="五楼走廊12" onstart="" thumburl="panos/148.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/148.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/148.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/148.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-178.260" atv="4.843" linkedscene="scene_147"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-84.316" atv="8.325" linkedscene="scene_149"/>
+
+	</scene>
+
+	<scene name="scene_149" title="五楼走廊13" onstart="" thumburl="panos/149.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/149.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/149.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/149.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="9.231" atv="5.624" linkedscene="scene_148"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-88.218" atv="12.542" linkedscene="scene_151"/>
+		
+
+	</scene>
+
+	<scene name="scene_150" title="五楼东北角" onstart="" thumburl="panos/150.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/150.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/150.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/150.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		
+		
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="-39.473" atv="7.955" linkedscene="scene_151"/>
+
+	</scene>
+
+	<scene name="scene_151" title="五楼走廊14" onstart="" thumburl="panos/151.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/151.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/151.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/151.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-63.566" atv="7.490" linkedscene="scene_149"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="130.211" atv="10.608" linkedscene="scene_150"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="30.877" atv="9.620" linkedscene="scene_152"/>
+
+	</scene>
+
+	<scene name="scene_152" title="五楼走廊15" onstart="" thumburl="panos/152.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/152.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/152.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/152.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="104.687" atv="7.619" linkedscene="scene_151"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="247.154" atv="10.756" linkedscene="scene_153"/>
+
+	</scene>
+
+	<scene name="scene_153" title="五楼走廊16" onstart="" thumburl="panos/153.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/153.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/153.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/153.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-5.070" atv="6.221" linkedscene="scene_152"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="94.881" atv="7.731" linkedscene="scene_154"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="79.561" atv="4.912" linkedscene="scene_156"/>
+		<hotspot name="spot4" style="skin_hotspotstyle" ath="104.199" atv="23.408" linkedscene="scene_124"/>
+
+	</scene>
+
+	<scene name="scene_154" title="五楼走廊17" onstart="" thumburl="panos/154.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/154.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/154.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/154.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="168.684" atv="10.025" linkedscene="scene_153"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-79.772" atv="11.159" linkedscene="scene_133"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="26.393" atv="8.069" linkedscene="scene_155"/>
+
+	</scene>
+
+	<scene name="scene_155" title="五楼西北角" onstart="" thumburl="panos/155.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/155.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/155.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/155.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="46.421" atv="8.625" linkedscene="scene_154"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="130.702" atv="14.469" linkedscene="scene_161"/>
+
+	</scene>
+
+	<scene name="scene_156" title="501阶梯教室" onstart="" thumburl="panos/156.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/156.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/156.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/156.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-81.613" atv="8.845" linkedscene="scene_153"/>
+
+	</scene>
+
+	<scene name="scene_157" title="509会议室" onstart="" thumburl="panos/157.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/157.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/157.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/157.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-120.980" atv="8.168" linkedscene="scene_147"/>
+
+	</scene>
+
+	<scene name="scene_158" title="519阶梯教室" onstart="" thumburl="panos/158.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/158.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/158.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/158.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-83.679" atv="12.488" linkedscene="scene_137"/>
+
+	</scene>
+
+	<scene name="scene_159" title="521教室" onstart="" thumburl="panos/159.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/159.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/159.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/159.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="53.679" atv="5.394" linkedscene="scene_137"/>
+
+	</scene>
+
+	<scene name="scene_160" title="523阶梯教室" onstart="" thumburl="panos/160.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/160.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/160.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/160.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-73.239" atv="9.678" linkedscene="scene_134"/>
+
+	</scene>
+
+	<scene name="scene_161" title="527会议室" onstart="" thumburl="panos/161.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/161.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/161.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/161.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="165.598" atv="15.912" linkedscene="scene_155"/>
+
+	</scene>
+
+	<scene name="scene_162" title="六楼电梯口" onstart="" thumburl="panos/162.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/162.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/162.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/162.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+	
+		
+		<hotspot name="spot1" url="skin\vtourskin_hotspot.png" scale="0.5" edge="top" oy="0" ath="-20.878" atv="7.174" zoom="false" distorted="true" onclick="if(linkedscene, tween(scale,0.25,0.5); tween(oy,-20,0.5); tween(alpha,0,0.5); looktohotspot(); loadscene(get(linkedscene),null,MERGE,BLEND(1)); skin_updatescroll(); );" onhover="if(skin_settings.tooltips_hotspots, if(linkedscene, showtext(get(scene[get(linkedscene)].title),SKIN_TOOLTIPS)) );showtext('五楼电梯口')" linkedscene="scene_133"/>
+
+		
+				<hotspot name="spot2" url="skin\vtourskin_hotspot.png" scale="0.5" edge="top" oy="0" ath="-11.274" atv="3.466" zoom="false" distorted="true" onclick="if(linkedscene, tween(scale,0.25,0.5); tween(oy,-20,0.5); tween(alpha,0,0.5); looktohotspot(); loadscene(get(linkedscene),null,MERGE,BLEND(1)); skin_updatescroll(); );" onhover="if(skin_settings.tooltips_hotspots, if(linkedscene, showtext(get(scene[get(linkedscene)].title),SKIN_TOOLTIPS)) );showtext('七楼电梯口')" linkedscene="scene_192"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="0.946" atv="3.988" linkedscene="scene_163"/>
+		<hotspot name="spot4" style="skin_hotspotstyle" ath="-87.980" atv="8.966" linkedscene="scene_186"/>
+		<hotspot name="spot5" style="skin_hotspotstyle" ath="98.518" atv="5.090" linkedscene="scene_190"/>
+
+	</scene>
+
+
+	<scene name="scene_164" title="六楼走廊2" onstart="" thumburl="panos/164.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/164.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/164.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/164.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="15.555" atv="11.527" linkedscene="scene_165"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="86.332" atv="7.929" linkedscene="scene_166"/>
+
+	</scene>
+
+	<scene name="scene_165" title="六楼休息区1" onstart="" thumburl="panos/165.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/165.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/165.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/165.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-86.189" atv="1.746" linkedscene="scene_164"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="51.480" atv="11.779" linkedscene="scene_177"/>
+
+	</scene>
+
+	<scene name="scene_166" title="六楼走廊3" onstart="" thumburl="panos/166.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/166.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/166.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/166.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="110.616" atv="7.670" linkedscene="scene_167"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-101.517" atv="7.495" linkedscene="scene_164"/>
+
+	</scene>
+
+	<scene name="scene_167" title="六楼西南角" onstart="" thumburl="panos/167.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/167.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/167.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/167.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-60.239" atv="7.117" linkedscene="scene_166"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="23.700" atv="7.411" linkedscene="scene_168"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="101.245" atv="9.604" linkedscene="scene_174"/>
+
+	</scene>
+
+	<scene name="scene_168" title="六楼走廊4" onstart="" thumburl="panos/168.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/168.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/168.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/168.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-101.914" atv="7.039" linkedscene="scene_167"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="97.131" atv="11.161" linkedscene="scene_169"/>
+
+	</scene>
+
+	<scene name="scene_169" title="六楼走廊5" onstart="" thumburl="panos/169.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/169.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/169.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/169.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-54.621" atv="8.055" linkedscene="scene_168"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-151.010" atv="7.273" linkedscene="scene_170"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="47.705" atv="8.209" linkedscene="scene_175"/>
+		<hotspot name="spot4" style="skin_hotspotstyle" ath="26.303" atv="7.000" linkedscene="scene_176"/>
+
+	</scene>
+
+	<scene name="scene_170" title="六楼走廊6" onstart="" thumburl="panos/170.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/170.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/170.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/170.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="66.371" atv="8.883" linkedscene="scene_169"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="158.627" atv="12.570" linkedscene="scene_171"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="-22.123" atv="10.550" linkedscene="scene_172"/>
+
+	</scene>
+
+	<scene name="scene_171" title="六楼走廊7" onstart="" thumburl="panos/171.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/171.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/171.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/171.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="177.014" atv="6.576" linkedscene="scene_170"/>
+
+	</scene>
+
+	<scene name="scene_172" title="六楼走廊8" onstart="" thumburl="panos/172.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/172.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/172.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/172.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="176.941" atv="10.586" linkedscene="scene_170"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="0.126" atv="8.403" linkedscene="scene_173"/>
+
+	</scene>
+
+	<scene name="scene_173" title="六楼走廊9" onstart="" thumburl="panos/173.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/173.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/173.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/173.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-172.670" atv="2.357" linkedscene="scene_174"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="8.887" atv="7.590" linkedscene="scene_172"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="-160.730" atv="8.525" linkedscene="scene_191"/>
+		
+
+	</scene>
+
+	<scene name="scene_174" title="六楼走廊10" onstart="" thumburl="panos/174.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/174.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/174.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/174.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="20.920" atv="7.698" linkedscene="scene_173"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-72.843" atv="7.827" linkedscene="scene_167"/>
+
+	</scene>
+
+	<scene name="scene_175" title="六楼走廊11" onstart="" thumburl="panos/175.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/175.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/175.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/175.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="2.663" atv="7.892" linkedscene="scene_181"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-112.821" atv="8.716" linkedscene="scene_169"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="-75.222" atv="10.454" linkedscene="scene_176"/>
+
+	</scene>
+
+	<scene name="scene_176" title="六楼走廊12" onstart="" thumburl="panos/176.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/176.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/176.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/176.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-96.476" atv="4.139" linkedscene="scene_169"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="83.353" atv="7.337" linkedscene="scene_178"/>
+
+	</scene>
+
+	<scene name="scene_177" title="六楼走廊13" onstart="" thumburl="panos/177.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/177.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/177.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/177.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-166.607" atv="4.644" linkedscene="scene_165"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="15.502" atv="7.883" linkedscene="scene_176"/>
+
+	</scene>
+
+	<scene name="scene_178" title="六楼走廊14" onstart="" thumburl="panos/178.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/178.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/178.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/178.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-15.355" atv="10.267" linkedscene="scene_177"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-159.782" atv="9.231" linkedscene="scene_179"/>
+
+	</scene>
+
+	<scene name="scene_179" title="六楼走廊15" onstart="" thumburl="panos/179.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/179.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/179.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/179.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="110.013" atv="7.409" linkedscene="scene_178"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="17.394" atv="8.940" linkedscene="scene_180"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="-67.154" atv="7.279" linkedscene="scene_182"/>
+
+	</scene>
+
+	<scene name="scene_180" title="六楼走廊16" onstart="" thumburl="panos/180.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/180.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/180.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/180.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="107.016" atv="11.136" linkedscene="scene_179"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="1.495" atv="9.607" linkedscene="scene_181"/>
+
+	</scene>
+
+	<scene name="scene_181" title="六楼走廊17" onstart="" thumburl="panos/181.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/181.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/181.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/181.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="175.258" atv="6.180" linkedscene="scene_180"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-3.339" atv="7.220" linkedscene="scene_175"/>
+
+	</scene>
+
+	<scene name="scene_182" title="六楼走廊18" onstart="" thumburl="panos/182.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/182.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/182.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/182.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-88.191" atv="7.243" linkedscene="scene_179"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="2.018" atv="9.098" linkedscene="scene_185"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="154.241" atv="10.886" linkedscene="scene_183"/>
+
+	</scene>
+
+	<scene name="scene_183" title="六楼走廊19" onstart="" thumburl="panos/183.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/183.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/183.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/183.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-64.543" atv="9.013" linkedscene="scene_182"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="57.264" atv="11.279" linkedscene="scene_184"/>
+
+	</scene>
+
+	<scene name="scene_184" title="六楼东北角" onstart="" thumburl="panos/184.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/184.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/184.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/184.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-162.539" atv="8.382" linkedscene="scene_183"/>
+
+	</scene>
+
+	<scene name="scene_185" title="六楼走廊20" onstart="" thumburl="panos/185.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/185.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/185.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/185.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="177.219" atv="9.846" linkedscene="scene_182"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-3.207" atv="5.645" linkedscene="scene_186"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="92.527" atv="11.118" linkedscene="scene_187"/>
+
+	</scene>
+
+	<scene name="scene_186" title="六楼走廊21" onstart="" thumburl="panos/186.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/186.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/186.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/186.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-4.687" atv="5.343" linkedscene="scene_185"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="178.619" atv="3.908" linkedscene="scene_162"/>
+
+	</scene>
+
+	<scene name="scene_187" title="六楼走廊22" onstart="" thumburl="panos/187.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/187.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/187.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/187.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-122.852" atv="8.462" linkedscene="scene_188"/>
+
+	</scene>
+
+	<scene name="scene_188" title="六楼走廊23" onstart="" thumburl="panos/188.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/188.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/188.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/188.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-162.449" atv="12.257" linkedscene="scene_187"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-10.829" atv="9.735" linkedscene="scene_189"/>
+
+	</scene>
+
+	<scene name="scene_189" title="六楼走廊24" onstart="" thumburl="panos/189.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/189.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/189.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/189.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="108.117" atv="9.065" linkedscene="scene_188"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-102.851" atv="14.412" linkedscene="scene_190"/>
+
+	</scene>
+
+	<scene name="scene_190" title="六楼西北角" onstart="" thumburl="panos/190.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/190.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/190.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/190.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="8.132" atv="10.615" linkedscene="scene_189"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="76.240" atv="10.835" linkedscene="scene_162"/>
+
+	</scene>
+
+	<scene name="scene_191" title="六楼办公室" onstart="" thumburl="panos/191.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/191.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/191.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/191.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="167.667" atv="9.157" linkedscene="scene_173"/>
+
+	</scene>
+
+	<scene name="scene_192" title="七楼电梯口" onstart="" thumburl="panos/192.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/192.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/192.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/192.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="87.052" atv="8.036" linkedscene="scene_193"/>
+	
+		<hotspot name="spot2" url="skin\vtourskin_hotspot.png" scale="0.5" edge="top" oy="0" ath="-37.457" atv="10.510" zoom="false" distorted="true" onclick="if(linkedscene, tween(scale,0.25,0.5); tween(oy,-20,0.5); tween(alpha,0,0.5); looktohotspot(); loadscene(get(linkedscene),null,MERGE,BLEND(1)); skin_updatescroll(); );" onhover="if(skin_settings.tooltips_hotspots, if(linkedscene, showtext(get(scene[get(linkedscene)].title),SKIN_TOOLTIPS)) );showtext('六楼电梯口')" linkedscene="scene_162"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="-452.697" atv="11.814" linkedscene="scene_211"/>
+
+	</scene>
+
+
+	<scene name="scene_194" title="七楼走廊2" onstart="" thumburl="panos/194.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/194.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/194.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/194.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-92.379" atv="5.966" linkedscene="scene_193"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="89.200" atv="5.562" linkedscene="scene_195"/>
+
+	</scene>
+
+	<scene name="scene_195" title="七楼西南角" onstart="" thumburl="panos/195.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/195.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/195.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/195.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-35.536" atv="6.092" linkedscene="scene_194"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="47.149" atv="7.467" linkedscene="scene_196"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="132.825" atv="7.820" linkedscene="scene_205"/>
+		<hotspot name="spot4" style="skin_hotspotstyle" ath="-48.270" atv="5.992" linkedscene="scene_225"/>
+
+	</scene>
+
+	<scene name="scene_196" title="七楼走廊3" onstart="" thumburl="panos/196.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/196.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/196.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/196.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-87.065" atv="5.212" linkedscene="scene_195"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="94.702" atv="6.541" linkedscene="scene_197"/>
+
+	</scene>
+
+	<scene name="scene_197" title="七楼走廊4" onstart="" thumburl="panos/197.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/197.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/197.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/197.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="42.518" atv="8.231" linkedscene="scene_198"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-131.063" atv="9.904" linkedscene="scene_208"/>
+
+	</scene>
+
+	<scene name="scene_198" title="七楼走廊5" onstart="" thumburl="panos/198.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/198.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/198.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/198.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-158.139" atv="7.532" linkedscene="scene_197"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="108.634" atv="10.906" linkedscene="scene_199"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="20.381" atv="7.383" linkedscene="scene_203"/>
+		
+
+	</scene>
+
+	<scene name="scene_199" title="七楼走廊6" onstart="" thumburl="panos/199.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/199.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/199.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/199.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-21.535" atv="10.096" linkedscene="scene_198"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="74.332" atv="3.603" linkedscene="scene_200"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="88.384" atv="9.679" linkedscene="scene_227"/>
+
+	</scene>
+
+	<scene name="scene_200" title="七楼走廊7" onstart="" thumburl="panos/200.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/200.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/200.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/200.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-163.902" atv="7.096" linkedscene="scene_199"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="15.718" atv="3.735" linkedscene="scene_201"/>
+
+	</scene>
+
+	<scene name="scene_201" title="七楼走廊8" onstart="" thumburl="panos/201.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/201.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/201.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/201.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-400.090" atv="7.647" linkedscene="scene_200"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="67.538" atv="13.581" linkedscene="scene_202"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="-112.354" atv="-2.311" linkedscene="scene_224"/>
+
+	</scene>
+
+	<scene name="scene_202" title="七楼走廊9" onstart="" thumburl="panos/202.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/202.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/202.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/202.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="41.560" atv="10.149" linkedscene="scene_201"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="139.701" atv="8.420" linkedscene="scene_203"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="-48.616" atv="7.585" linkedscene="scene_215"/>
+
+	</scene>
+
+	<scene name="scene_203" title="七楼走廊10" onstart="" thumburl="panos/203.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/203.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/203.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/203.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-234.470" atv="12.541" linkedscene="scene_202"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-120.596" atv="11.199" linkedscene="scene_198"/>
+
+	</scene>
+
+	<scene name="scene_204" title="七楼走廊11" onstart="" thumburl="panos/204.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/204.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/204.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/204.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+
+	</scene>
+
+	<scene name="scene_205" title="七楼走廊12" onstart="" thumburl="panos/205.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/205.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/205.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/205.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-101.756" atv="11.557" linkedscene="scene_195"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-4.316" atv="8.894" linkedscene="scene_206"/>
+
+	</scene>
+
+	<scene name="scene_206" title="七楼走廊13" onstart="" thumburl="panos/206.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/206.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/206.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/206.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="170.098" atv="4.740" linkedscene="scene_205"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-9.224" atv="7.924" linkedscene="scene_207"/>
+
+	</scene>
+
+	<scene name="scene_207" title="七楼走廊14" onstart="" thumburl="panos/207.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/207.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/207.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/207.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-177.887" atv="5.929" linkedscene="scene_208"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="2.226" atv="5.972" linkedscene="scene_206"/>
+
+	</scene>
+
+	<scene name="scene_208" title="七楼走廊15" onstart="" thumburl="panos/208.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/208.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/208.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/208.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-1.203" atv="5.527" linkedscene="scene_207"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="177.366" atv="7.247" linkedscene="scene_197"/>
+
+	</scene>
+
+	<scene name="scene_209" title="七楼西北角" onstart="" thumburl="panos/209.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/209.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/209.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/209.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="0.314" atv="8.985" linkedscene="scene_228"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-41.015" atv="5.302" linkedscene="scene_210"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="21.912" atv="7.716" linkedscene="scene_211"/>
+
+	</scene>
+
+	<scene name="scene_210" title="七楼走廊16" onstart="" thumburl="panos/210.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/210.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/210.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/210.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-160.319" atv="11.221" linkedscene="scene_209"/>
+
+	</scene>
+
+	<scene name="scene_211" title="七楼走廊17" onstart="" thumburl="panos/211.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/211.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/211.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/211.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-80.856" atv="9.041" linkedscene="scene_192"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-175.870" atv="9.425" linkedscene="scene_212"/>
+		
+		<hotspot name="spot4" style="skin_hotspotstyle" ath="50.543" atv="10.713" linkedscene="scene_228"/>
+		<hotspot name="spot5" style="skin_hotspotstyle" ath="10.754" atv="9.119" linkedscene="scene_209"/>
+		<hotspot name="spot6" style="skin_hotspotstyle" ath="135.235" atv="10.036" linkedscene="scene_221"/>
+
+	</scene>
+
+	<scene name="scene_212" title="七楼走廊18" onstart="" thumburl="panos/212.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/212.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/212.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/212.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="179.153" atv="8.737" linkedscene="scene_211"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="1.901" atv="12.421" linkedscene="scene_213"/>
+
+	</scene>
+
+	<scene name="scene_213" title="七楼走廊19" onstart="" thumburl="panos/213.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/213.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/213.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/213.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		
+		
+		
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-178.527" atv="10.470" linkedscene="scene_215"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="0.750" atv="10.999" linkedscene="scene_214"/>
+		<hotspot name="spot4" style="skin_hotspotstyle" ath="34.952" atv="13.533" linkedscene="scene_222"/>
+		
+
+	</scene>
+
+	<scene name="scene_214" title="七楼走廊20" onstart="" thumburl="panos/214.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/214.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/214.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/214.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-177.560" atv="4.155" linkedscene="scene_212"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="5.325" atv="6.941" linkedscene="scene_213"/>
+		<hotspot name="spot4" style="skin_hotspotstyle" ath="-24.075" atv="4.863" linkedscene="scene_223"/>
+
+	</scene>
+
+	<scene name="scene_215" title="七楼走廊21" onstart="" thumburl="panos/215.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/215.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/215.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/215.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-73.835" atv="8.274" linkedscene="scene_202"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="162.481" atv="8.819" linkedscene="scene_216"/>
+		
+		<hotspot name="spot4" style="skin_hotspotstyle" ath="-119.564" atv="6.361" linkedscene="scene_226"/>
+		<hotspot name="spot5" style="skin_hotspotstyle" ath="14.134" atv="18.259" linkedscene="scene_213"/>
+		
+
+	</scene>
+
+	<scene name="scene_216" title="七楼走廊22" onstart="" thumburl="panos/216.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/216.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/216.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/216.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="6.283" atv="10.348" linkedscene="scene_215"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="134.656" atv="8.362" linkedscene="scene_217"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="-142.304" atv="16.540" linkedscene="scene_220"/>
+
+	</scene>
+
+	<scene name="scene_217" title="七楼东北角" onstart="" thumburl="panos/217.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/217.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/217.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/217.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-106.494" atv="7.381" linkedscene="scene_216"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-12.192" atv="8.185" linkedscene="scene_218"/>
+
+	</scene>
+
+	<scene name="scene_218" title="七楼走廊23" onstart="" thumburl="panos/218.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/218.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/218.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/218.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="49.324" atv="9.512" linkedscene="scene_219"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="-55.073" atv="12.452" linkedscene="scene_217"/>
+
+	</scene>
+
+	<scene name="scene_219" title="七楼走廊24" onstart="" thumburl="panos/219.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/219.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/219.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/219.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-92.426" atv="4.745" linkedscene="scene_218"/>
+
+	</scene>
+
+	<scene name="scene_220" title="七楼茶水间" onstart="" thumburl="panos/220.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/220.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/220.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/220.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-120.355" atv="19.592" linkedscene="scene_216"/>
+
+	</scene>
+
+	<scene name="scene_221" title="701会议室" onstart="" thumburl="panos/221.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/221.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/221.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/221.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="179.381" atv="12.598" linkedscene="scene_211"/>
+
+	</scene>
+
+	<scene name="scene_222" title="709财务室" onstart="" thumburl="panos/222.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/222.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/222.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/222.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="33.866" atv="12.963" linkedscene="scene_213"/>
+
+	</scene>
+
+	<scene name="scene_223" title="行政办公室" onstart="" thumburl="panos/223.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/223.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/223.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/223.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="36.458" atv="11.542" linkedscene="scene_214"/>
+
+	</scene>
+
+	<scene name="scene_224" title="722办公室" onstart="" thumburl="panos/224.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/224.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/224.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/224.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-151.535" atv="17.035" linkedscene="scene_201"/>
+
+	</scene>
+
+	<scene name="scene_225" title="763会议室" onstart="" thumburl="panos/225.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/225.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/225.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/225.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-4.109" atv="4.614" linkedscene="scene_195"/>
+
+	</scene>
+
+	<scene name="scene_226" title="七楼洗手间" onstart="" thumburl="panos/226.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/226.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/226.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/226.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-179.889" atv="12.952" linkedscene="scene_215"/>
+
+	</scene>
+
+	<scene name="scene_227" title="院长助理室" onstart="" thumburl="panos/227.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/227.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/227.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/227.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="136.079" atv="25.508" linkedscene="scene_199"/>
+
+	</scene>
+	<scene name="scene_228" title="楼顶西北角" onstart="" thumburl="panos/228.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/228.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/228.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/228.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="28.357" atv="41.037" linkedscene="scene_001"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="177.441" atv="2.575" linkedscene="scene_229"/>
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="91.110" atv="3.627" linkedscene="scene_232"/>
+		
+		<hotspot name="spot4" url="skin\vtourskin_hotspot.png" scale="0.5" edge="top" oy="0" ath="123.906" atv="5.730" zoom="false" distorted="true" onclick="if(linkedscene, tween(scale,0.25,0.5); tween(oy,-20,0.5); tween(alpha,0,0.5); looktohotspot(); loadscene(get(linkedscene),null,MERGE,BLEND(1)); skin_updatescroll(); );" onhover="if(skin_settings.tooltips_hotspots, if(linkedscene, showtext(get(scene[get(linkedscene)].title),SKIN_TOOLTIPS)) );showtext('七楼西北角')" linkedscene="scene_209"/>
+
+	
+
+	</scene>
+
+	<scene name="scene_229" title="楼顶西南角" onstart="" thumburl="panos/229.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/229.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/229.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/229.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-104.477" atv="7.296" linkedscene="scene_230"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="165.105" atv="3.934" linkedscene="scene_228"/>
+
+	</scene>
+
+	<scene name="scene_230" title="楼顶东南角" onstart="" thumburl="panos/230.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/230.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/230.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/230.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-94.673" atv="5.408" linkedscene="scene_231"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="179.642" atv="8.692" linkedscene="scene_229"/>
+
+	</scene>
+
+
+
+	<scene name="scene_232" title="楼顶广场" onstart="" thumburl="panos/232.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="100" maxpixelzoom="1.5" fovmin="70" fovmax="130" limitview="auto"/>
+
+		<preview url="panos/232.tiles/preview.jpg"/>
+
+		<image>
+			<cube url="panos/232.tiles/mobile_%s.jpg"/>
+			<mobile>
+				<cube url="panos/232.tiles/mobile_%s.jpg"/>
+			</mobile>
+		</image>
+
+		                                       
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="96.496" atv="5.750" linkedscene="scene_231"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-99.824" atv="9.049" linkedscene="scene_228"/>
+
+	</scene>
+	
+
+                                  
+
+    <events onmousedown=" set(bt,0); "/> 
+
+    <action name="bombtimer">
+    set(bt,%1);
+    add(bt,1);
+    delayedcall(1, bombtimer(get(bt))); 
+    if(bt == 62, set(bt,0); skin_nextscene(+1);, );
+    </action>
+
+
+</krpano>
