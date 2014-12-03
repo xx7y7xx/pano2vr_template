@@ -1,0 +1,171 @@
+<?ggf
+/*
+	Create the form in the HTML dialog box
+*/
+    form.addLineEdit("pano_html_title", "Title", 100, "中国人民大学附属中学3D展览中心");
+    form.addLine();
+    form.addLineEdit("pano_nav1_title", "Nav1 Title", 100, "中国人民大学附属中学3D展览中心");
+    form.addLineEdit("pano_nav1_url", "Nav1 URL", 200, "../zhongguorenmindaxuefushuzhongxuesandzhanlanzhongxin/index.html");
+    form.addLine();
+    form.addLineEdit("pano_nav2_title", "Nav2 Title", 100, "特色教育展览馆");
+    form.addLineEdit("pano_nav2_url", "Nav2 URL", 200, "../tesejiaoyuzhanlanguan/index.html");
+    form.addLine();
+    form.addLineEdit("pano_nav3_title", "Nav3 Title", 100, "教育教学展览馆");
+    form.addLineEdit("pano_nav3_url", "Nav3 URL", 200, "../jiaoyujiaoxuezhanlanguan/index.html");
+    form.addLine();
+    form.addLineEdit("pano_nav4_title", "Nav4 Title", 100, "国际化展览馆");
+    form.addLineEdit("pano_nav4_url", "Nav4 URL", 200, "../guojihuazhanlanguan/index.html");
+    form.addLine();
+    form.addLineEdit("pano_nav5_title", "Nav5 Title", 100, "联合总校展览馆");
+    form.addLineEdit("pano_nav5_url", "Nav5 URL", 200, "../lianhezongxiaozhanlanguan/index.html");
+    form.addLine();
+    form.addLineEdit("pano_nav6_title", "Nav6 Title", 100, "学校文化展览馆");
+    form.addLineEdit("pano_nav6_url", "Nav6 URL", 200, "../xuexiaowenhuazhanlanguan/index.html");
+    form.addLine();
+    form.addLineEdit("pano_nav7_title", "Nav7 Title", 100, "师生作品展览馆");
+    form.addLineEdit("pano_nav7_url", "Nav7 URL", 200, "../shishengzuopinzhanlanguan/index.html");
+    form.addLine();
+    form.addLineEdit("pano_nav8_title", "Nav8 Title", 100, "行政及教学服务展览馆");
+    form.addLineEdit("pano_nav8_url", "Nav8 URL", 200, "../xingzhengjijiaoxuefuwuzhanlanguan/index.html");
+    form.addLine();
+    form.addLineEdit("pano_nav9_title", "Nav9 Title", 100, "");
+    form.addLineEdit("pano_nav9_url", "Nav9 URL", 200, "");
+    form.addLine();
+    form.addLineEdit("pano_nav10_title", "Nav10 Title", 100, "");
+    form.addLineEdit("pano_nav10_url", "Nav10 URL", 200, "");
+    form.addLine();
+    form.addCheckBox("pano_back", "Back button", true);
+	
+	// define possible output formats
+	form.addOutputFormat("HTML (.html)","html");
+	form.addOutputFormat("HTML (.htm)","htm");
+	
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link href="../lib/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <script type="text/javascript" src="../lib/jquery.js"></script>
+        <script type="text/javascript" src="../lib/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="../lib/bootstrap-ie6.css">
+        <link rel="stylesheet" type="text/css" href="../lib/ie.css">
+        <link rel="stylesheet" href="../css/select.css" type="text/css">
+        <title><?ggs document.writeEncoded(formvalue["pano_html_title"]); ?></title>
+        <style>
+            #go-back {
+<?ggs if (formvalue["pano_back"]==false) {  ?>
+                display: none;
+<?ggs }  ?>
+            }
+        </style>
+    </head>
+    <body style="text-align: center;">
+        <div id="nabar" class="navbar" style="width: 100%; opacity: 1; z-index: 9998;">
+            <div class="navbar-inner">
+                <ul class="nav" style="width:100%;">
+                    <!-- <li><img src="img/logo.png" style="width:55px;height:30px;margin-top:5px;"></li> -->
+                    <?ggs
+                    if(formvalue['pano_nav1_title'] != '')
+                    {
+                        document.write('<li class="submenu"><a class="submenulink" target="_self" href="');
+                        document.write(formvalue['pano_nav1_url']);
+                        document.write('">');
+                        document.writeEncoded(formvalue['pano_nav1_title']);
+                        document.write("</a></li>\n");
+                    }
+                    if(formvalue['pano_nav2_title'] != '')
+                    {
+                        document.write('<li class="submenu"><a class="submenulink" target="_self" href="');
+                        document.write(formvalue['pano_nav2_url']);
+                        document.write('">');
+                        document.writeEncoded(formvalue['pano_nav2_title']);
+                        document.write("</a></li>\n");
+                    }
+                    if(formvalue['pano_nav3_title'] != '')
+                    {
+                        document.write('<li class="submenu"><a class="submenulink" target="_self" href="');
+                        document.write(formvalue['pano_nav3_url']);
+                        document.write('">');
+                        document.writeEncoded(formvalue['pano_nav3_title']);
+                        document.write("</a></li>\n");
+                    }
+                    if(formvalue['pano_nav4_title'] != '')
+                    {
+                        document.write('<li class="submenu"><a class="submenulink" target="_self" href="');
+                        document.write(formvalue['pano_nav4_url']);
+                        document.write('">');
+                        document.writeEncoded(formvalue['pano_nav4_title']);
+                        document.write("</a></li>\n");
+                    }
+                    if(formvalue['pano_nav5_title'] != '')
+                    {
+                        document.write('<li class="submenu"><a class="submenulink" target="_self" href="');
+                        document.write(formvalue['pano_nav5_url']);
+                        document.write('">');
+                        document.writeEncoded(formvalue['pano_nav5_title']);
+                        document.write("</a></li>\n");
+                    }
+                    if(formvalue['pano_nav6_title'] != '')
+                    {
+                        document.write('<li class="submenu"><a class="submenulink" target="_self" href="');
+                        document.write(formvalue['pano_nav6_url']);
+                        document.write('">');
+                        document.writeEncoded(formvalue['pano_nav6_title']);
+                        document.write("</a></li>\n");
+                    }
+                    if(formvalue['pano_nav7_title'] != '')
+                    {
+                        document.write('<li class="submenu"><a class="submenulink" target="_self" href="');
+                        document.write(formvalue['pano_nav7_url']);
+                        document.write('">');
+                        document.writeEncoded(formvalue['pano_nav7_title']);
+                        document.write("</a></li>\n");
+                    }
+                    if(formvalue['pano_nav8_title'] != '')
+                    {
+                        document.write('<li class="submenu"><a class="submenulink" target="_self" href="');
+                        document.write(formvalue['pano_nav8_url']);
+                        document.write('">');
+                        document.writeEncoded(formvalue['pano_nav8_title']);
+                        document.write("</a></li>\n");
+                    }
+                    if(formvalue['pano_nav9_title'] != '')
+                    {
+                        document.write('<li class="submenu"><a class="submenulink" target="_self" href="');
+                        document.write(formvalue['pano_nav9_url']);
+                        document.write('">');
+                        document.writeEncoded(formvalue['pano_nav9_title']);
+                        document.write("</a></li>\n");
+                    }
+                    if(formvalue['pano_nav10_title'] != '')
+                    {
+                        document.write('<li class="submenu"><a class="submenulink" target="_self" href="');
+                        document.write(formvalue['pano_nav10_url']);
+                        document.write('">');
+                        document.writeEncoded(formvalue['pano_nav10_title']);
+                        document.write("</a></li>\n");
+                    }
+                    ?>
+                    <li class="submenu" id="go-back" style="position: absolute;right: 0;"><a class="submenulink" target="_self" href="../index.html">
+                    <?ggs
+                        document.writeEncoded("返回");
+                    ?>
+                    </a></li>
+                </ul>
+            </div>
+        </div>	
+        <div style="margin-top: 50px;">
+            <object type="application/x-shockwave-flash" id="7b4d3ba7-4c45-4f97-b4ab-caaee8cda792" name="7b4d3ba7-4c45-4f97-b4ab-caaee8cda792" align="middle" style="visibility: visible; background: url(http://www.xuanran001.com/sites/default/files/load.gif) 50% 50% no-repeat;" data="pano.swf" width="100%" height="720px">
+                <param name="quality" value="high"><param name="bgcolor" value="#ffffff">
+                <param name="allowScriptAccess" value="always"><param name="allowfullscreen" value="true">
+                <param name="wmode" value="transparent">
+                <param name="base" value=".">
+                <param name="flashvars" value="externalinterface=1">
+            </object>
+        </div>
+    </body>
+</html>
+<?ggs
+//document.createutf8file("a.html", "中文");
+?>

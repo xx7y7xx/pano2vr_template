@@ -1,0 +1,397 @@
+<?ggf
+/*
+	Create the form in the HTML dialog box
+*/
+
+    function addTitle(str)
+    {
+        form.addText("======================================");
+        form.addText("             " + str);
+        form.addText("======================================");
+    }
+    function addTitle2(str)
+    {
+        form.addText("-------------------------");
+        form.addText("         " + str);
+        form.addText("-------------------------");
+    }
+
+    json = {};
+    json.banner = [{
+        "image" : "image/rmb01.png",
+        "thumbnail" : "image/thumb/t1.png",
+        "path" : "swf/gd01.swf"
+    }, {
+        "image" : "image/rmb02.png",
+        "thumbnail" : "image/thumb/t2.png",
+        "path" : "swf/gd02.swf"
+    }, {
+        "image" : "image/rmb03.png",
+        "thumbnail" : "image/thumb/t3.png",
+        "path" : "swf/gd03.swf"
+    }, {
+        "image" : "",
+        "thumbnail" : "",
+        "path" : ""
+    }, {
+        "image" : "",
+        "thumbnail" : "",
+        "path" : ""
+    }, {
+        "image" : "",
+        "thumbnail" : "",
+        "path" : ""
+    }, {
+        "image" : "",
+        "thumbnail" : "",
+        "path" : ""
+    }, {
+        "image" : "",
+        "thumbnail" : "",
+        "path" : ""
+    }];
+    json.nav = [];
+    json.nav.push({
+        "title" : "热门展厅",
+        "pano" : [{
+            "thumbnail" : "image/thumb/rm01.png",
+            "path" : "swf/rm01.swf"
+        }, {
+            "thumbnail" : "image/thumb/rm02.png",
+            "path" : "swf/rm02.swf"
+        }, {
+            "thumbnail" : "image/thumb/rm03.png",
+            "path" : "swf/rm03.swf"
+        }]
+    });
+    json.nav.push({
+        "title" : "最新展厅",
+        "pano" : [{
+            "thumbnail" : "image/thumb/zx01.png",
+            "path" : "swf/zx01.swf"
+        }, {
+            "thumbnail" : "image/thumb/zx02.png",
+            "path" : "swf/zx02.swf"
+        }, {
+            "thumbnail" : "image/thumb/zx03.png",
+            "path" : "swf/zx03.swf"
+        }]
+    });
+
+    for(i = 0; i < 20; i++)
+    {
+        var pano = [];
+        for(j = 0; j < 20; j++)
+        {
+            pano.push({
+                "thumbnail" : "",
+                "path" : ""
+            });
+        }
+        json.nav.push({
+            "title" : "",
+            "pano" : pano
+        });
+    }
+    
+    form.addLineEdit("zhanguan_html_title", "Title", 100, "中国人民大学附属中学3D展览中心");
+    form.addLine();
+    form.addLineEdit("zhanguan_html_logo", "Logo", 100, "image/logo.png");
+    form.addLine();
+    
+    addTitle("Banner")
+    
+    for(idx in json.banner)
+    {
+        form.addText("Banner" + idx);
+        form.addLineEdit("zhanguan_banner" + idx + "_image", "大图", 100, json.banner[idx]["image"]);
+        form.addLineEdit("zhanguan_banner" + idx + "_thumbnail", "缩略图", 100, json.banner[idx]["thumbnail"]);
+        form.addLineEdit("zhanguan_banner" + idx + "_path", "swf路径", 100, json.banner[idx]["path"]);
+    }
+
+    addTitle("导航");
+
+    for(idx in json.nav)
+    {
+        var navitem = json.nav[idx];
+        
+        addTitle2(navitem["title"]);
+        
+        form.addLineEdit("zhanguan_nav"+idx+"_title", "Nav" + idx + " Title", 100, navitem["title"]);
+        
+        for(idx2 in navitem["pano"])
+        {
+            var panoitem = navitem["pano"][idx2];
+            form.addText("Nav" + idx + " Pano" + idx2);
+            form.addLineEdit("zhanguan_nav" + idx + "_pano" + idx2 + "_thumbnail", "  缩略图", 100, panoitem["thumbnail"]);
+            form.addLineEdit("zhanguan_nav" + idx + "_pano" + idx2 + "_path", "  swf文件路径", 100, panoitem["path"]);
+        }
+    }
+	
+	// define possible output formats
+	form.addOutputFormat("HTML (.html)","html");
+	form.addOutputFormat("HTML (.htm)","htm");
+	
+?>
+<!doctype html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="robots" content="all" />
+	<link rel="stylesheet" href="css/list.css" type="text/css" media="screen" />
+	<title><?ggs document.writeEncoded(formvalue["zhanguan_html_title"]); ?></title>
+    <script type="text/javascript" src="js/ie6png.js"></script>
+</head>
+<body onload="correctPNG()">
+
+	<div id="header_wrap">
+		<div id="header" class="content">
+			<div class="logo_wrap">
+				<a class="logo"><img src="<?ggs document.writeEncoded(formvalue["zhanguan_html_logo"]); ?>" /></a>
+			</div>
+			<div class="search_wrap">
+				<input type="text" class="search_input" placeholder="<?ggs document.writeEncoded("搜索"); ?>" x-webkit-speech lang="zh-CN" />
+			</div>
+		</div><!-- end of header bar -->
+	</div>
+
+	<div class="search_result_wrap">
+		<div class="search_result content">
+			<div class="search_result_head"><?ggs document.writeEncoded("搜索结果"); ?></div>
+			<div class="close_wrap">
+				<div class="close">x</div>
+			</div>
+			<div class="con_wrap">
+				<div class="arrowLeft">&lt;</div>
+				<div class="con">
+					
+				</div>
+				<div class="arrowRight">&gt;</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="header_bottom">
+		<div class="header_bottom_content">
+			<div class="header_nav">
+				<a href="index.html" style="border-left:none;">
+					<?ggs document.writelnEncoded("首页"); ?>
+					<span></span>
+				</a>
+				<a href="#hot_exhi">
+					<?ggs document.writelnEncoded("热门展厅"); ?>
+					<span></span>
+				</a>
+				<a href="#latest_exhi">
+					<?ggs document.writelnEncoded("最新展厅"); ?>
+					<span></span>
+				</a>				
+<!--
+				<a arget="_self" href="http://3dly.net/RFIDlianmengfuwudating/" style="position: absolute;right: 258px;">
+					进入下一个展厅
+					<span></span>
+				</a>
+-->
+				<a target="_self" href="/rdfz/jiaofujigouzhanlanguan/index.html" style="position: absolute;right: 172px;">
+					<span style="position: relative;left: -14px;"></span>
+					<?ggs document.writelnEncoded("返回大厅"); ?>
+				</a>
+<!-- 				<a href="zone.html">
+					展商专区
+					<span></span>
+				</a> -->
+			</div>
+		</div>
+	</div><!-- end of header_bottom -->
+
+	<!--<div style="height: 70px;background: #1f1e26;width: 100%;">
+		
+	</div>-->
+
+	<div class="bannar" style="background:#f2f0f0;">
+		<div class="top3_wrap">
+			<ul class="content preview360">
+<?ggs
+for(idx = 0; idx < 100; idx++)
+{
+    var banner_image = formvalue['zhanguan_banner' + idx + '_image'];
+    var banner_path = formvalue['zhanguan_banner' + idx + '_path'];
+    if(!banner_image || banner_image == '')
+        continue;
+        
+    document.write('<li style="background:url(');
+    document.writeEncoded(banner_image);
+    document.write(');">');
+    document.writeln('<a href="' + banner_path + '" target="_blank"></a>');
+?>
+				</li>
+<?ggs
+}
+?>
+			</ul>
+			<div class="top3">
+<?ggs
+for(idx = 0; idx < 100; idx++)
+{
+    var banner_thumbnail = formvalue['zhanguan_banner' + idx + '_thumbnail'];
+    if(!banner_thumbnail || banner_thumbnail == '')
+        continue;
+        
+    document.write('<a href="#"><img id="preview_' + idx + '" src="');
+    document.writeEncoded(banner_thumbnail);
+    document.write('" /></a>');
+?>
+				<span><!----></span>
+<?ggs
+}
+?> 
+			</div>
+		</div>
+	</div><!-- end of bannar -->
+
+	<div id="glue_content">
+		<div class="glue_right">
+			<div style="height:30px;"></div>
+<?ggs
+for(idx = 0; idx < 100; idx++)
+{
+    var navtitle = formvalue['zhanguan_nav'+idx+'_title'];
+    if(!navtitle || navtitle == '')
+        continue;
+?>
+			<div class="floor">
+<?ggs
+    if(navtitle == "热门展厅")
+        document.writeln('<a name="hot_exhi"></a>');
+    else if(navtitle == "最新展厅")
+        document.writeln('<a name="latest_exhi"></a>');
+    else
+    {
+        document.write('<a name="');
+        document.writeEncoded(navtitle);
+        document.write('"></a>');
+    }
+        
+    document.write("<h2>");
+    document.writeEncoded(navtitle);
+    document.write("</h2>");
+?>
+				<div class="floor_more">
+					<!--<a href="more.html?cid=newest&cname=最新展厅">查看更多</a>-->
+				</div>
+<?ggs
+    if(navtitle == "热门展厅")
+        document.writeln('<div class="floor_list" id="hotPro">');
+    else if(navtitle == "最新展厅")
+        document.writeln('<div class="floor_list" id="newestPro">');
+    else
+    {
+        document.write('<div class="floor_list" id="');
+        document.writeEncoded(navtitle);
+        document.write('">');
+    }
+    
+    for(idx2 = 0; idx2 < 100; idx2++)
+    {
+        var nav_pano_thumbnail = formvalue['zhanguan_nav' + idx + '_pano' + idx2 + '_thumbnail'];
+        var nav_pano_path = formvalue['zhanguan_nav' + idx + '_pano' + idx2 + '_path'];
+        
+        if(!nav_pano_thumbnail || nav_pano_thumbnail == '')
+            continue;
+?>
+					<div class='floor_item'>
+<?ggs
+		document.writeln('<a target="_blank" href="' + nav_pano_path + '">');
+		document.writeln('<img src="' + nav_pano_thumbnail + '" />');
+?>
+						</a>
+						<div class='exhibition_name'>
+							  
+						</div>
+					</div>
+<?ggs
+    }
+?>
+				</div>
+				<div class='clear'></div>
+			</div>
+<?ggs
+}
+?>
+		</div><!-- /.glue_right -->
+        
+		<div class="glue_left">
+			<div class="category_wrap">
+				<div class="category_head"><?ggs document.writeEncoded("分类展馆"); ?></div>
+				<ul class="cate_list">
+<?ggs
+for(idx = 0; idx < 100; idx++)
+{
+    var navtitle = formvalue['zhanguan_nav'+idx+'_title'];
+    if(!navtitle || navtitle == '')
+        continue;
+    
+    if(navtitle == "热门展厅" || navtitle == "最新展厅")
+        continue;
+    
+?>
+					<li class="cate_li li_a item1">
+						<span></span>
+<?ggs
+    document.writelnEncoded(navtitle);
+?>
+					</li>
+<?ggs
+}
+?>
+				</ul>
+				<div class="category_detail">
+					<div class="shadow"></div>
+					<div class="category_detail_con">
+						<h3 class="cate_con_title"><?ggs document.writeEncoded("展厅"); ?></h3>
+						<div class="category">
+							<!-- <div class="categoryTwo" >旅游商品</div>
+							<div class="categoryTwo" >纪念品</div>
+							<div class="categoryTwo" >土特产品</div>
+							<div class="categoryTwo" >地方工艺品</div>
+							<div class="categoryTwo" >收藏品</div>
+							<div class="categoryTwo" >用品</div>
+							<div class="categoryTwo" >礼品</div>
+							<div class="categoryTwo" >包装品</div>
+							<div class="categoryTwo" >食品</div>
+							<div class="categoryTwo" >时尚用品</div> 
+							
+							
+							
+							<div class="categoryTwo"><a target='_blank' href="javascript:;">电视产品</a></div>
+							<div class="categoryTwo"><a target='_blank' href="javascript:;">蓝牙产品</a></div>
+							<div class="categoryTwo"><a target='_blank' href="http://3dly.net/diannao/">电脑产品</a></div>
+							<div class="categoryTwo"><a target='_blank' href="javascript:;">音响产品</a></div>
+							
+							<div class="categoryTwo"><a target='_blank' href="http://3dly.net/jiankun/">供暖产品</a></div>
+							<div class="categoryTwo"><a target='_blank' href="http://3dly.net/kangtehuanbao/">空气清新剂</a></div>
+							<div class="categoryTwo"><a target='_blank' href="http://3dly.net/zhilingyun/">电脑周边产品</a></div>
+							<div class="categoryTwo"><a target='_blank' href="http://3dly.net/changhong/">长虹电视产品</a></div>-->
+						</div>
+					</div>
+				</div><!-- end of category_detail -->
+			</div> <!-- end of category_wrap -->
+		</div>	<!-- end of glue_left -->
+	</div><!-- end of glue_content -->
+		
+	<script type="text/javascript">
+	</script>
+
+	
+	<script type="text/javascript" src="libs/jquery/jquery.js"></script>
+	<script type="text/javascript" src="libs/jquery/js/jquery.placeholder.js"></script>
+	<script type="text/javascript" src="js/list/category.js"></script>
+	<script type="text/javascript" src="js/list/bannar.js"></script>
+	<!--<script type="text/javascript" src="js/list/prolist.js"></script>
+    <script type="text/javascript" src="js/gdata.js"></script>-->
+	<!-- baidu analytics start -->
+    <!--<script type="text/javascript" src="libs/analytics/baiduAnalytics.js"></script>-->
+    <!-- baidu analytics end -->	
+</body>
+
+</html>
