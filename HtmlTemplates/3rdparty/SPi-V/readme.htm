@@ -1,0 +1,300 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>SPi-V engine readme</TITLE>
+<STYLE type="text/css">
+<!--
+body {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size:0.8em;
+
+	background-color:white;
+	color:black;
+	border-left: 1em solid rgb(238, 238, 238); 
+	margin: 0pt 1em 0pt 0pt; 
+	padding-left: 1em
+}
+#content {
+	padding-top:1.5em;
+	padding-bottom:2.5em;
+}
+
+#spv h1 {
+	margin-top:0px;
+}
+h1 {
+	font-size:1.4em;
+}
+h2 {
+	font-size:1.2em;
+}
+h3 {
+	font-size:1.0em;
+}
+
+.release {
+	border-bottom: 1px solid #eee
+}
+
+#sidebar {
+	padding: 0.5em; 
+	float: right; 
+	width: 14em; 
+	margin-left: 1em; 
+	margin-bottom: 2em; 
+	font-size: 0.8em; 
+	background-color: rgb(238, 238, 238);
+}
+#sidebar ul {
+	margin-left:0px;
+	padding-left:1.5em;
+	margin-top:0.4em;
+}
+
+-->
+</STYLE>
+</HEAD>
+
+<BODY>
+<DIV id="content">
+<DIV id="spv">
+<H1>SPi-V engine</H1>
+<p>The SPi-V engine (pronounced 'spiffy', short for Shockwave Panorama Viewer) is the first publically available, cross platform, hardware accelerated panorama viewer. It is built on Adobe's acclaimed Shockwave 3d platform. For more information of the SPi-V engine, see the <a href="http://fieldofview.com/spv">fieldOfView website</a>. For documentation on how to use the SPi-V engine to display panoramas, visit the <a href="http://www.fieldofview.com/spv-dev/" >SPi-V developers site</a>.</p>
+<p>SPi-V is under active development. The latest version is available from the SPi-V developers site:<br/>
+<a href="http://www.fieldofview.com/spv-dev/releases/">http://www.fieldofview.com/spv-dev/releases/</a></p>
+</DIV>
+<DIV id="sidebar">
+links:
+<ul>
+<li><a href="http://fieldofview.com/">fieldOfView</a>
+<li><a href="http://fieldofview.com/spv">SPi-V engine</a>
+<li><a href="http://fieldofview.com/spv-gallery">gallery</a>
+<li><a href="http://fieldofview.com/spv-licensing">licensing information</a>
+<li><a href="http://fieldofview.com/spv-dev">SPi-V developers site</a>
+<li><a href="http://fieldofview.com/spv-dev/releases">latest versions</a>
+</ul>
+
+in this document:
+<ul>
+<li><a href="#changelog">changelog</a>
+<li><a href="#license">license</a>
+<li><a href="#discalimer">disclaimer</a>
+</ul>
+</DIV>
+<DIV id="feed">
+<H2><a name="changelog">Changelog</a></H2>
+<DIV id="feeddescription">Summary of changes in the most recent releases of the engine:</DIV>
+
+
+<DIV class="release">
+<H3 class="releasetitle">SPi-V 1.4.10</H3>
+<DIV class="releasedate">Released: 01/26/2010</DIV>
+<DIV class="releasetext"><div class="field field-type-text field-field-changelog">
+  <h3 class="field-label">Changelog</h3>
+  <div class="field-items">
+      <div class="field-item"><ul>
+<li>Removed branding; SPi-V is now free software</li>
+<li>Added fisheye as a projection for panoelements</li>
+<li>Improved compatibility with Firefox 3.x in newer Shockwave 11.5 builds</li>
+</ul>
+</div>
+  </div>
+</div></DIV>
+</DIV>
+
+<DIV class="release">
+<H3 class="releasetitle">SPi-V 1.4.9</H3>
+<DIV class="releasedate">Released: 04/20/2009</DIV>
+<DIV class="releasetext"><div class="field field-type-text field-field-changelog">
+  <h3 class="field-label">Changelog</h3>
+  <div class="field-items">
+      <div class="field-item"><ul>
+<li>Works around the issue that Firefox 3 for OS X draws 3d content vertically offset</li>
+<li>Improves text rendering quality in Shockwave 11.5</li>
+</ul>
+</div>
+  </div>
+</div></DIV>
+</DIV>
+
+<DIV class="release">
+<H3 class="releasetitle">SPi-V 1.4.8</H3>
+<DIV class="releasedate">Released: 05/22/2008</DIV>
+<DIV class="releasetext"><div class="field field-type-text field-field-changelog">
+  <h3 class="field-label">Changelog</h3>
+  <div class="field-items">
+      <div class="field-item"><ul>
+<li>The _scenes_* lists would not stay in sync with the current scene, see <a href="/spv-dev/node/696#comment-2400">here</a>
+<li>Fixed compatibility with Director/Shockwave 8.5</li>
+</ul>
+</div>
+  </div>
+</div></DIV>
+</DIV>
+
+<DIV class="release">
+<H3 class="releasetitle">SPi-V 1.4.7</H3>
+<DIV class="releasedate">Released: 03/27/2008</DIV>
+<DIV class="releasetext"><div class="field field-type-text field-field-changelog">
+  <h3 class="field-label">Changelog</h3>
+  <div class="field-items">
+      <div class="field-item"><ul>
+<li>Works around a bug in Shockwave 11 for OS X, which prevents earlier versions of SPi-V to run on Shockwave 11 for OS X</li>
+<li>Fixes preview layers for uielements</li>
+<li>Fixed a bug with value="=..." syntax</li>
+<li>Code optimisations</li>
+</ul>
+</div>
+  </div>
+</div></DIV>
+</DIV>
+
+<DIV class="release">
+<H3 class="releasetitle">SPi-V 1.4.6</H3>
+<DIV class="releasedate">Released: 03/07/2008</DIV>
+<DIV class="releasetext"><div class="field field-type-text field-field-changelog">
+  <h3 class="field-label">Changelog</h3>
+  <div class="field-items">
+      <div class="field-item"><ul>
+<li>geturl action supports url='=...' syntax</li>
+<li>.aspx files are accepted as xml</li>
+<li>fixed a strange condition where finished downloads could be processed multiple times</li>
+<li>minor preparations for Shockwave 11</li>
+</ul>
+</div>
+  </div>
+</div></DIV>
+</DIV>
+
+<DIV class="release">
+<H3 class="releasetitle">SPi-V 1.4.5</H3>
+<DIV class="releasedate">Released: 02/12/2008</DIV>
+<DIV class="releasetext"><div class="field field-type-text field-field-changelog">
+  <h3 class="field-label">Changelog</h3>
+  <div class="field-items">
+      <div class="field-item"><ul>
+<li>introduces XML change to <a href="/spv-dev/docs/nodes/cameradynamics">camera dynamics</a> node<br />
+There was a conflict in names between zoomspeed for the current zooming rate and the relative pace at which zoom 'happens'. This conflict has been lifted.</li>
+<li>fixes <a href="/spv-dev/node/681">pan &amp; tilt bug</a> when fov &gt; pan/tilt range</li>
+<li>fixes <a href="/spv-dev/node/682">zoom</a> set through toolbar button</li>
+<li>adds _plugin object to expose html parameters<br />
+Shockwave allows you to add a couple of <a href="http://livedocs.adobe.com/director/mx2004/release_update_en/07_me108.htm">specific parameters</a> to the HTML of your pages, inside the object/embed tag. These can now be read by SPi-V. eg:</p>
+<p><div class="codeblock"><code>getProperty(&quot;_plugin&quot;,&quot;sw1&quot;)</code></div><br />
+The _plugin object is only available when running SPi-V in a browser or other plugin environment.
+</li>
+</ul>
+</div>
+  </div>
+</div></DIV>
+</DIV>
+
+<DIV class="release">
+<H3 class="releasetitle">SPi-V 1.4.4</H3>
+<DIV class="releasedate">Released: 01/10/2008</DIV>
+<DIV class="releasetext"><div class="field field-type-text field-field-changelog">
+  <h3 class="field-label">Changelog</h3>
+  <div class="field-items">
+      <div class="field-item"><ul>
+<li>Progress-bar did not have correct contrsting color</li>
+<li>Loading images in simple mode when using SPi-V as a sprite in Director was broken</li>
+<li>Display did not update when swiching scenes when using SPi-V as a sprite in Director</li>
+<li>Minor changes facilitating upcoming extensions</li>
+</ul>
+</div>
+  </div>
+</div></DIV>
+</DIV>
+
+<DIV class="release">
+<H3 class="releasetitle">SPi-V 1.4.3</H3>
+<DIV class="releasedate">Released: 12/18/2007</DIV>
+<DIV class="releasetext"><div class="field field-type-text field-field-changelog">
+  <h3 class="field-label">Changelog</h3>
+  <div class="field-items">
+      <div class="field-item"><ul>
+<li>added ability to set type, hfov, vfov, hoffset and voffset of panoelements using setProperty<br />
+Note: this is an 'expensive' operation which may affect performance if used extensively (eg every frame, using a ramp)</li>
+<li>added settable disablenavigation and disablekeynavigation properties to _camera object</li>
+<li>fixed a problem when default.xml is not a valid xml document</li>
+<li>fixed a problem with very small panmin/panmax or tiltmin/tiltmax ranges in cameralimits</li>
+<li>fixed a problem with getURL when referencing an internal member</li>
+<li>fixed color="_foreground" in matte layer nodes</li>
+<li>minor code optimisations</li>
+</ul>
+</div>
+  </div>
+</div></DIV>
+</DIV>
+
+<DIV class="release">
+<H3 class="releasetitle">SPi-V 1.4.2</H3>
+<DIV class="releasedate">Released: 10/26/2007</DIV>
+<DIV class="releasetext"><div class="field field-type-text field-field-changelog">
+  <h3 class="field-label">Changelog</h3>
+  <div class="field-items">
+      <div class="field-item"><ul>
+<li>fixed: error when using text as alpha in layers
+<li>fixed: upscaling when adaptive texture scaling has kicked in
+<li>fixed: interupts for ramps would sometimes malfunction
+<li>fixed: setting blend to "0" would sometimes leave a 'residual' blend
+<li>fixed: resources that are referenced multiple times are downloaded/imported only once
+<li>fixed: downloader progress bar color was always white
+<li>fixed: changes to layers (such as setting 'text' property) that affect the dimensions of the layer would result in corrupted display of the layer
+<li>fixed: support for urls with the javascript: protocol
+<li>added: panogroup/uigroup 'enabled' property disables/reenables all elements in the group
+<li>added: color="_foreground" in layers
+<li>added: getProperty() call has a return value when called through evalScript().
+<li>added: added getProperty to list of valid API functions when calling through LocalConnection object or evalScript.<br />
+  Note that LocalConnection messages have no return value, and the evalScript method is not available for Firefox and Safari</p>
+<li>changed: reimplemented 'preview' layers
+<li>changed: getURL with target="_spv" forces SPi-V to open the url, instead of passing to the browser
+<li>changed: 'Scene ready' is not sent again if a uielement or panoelement gets rebuilt<br />
+changed: code optimisations
+</ul>
+</div>
+  </div>
+</div></DIV>
+</DIV>
+
+<DIV class="release">
+<H3 class="releasetitle">SPi-V 1.4.1</H3>
+<DIV class="releasedate">Released: 08/20/2007</DIV>
+<DIV class="releasetext"><div class="field field-type-text field-field-changelog">
+  <h3 class="field-label">Changelog</h3>
+  <div class="field-items">
+      <div class="field-item"><ul>
+<li>under some circumstances hardware acceleration would not be used, resulting in choppy performance</li>
+<li>the 'blend' property of panoelements and uielements was write-only</li>
+<li>ramp wrapping; implemented minvalue and maxvalue</li>
+</ul>
+</div>
+  </div>
+</div></DIV>
+</DIV>
+
+</DIV>
+<DIV id="disclaimer">
+<H2><a name="license">License</a></H2>
+<p>fieldOfView grants you a limited non-exclusive license to use the free version 
+of the SPi-V engine free of charge.</p>
+
+<p>You may not reverse engineer, de-compile or disassemble the SPi-V engine. 
+fieldOfView shall retain title and all ownership rights to the SPi-V engine.</p>
+
+<p>The SPi-V engine is protected by copyright laws and international copyright 
+treaties, as well as other intellectual property laws and treaties.</p>
+
+<p>The free version of the SPi-V engine may be freely distributed provided that 
+it is not modified or renamed and accompanied by the the original readme.html 
+document, and provided that no fee is charged (except for any reasonable fees 
+necessary to cover costs of distribution media).</p>
+</DIV>
+<DIV id="disclaimer">
+<H2><a name="disclaimer">Disclaimer</a></H2>
+The SPi-V engine is provided "as is" and without warranties of any kind. 
+In no event shall the author be held liable for any damages whatsoever arising 
+from the use or inability to use the software.
+</DIV>
+</DIV>
+</BODY>
+</HTML>

@@ -1,0 +1,219 @@
+<?ggf
+/*
+	Create the form in the HTML dialog box
+*/
+	form.addText('This template creates a HTML and XML file for the <a href="http://fieldofview.com/spv">SPi-V engine by fieldOfView</a>.<br>' + 
+				 'To use the SPi-V engine locally you <b>must</b> copy the files to a subdirectory called <b>dswmedia</b> (see <a href="http://www.adobe.com/support/director/internet/security/security03.html">here</a>)');
+	form.addSpinBox("windowwidth","Window Width",640,0,10000);
+	form.addSpinBox("windowheight","Window Height",480,0,10000);
+	form.addCheckBox("fullscreen","Fullscreen",false);
+
+	form.addColorButton("textcolor","Text Color","#000000");
+	form.addColorButton("bgcolor","Background Color","#ffffff");
+	form.addLine();
+	form.addCheckBox("showuserdata","Show User Data Table",true);
+	form.addColorButton("tablebordercolor","Table Border Color","#777777");
+	form.addColorButton("tabletextcolor","Table Text Color","#000000");
+	form.addColorButton("tablebgcolor","Table Background Color","#dddddd");
+	
+	form.addOutputFormat("HTML (.html)","html");
+	form.addOutputFormat("HTML (.htm)","htm");
+?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<title><?ggs document.writeEncoded(document.expandVariables(config.userdata.title)); ?></title>
+<?ggs
+	document.addfile("../common/p2q_embed_object.js","p2q_embed_object.js");
+	document.addfile("../3rdparty/SPi-V/SPi-V.dcr","SPi-V.dcr");
+?>
+		<script type="text/javascript" src="p2q_embed_object.js">
+		</script>
+		<style type="text/css" title="Default">
+			body, div, h1, h2, h3, span, p {
+				font-family: Verdana,Arial,Helvetica,sans-serif;
+				color: <?ggs document.write(formvalue["textcolor"]); ?>; 
+			}
+			body {
+			  font-size: 10pt;
+			  background : <?ggs document.write(formvalue["bgcolor"]); ?>; 
+			}
+			table,tr,td {
+				font-size: 10pt;
+				border-color : <?ggs document.write(formvalue["tablebordercolor"]); ?>;
+				background : <?ggs document.write(formvalue["tablebgcolor"]); ?>; 
+				color: <?ggs document.write(formvalue["tabletextcolor"]); ?>; 
+				border-style : solid;
+				border-width : 1px;
+			}
+<?ggs
+	if (formvalue["fullscreen"]=="true") { 
+?>
+			html, body {
+				margin:0;
+				padding:0;
+				border:0;
+				height:100%;
+				font-size: 10pt;
+				background : <?ggs document.write(formvalue["bgcolor"]); ?>; 
+			}
+<?ggs
+	}
+?>
+			h1 {
+				font-size: 18pt;
+			}
+			h2 {
+				font-size: 14pt;
+			}
+			.warning {
+				font-weight: bold;
+			}
+		</style>	
+	</head>
+	<body>
+		<h1><?ggs document.writeEncoded(document.expandVariables(config.userdata.title)); ?></h1>
+		<script type="text/javascript">
+<?ggs
+	var inputfile;
+//	inputfile=outputfile;
+
+	inputfile="config.xml";
+	var xmlstr;
+	// strange escaping for the xml start tag to avoid interpretation by the template engine
+	xmlstr='<' + '?xml version="1.0" encoding="utf-8"?' + '>\n';
+	xmlstr+="<tour>\n";
+	xmlstr+="<scene>\n";
+	xmlstr+="\t<meta>\n";
+	xmlstr+='\t\t<title>' + document.encode(document.expandVariables(config.userdata.title)) + '</title>\n';
+	xmlstr+='\t\t<description>' + document.encode(document.expandVariables(config.userdata.description)) + '</description>\n';
+	xmlstr+='\t\t<cameralimits ';
+	// Swap pan min/max because different orientation of pan angle
+	xmlstr+='panmin="' + (360.0 - config.viewingparameter.pan.maximum) + '" ';
+	xmlstr+='panmax="' + (360.0 - config.viewingparameter.pan.minimum) + '" ';
+	xmlstr+='tiltmin="' + config.viewingparameter.tilt.minimum + '" ';
+	xmlstr+='tiltmax="' + config.viewingparameter.tilt.maximum + '" ';
+	xmlstr+='fovmin="' + config.viewingparameter.fov.minimum + '" ';
+	xmlstr+='fovmax="' + config.viewingparameter.fov.maximum + '" ';
+	xmlstr+='/>\n';
+	xmlstr+='\t\t<defaultview ';
+	xmlstr+='pan="' + (360.0 - config.viewingparameter.pan.start) + '" ';
+	xmlstr+='tilt="' + config.viewingparameter.tilt.start + '" ';
+	xmlstr+='fov="' + config.viewingparameter.fov.start + '" ';
+	xmlstr+='/>\n';
+	xmlstr+="\t</meta>\n";
+	if (((output.value("type")=="hstrip") || (output.value("type")=="vstrip") ||
+		(output.value("type")=="cubeface") || (output.value("type")=="equirectangular") ||
+		(output.value("type")=="cylinder")) && 
+		((output.pan!=0) || (output.tilt!=0) || (output.roll!=0))) {
+			document.alert("Warning: Pan, Tilt or Roll are not 0! The horizont and default view may not be correct!");
+		}
+
+	if (output.value("type")=="cubeface") {
+		for(i=0;i<6;i++) {
+			var pan,tilt;
+			tilt=0;
+			pan=0;
+			switch(i) {
+				case 0:pan=0;break;
+				case 1:pan=90;break;
+				case 2:pan=180;break;
+				case 3:pan=270;break;
+				case 4:tilt=90;break;
+				case 5:tilt=-90;break;
+			}
+			xmlstr+='\t<panoelement id="el' + i + '" type="flat" pan="' + pan + '" tilt="' + tilt + '" hfov="90" vfov="90">\n';
+			xmlstr+='\t\t<image id="img' + i + '">\n';
+			xmlstr+='\t\t\t<layer class="base" type="bitmap" src="' + outputfiles[i] + '"/>\n';
+			xmlstr+='\t\t</image>\n';
+			xmlstr+='\t</panoelement>\n';
+		}
+	} else 
+	if ((output.value("type")=="hstrip") || (output.value("type")=="vstrip")) {
+		xmlstr+='\t<panoelement id="el0" type="cubic">\n';
+		xmlstr+='\t\t<image id="img0">\n';
+		xmlstr+='\t\t\t<layer class="base" type="bitmap" src="' + outputfile + '"/>\n';
+		xmlstr+='\t\t</image>\n';
+		xmlstr+='\t</panoelement>\n';
+	} else 
+	if (output.value("type")=="equirectangular") {
+		xmlstr+='\t<panoelement id="el0" type="spherical">\n';
+		xmlstr+='\t\t<image id="img0">\n';
+		xmlstr+='\t\t\t<layer class="base" type="bitmap" src="' + outputfile + '"/>\n';
+		xmlstr+='\t\t</image>\n';
+		xmlstr+='\t</panoelement>\n';
+	} else 
+	if (output.value("type")=="cylinder") {
+		// add a black background
+		xmlstr+='\t<panoelement id="bg" type="spherical">\n';
+		xmlstr+='\t\t<image id="bgimg">\n';
+		xmlstr+='\t\t\t<layer class="base" type="matte" color="000000"/>\n';
+		xmlstr+='\t\t</image>\n';
+		xmlstr+='\t</panoelement>\n';
+		// and the cylindrical image
+		xmlstr+='\t<panoelement id="el0" type="cylindrical">\n';
+		xmlstr+='\t\t<image id="img0">\n';
+		xmlstr+='\t\t\t<layer class="base" type="bitmap" src="' + outputfile + '"/>\n';
+		xmlstr+='\t\t</image>\n';
+		xmlstr+='\t</panoelement>\n';
+	} else 
+	if (output.value("type")=="rectilinear") {
+		// calculate the horizontal field of view
+		var hfov;
+		hfov=2*Math.atan(formvalue["windowwidth"]/formvalue["windowheight"]*(Math.tan((output.fov / 2)*Math.PI/180)))*180/Math.PI;
+		// add a black background
+		xmlstr+='\t<panoelement id="bg" type="spherical">\n';
+		xmlstr+='\t\t<image id="bgimg">\n';
+		xmlstr+='\t\t\t<layer class="base" type="matte" color="000000"/>\n';
+		xmlstr+='\t\t</image>\n';
+		xmlstr+='\t</panoelement>\n';
+		// and the rectilinear image
+		xmlstr+='\t<panoelement id="el0" type="flat" pan="' + (-output.pan) + '" tilt="' + (output.tilt) + '" roll="' + (-output.roll) + '" hfov="' + hfov + '">\n';
+		xmlstr+='\t\t<image id="img0">\n';
+		xmlstr+='\t\t\t<layer class="base" type="bitmap" src="' + outputfile + '"/>\n';
+		xmlstr+='\t\t</image>\n';
+		xmlstr+='\t</panoelement>\n';
+	} else {
+		document.alert("Format not supported by SPi-V!");
+	}
+	xmlstr+="</scene>\n";
+	xmlstr+="</tour>\n";
+	document.createfile(inputfile,xmlstr);
+	if (formvalue["fullscreen"]=="true") { 
+		document.writeln("\t\t\tp2q_EmbedSPiV('" + inputfile + "','100%','90%');");
+	} else {
+		document.writeln("\t\t\tp2q_EmbedSPiV('" + inputfile + "','" + formvalue["windowwidth"] + "','" + formvalue["windowheight"] + "');");
+	}
+?>
+		</script>
+		<p>Powered by <a href="http://fieldofview.com/spv" target="_blank">SPi-V / fieldOfView</a>.</p>
+<?ggs
+	if (formvalue["showuserdata"]=="true") { 
+?>
+		<table cellpadding="5" cellspacing="0">
+			<tr>
+				<td><b>Description</b></td>
+				<td><?ggs document.writeEncoded(document.expandVariables(config.userdata.description)); ?></td>
+			</tr>
+			<tr>
+				<td><b>Author</b></td>
+				<td><?ggs document.writeEncoded(document.expandVariables(config.userdata.author)); ?></td>
+			</tr>
+			<tr>
+				<td><b>Date/Time</b></td>
+				<td><?ggs document.writeEncoded(document.expandVariables(config.userdata.dateTime)); ?></td>
+			</tr>
+			<tr>
+				<td><b>Copyright</b></td>
+				<td><?ggs document.writeEncoded(document.expandVariables(config.userdata.copyright)); ?></td>
+			</tr>
+		</table>
+<?ggs
+	}
+	if (formvalue["fullscreen"]=="true") { 
+		document.writeln('\t\t\t<p align="center"><a href="javascript:close();">close</a></p>');
+	}
+?>
+	</body>
+</html>

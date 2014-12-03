@@ -1,0 +1,83 @@
+<?ggf
+/*
+	Create the form in the HTML dialog box
+*/
+	form.addColorButton("textcolor","Text Color","#000000");
+	form.addColorButton("bgcolor","Background Color","#ffffff");
+	form.addLine();
+	form.addCheckBox("showuserdata","Show User Data Table",true);
+	form.addColorButton("tablebordercolor","Table Border Color","#777777");
+	form.addColorButton("tabletextcolor","Table Text Color","#000000");
+	form.addColorButton("tablebgcolor","Table Background Color","#dddddd");
+	form.addOutputFormat("HTML (.html)","html");
+	form.addOutputFormat("HTML (.htm)","htm");
+?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<title><?ggs document.writeEncoded(document.expandVariables(config.userdata.title)); ?></title>
+		<style type="text/css" title="Default">
+			body, div, h1, h2, h3, span, p {
+				font-family: Verdana,Arial,Helvetica,sans-serif;
+				color: <?ggs document.write(formvalue["textcolor"]); ?>; 
+			}
+			body {
+			  font-size: 10pt;
+			  background : <?ggs document.write(formvalue["bgcolor"]); ?>; 
+			}
+			table,tr,td {
+				font-size: 10pt;
+				border-color : <?ggs document.write(formvalue["tablebordercolor"]); ?>;
+				background : <?ggs document.write(formvalue["tablebgcolor"]); ?>; 
+				color: <?ggs document.write(formvalue["tabletextcolor"]); ?>; 
+				border-style : solid;
+				border-width : 1px;
+			}
+			h1 {
+				font-size: 18pt;
+			}
+			h2 {
+				font-size: 14pt;
+			}
+			.warning {
+				font-weight: bold;
+			}
+		</style>	
+	</head>
+	<body>
+		<h1><?ggs document.writeEncoded(document.expandVariables(config.userdata.title)); ?></h1>
+		<p>
+<?ggs
+	if (output.value("type")=="cubeface") {
+		for(i=0;i<6;i++) {
+			document.writeln("\t\t<img src=\"" + outputfiles[i] + "\" alt=\"\"/>");
+		}
+	} else {
+		document.writeln("\t\t<img src=\"" + outputfile + "\" alt=\"\"/>");
+	}
+	if (formvalue["showuserdata"]=="true") { 
+?>		
+		<table cellpadding="5" cellspacing="0">
+			<tr>
+				<td><b>Description</b></td>
+				<td><?ggs document.writeEncoded(document.expandVariables(config.userdata.description)); ?></td>
+			</tr>
+			<tr>
+				<td><b>Author</b></td>
+				<td><?ggs document.writeEncoded(document.expandVariables(config.userdata.author)); ?></td>
+			</tr>
+			<tr>
+				<td><b>Date/Time</b></td>
+				<td><?ggs document.writeEncoded(document.expandVariables(config.userdata.dateTime)); ?></td>
+			</tr>
+			<tr>
+				<td><b>Copyright</b></td>
+				<td><?ggs document.writeEncoded(document.expandVariables(config.userdata.copyright)); ?></td>
+			</tr>
+		</table>
+<?ggs
+}
+?>
+	</body>
+</html>
