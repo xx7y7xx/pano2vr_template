@@ -47,7 +47,7 @@
           <filename>index.html</filename>
           <template>zp_simple_image_temp.ggt</template>
           <values>
-            <value id="image_path">images/1.jpg</value>
+            <value id="image_path">1.jpg</value>
           </values>
         </html>
         <facequality/>
