@@ -251,9 +251,13 @@
                     content.style.position = "absolute";
                     // 设置flash显示大小
                     content.style.height = screenHeight + "px";
-                    content.style.width = (1440*screenHeight)/900 + "px";
+                    //chenyang20141204新需求：全屏显示。
+                    //content.style.width = (1440*screenHeight)/900 + "px";
+                    content.style.width = screenWidth + "px";
+                    
                     // 设置左右留白
-                    content.style.left = ( screenWidth - (1440*screenHeight)/900 )/2 + "px";
+                    //chenyang20141204新需求：全屏显示。
+                    //content.style.left = ( screenWidth - (1440*screenHeight)/900 )/2 + "px";
                     
                     nav.style.width = (1440*screenHeight)/900 + "px";
                     nav.style.left = ( screenWidth - (1440*screenHeight)/900 )/2 + "px";
