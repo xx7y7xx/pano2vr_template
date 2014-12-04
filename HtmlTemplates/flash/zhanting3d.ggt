@@ -69,6 +69,29 @@
         
         <script type="text/javascript">
             
+/**
+ * Protect window.console method calls, e.g. console is not defined on IE
+ * unless dev tools are open, and IE doesn't define console.debug
+ */
+//http://stackoverflow.com/a/13817235
+(function() {
+  if (!window.console) {
+    window.console = {};
+  }
+  // union of Chrome, FF, IE, and Safari console methods
+  var m = [
+    "log", "info", "warn", "error", "debug", "trace", "dir", "group",
+    "groupCollapsed", "groupEnd", "time", "timeEnd", "profile", "profileEnd",
+    "dirxml", "assert", "count", "markTimeline", "timeStamp", "clear"
+  ];
+  // define undefined methods as noops to prevent errors
+  for (var i = 0; i < m.length; i++) {
+    if (!window.console[m[i]]) {
+      window.console[m[i]] = function() {};
+    }    
+  } 
+})();
+            
             var x;//x控制上导航
             var IFRAMENAME = "" ;
             
@@ -171,7 +194,8 @@
                
                 var screenWidth = $(window).width();
                 var screenHeidth = $(window).height();
-                
+                console.log("window width : " + screenWidth);
+                console.log("window height : " + screenHeidth);
                 
                 var content = document.getElementById("ex_content"); // flash 显示 div
                 var ib = document.getElementById("iframe_border"); // 弹出框显示 div
@@ -848,6 +872,8 @@ files = {
         "js/AC_RunActiveContent.js",
         "js/GlobalVar.js",
         "js/HotSpot.js",
+        "img/del_but.png",
+        "img/logo.png",
         "source/hot_9999/index.html",
         "source/hot_9999/img/1.jpg",
     ]
