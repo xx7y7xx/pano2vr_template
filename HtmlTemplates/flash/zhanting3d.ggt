@@ -858,7 +858,7 @@
             </div>
         </div>
         <div id="hoverArea"></div>
-        <div style="dispaly: none">
+        <div style="display: none">
             <img id="logoImg" src="img/logo.png" style="position:absolute;left:0px;width:55px;height:30px;margin-top:5px;margin-left:20px;z-index:9998;">
         </div>
         <div id="iframe_border">
