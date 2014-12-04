@@ -24,14 +24,25 @@
 			sequenceCanvasItem = '<div class="content">' +
 									'<div>' +
 										'<a href="' + img + '">' +
-											'<img src="' + thumbnail + '"' + 'title="' + title +'"'+ 'alt="' + title + '"name="' + nodeRelPath + '" class="thumb" />' +
+											'<img id="img' + key + '" src="' + thumbnail + '"' + 'title="' + title +'"'+ 'alt="' + title + '"name="' + nodeRelPath + '" class="thumb" />' +
 										'</a>' + 
 									'</div>' +
 								'</div>';
 			var sequenceCanvas = $(".container");
 			if(sequenceCanvas){ 
 				$(sequenceCanvas).append(sequenceCanvasItem);
-				
+                // remove item if image not exist(404 error)
+                $('#img'+key)
+                    .load(function(){
+                        $(this).css('visibility', 'visible');
+                    })
+                    .error(function(){
+                        $(this).closest('.content').remove();
+                        var sequenceCanvas = $(".container");
+                        var current = sequenceCanvas.width();
+                        var next = current - 220; // 220px also used in /js/gallery.js
+                        sequenceCanvas.width(next);
+                    });
 			}else{
 				alert('初始化数据时容器不存在！');
 			}

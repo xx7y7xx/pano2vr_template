@@ -179,7 +179,9 @@ html,body{
 .prevImageBtn{
 	background: url(images/prevImgBtn.png) center center no-repeat;
 }
-
+.thumb {
+    visibility: hidden;
+}
 </style>
 
 </head>
