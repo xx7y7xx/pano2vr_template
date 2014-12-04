@@ -259,8 +259,9 @@
                     //chenyang20141204新需求：全屏显示。
                     //content.style.left = ( screenWidth - (1440*screenHeight)/900 )/2 + "px";
                     
-                    nav.style.width = (1440*screenHeight)/900 + "px";
-                    nav.style.left = ( screenWidth - (1440*screenHeight)/900 )/2 + "px";
+                    //chenyang20141204-2 使用margin来做更方便。
+                    //nav.style.width = (1440*screenHeight)/900 + "px";
+                    //nav.style.left = ( screenWidth - (1440*screenHeight)/900 )/2 + "px";
                     
                     /* 设置弹出框区域大小 */
                     ib.style.height = screenHeight * 0.85 + "px";
@@ -742,6 +743,9 @@
                 height:25px;
                 cursor:pointer;
             }
+            .navbar-inner {
+                margin: 0 auto;
+            }
             
         </style>
     </head>
@@ -849,7 +853,8 @@
                 </ul>
             </div>
         </div>
-        <div>
+        <div id="hoverArea"></div>
+        <div style="dispaly: none">
             <img id="logoImg" src="img/logo.png" style="position:absolute;left:0px;width:55px;height:30px;margin-top:5px;margin-left:20px;z-index:9998;">
         </div>
         <div id="iframe_border">
