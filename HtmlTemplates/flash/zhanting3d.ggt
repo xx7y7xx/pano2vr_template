@@ -2,42 +2,60 @@
 /*
 	Create the form in the HTML dialog box
 */
-    form.addLineEdit("pano_html_title", "Title", 100, "中国人民大学附属中学3D展览中心");
+    function addTitle(str)
+    {
+        form.addText("======================================");
+        form.addText("             " + str);
+        form.addText("======================================");
+    }
+    function addTitle2(str)
+    {
+        form.addText("-------------------------");
+        form.addText("         " + str);
+        form.addText("-------------------------");
+    }
+    
+    form.addLineEdit("pano_html_title", "网页标题", 100, "中国人民大学附属中学3D展览中心");
     form.addLine();
+    
+    addTitle('导航栏');
+    
     form.addLineEdit("pano_nav_logo", "Logo", 100, "img/logo.png");
     form.addLine();
-    form.addLineEdit("pano_nav1_title", "Nav1 Title", 100, "中国人民大学附属中学3D展览中心");
-    form.addLineEdit("pano_nav1_url", "Nav1 URL", 200, "../zhongguorenmindaxuefushuzhongxuesandzhanlanzhongxin/index.html");
+    
+    for(var i = 1 ; i < 12 ; i++)
+    {
+        form.addText("导航栏"+i);
+        if(i == 1)
+        {
+            form.addLineEdit("pano_nav"+i+"_title", "链接标题", 100, "中国人民大学附属中学3D展览中心");
+            form.addLineEdit("pano_nav"+i+"_url", "链接地址", 200, "../zhongguorenmindaxuefushuzhongxuesandzhanlanzhongxin/index.html");
+        }
+        else
+        {
+            form.addLineEdit("pano_nav"+i+"_title", "链接标题", 100, "");
+            form.addLineEdit("pano_nav"+i+"_url", "链接地址", 200, "");
+        }
+        form.addLine();
+    }
+    
+    form.addCheckBox("pano_back", "是否显示返回按钮", true);
     form.addLine();
-    form.addLineEdit("pano_nav2_title", "Nav2 Title", 100, "特色教育展览馆");
-    form.addLineEdit("pano_nav2_url", "Nav2 URL", 200, "../tesejiaoyuzhanlanguan/index.html");
-    form.addLine();
-    form.addLineEdit("pano_nav3_title", "Nav3 Title", 100, "教育教学展览馆");
-    form.addLineEdit("pano_nav3_url", "Nav3 URL", 200, "../jiaoyujiaoxuezhanlanguan/index.html");
-    form.addLine();
-    form.addLineEdit("pano_nav4_title", "Nav4 Title", 100, "国际化展览馆");
-    form.addLineEdit("pano_nav4_url", "Nav4 URL", 200, "../guojihuazhanlanguan/index.html");
-    form.addLine();
-    form.addLineEdit("pano_nav5_title", "Nav5 Title", 100, "联合总校展览馆");
-    form.addLineEdit("pano_nav5_url", "Nav5 URL", 200, "../lianhezongxiaozhanlanguan/index.html");
-    form.addLine();
-    form.addLineEdit("pano_nav6_title", "Nav6 Title", 100, "");
-    form.addLineEdit("pano_nav6_url", "Nav6 URL", 200, "");
-    form.addLine();
-    form.addLineEdit("pano_nav7_title", "Nav7 Title", 100, "");
-    form.addLineEdit("pano_nav7_url", "Nav7 URL", 200, "");
-    form.addLine();
-    form.addLineEdit("pano_nav8_title", "Nav8 Title", 100, "");
-    form.addLineEdit("pano_nav8_url", "Nav8 URL", 200, "");
-    form.addLine();
-    form.addLineEdit("pano_nav9_title", "Nav9 Title", 100, "");
-    form.addLineEdit("pano_nav9_url", "Nav9 URL", 200, "");
-    form.addLine();
-    form.addLineEdit("pano_nav10_title", "Nav10 Title", 100, "");
-    form.addLineEdit("pano_nav10_url", "Nav10 URL", 200, "");
-    form.addLine();
-    form.addCheckBox("pano_back", "Back button", true);
 	
+    addTitle('展板列表');
+    // 如果修改，请同步ggs中的template。
+    template = [
+        "无",
+        "单张图",
+        "多张图",
+        "360",
+        "视频"
+    ];
+    for(var i = 1 ; i < 30 ; i++)
+    {
+        form.addComboBox("zt3d_zhanban_"+i, "展板"+i, template, 0);
+    }
+    
 	// define possible output formats
 	form.addOutputFormat("HTML (.html)","html");
 	form.addOutputFormat("HTML (.htm)","htm");
@@ -64,7 +82,13 @@
         <script type="text/javascript" src="js/GlobalVar.js"></script>
         <script type="text/javascript" src="js/HotSpot.js"></script>
         <script type="text/javascript" src="js/AC_RunActiveContent.js"></script>
-        
+
+<!--
+<?ggs
+document.writeln(formvalue["zt3d_zhanban_1"]);
+document.writeln(formvalue["zt3d_zhanban_2"]);
+?>
+-->
      
         
         <script type="text/javascript">
@@ -894,12 +918,91 @@ files = {
         "img/del_but.png",
         "img/logo.png",
         "source/hot_9999/index.html",
-        "source/hot_9999/img/1.jpg",
+        "source/hot_9999/img/1.jpg"
     ]
 };
 for ( fi in files.list )
 {
     var fpath = files.list[fi];
     document.addfile("../" + files.prefix + "/" + fpath, fpath);
+}
+?>
+<?ggs
+function add_zhanpin(spotid, zpid)
+{
+    var files = {};
+    files.simple_image_temp = [
+        "index.html"
+    ];
+    files.responsiveslides = [
+        "lib/responsiveslides.css",
+        "lib/responsiveslides.min.js",
+        "lib/jquery.min.js",
+        "lib/responsiveslides.js",
+        "themes/themes.html",
+        "themes/themes.gif",
+        "themes/themes.css",
+        "images/bg.png",
+        "index.html",
+        "demo.css"
+    ];
+    files.fake_360 = [
+        "images/bg.jpg",
+        "images/nextImgBtn.png",
+        "images/prevImgBtn.png",
+        "js/gallery.js",
+        "js/index.js",
+        "js/jquery.easing.1.3.js",
+        "json/data.js",
+        "libs/jquery.js",
+        "index.html"
+    ];
+    files.video = [
+        "libs/video-js/video-js.css",
+        "libs/video-js/lang/de.js",
+        "libs/video-js/lang/ja.js",
+        "libs/video-js/lang/uk.js",
+        "libs/video-js/lang/es.js",
+        "libs/video-js/lang/nl.js",
+        "libs/video-js/lang/ru.js",
+        "libs/video-js/lang/it.js",
+        "libs/video-js/lang/zh.js",
+        "libs/video-js/lang/ko.js",
+        "libs/video-js/lang/fr.js",
+        "libs/video-js/lang/pt-BR.js",
+        "libs/video-js/video-js.less",
+        "libs/video-js/font/vjs.eot",
+        "libs/video-js/font/vjs.ttf",
+        "libs/video-js/font/vjs.woff",
+        "libs/video-js/font/vjs.svg",
+        "libs/video-js/video.js",
+        "libs/video-js/video.dev.js",
+        "libs/video-js/demo.captions.vtt",
+        "libs/video-js/video-js.swf",
+        "libs/video-js/demo.html",
+        "libs/video-js/fonts",
+        "libs/video-js/video-js.min.css",
+        "index.html"
+    ];
+    for ( fi in files[zpid] )
+    {
+        var fpath = files[zpid][fi];
+        var from = "../3rdparty/jiandan001/" + zpid + "/" + fpath;
+        var to = "source/hot_" + spotid + "/" + fpath;
+        document.addfile(from, to);
+    }
+}
+template = [
+    false, //"无",
+    "simple_image_temp", //"单张图",
+    "responsiveslides", //"多张图",
+    "fake_360", //"360",
+    "video" //"视频"
+];
+for(var i = 1 ; i < 30 ; i++)
+{
+    var zpid = template[formvalue['zt3d_zhanban_'+i]];
+    if(zpid)
+        add_zhanpin(i, zpid);
 }
 ?>
