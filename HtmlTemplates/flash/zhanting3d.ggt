@@ -229,10 +229,15 @@
                     ha.style.top = (screenHeight - 900)/2 + "px";
                     
                     /* 设置弹出框区域大小  */
-                    ib.style.width = 1440 * 0.9 + "px";
-                    ib.style.height =  900 * 0.85 + "px"
-                    ib.style.left = ( 1440 * 0.1 )/2 + (screenWidth - 1440)/2 + "px";
-                    ib.style.top = ( 900 * 0.2 )/2 + (screenHeight - 900)/2 + "px";
+                    //chenyang20141204-3 按照当前分辨率进行调整。
+                    //ib.style.width = 1440 * 0.9 + "px";
+                    //ib.style.height =  900 * 0.85 + "px";
+                    //ib.style.left = ( 1440 * 0.15 )/2 + (screenWidth - 1440)/2 + "px";
+                    //ib.style.top = ( 900 * 0.2 )/2 + (screenHeight - 900)/2 + "px";
+                    ib.style.width = screenWidth * 0.8 + "px";
+                    ib.style.height =  screenHeight * 0.8 + "px";
+                    ib.style.left = ( screenWidth * 0.2 )/2 + "px";
+                    ib.style.top = ( screenHeight * 0.2 )/2 + "px";
   
                     /*调整iframe*/
                     if(ifm){
@@ -368,6 +373,7 @@
             // 接收一个模板id，和一个点击热区的id
             var raino = new stack();
             function receiveUrl(id){
+                console.log("receiveUrl id : "+id);
             
                 var hId = Number(id); // 强制转换成数字格式
                 
