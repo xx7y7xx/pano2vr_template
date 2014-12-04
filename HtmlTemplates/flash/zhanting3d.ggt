@@ -56,7 +56,7 @@
         <title><?ggs document.writeEncoded(formvalue["pano_html_title"]); ?></title>
         <style>
             #go-back {
-<?ggs if (formvalue["pano_back"]==false) {  ?>
+<?ggs if (formvalue["pano_back"] == "false") {  ?>
                 display: none;
 <?ggs }  ?>
             }
@@ -211,14 +211,18 @@
                 if(screenWidth > 1440){
                     // flash 显示区域
                     content.style.position = "absolute";
-                    content.style.width = 1440 + "px";
-                    content.style.height = 900 + "px";
-                    content.style.left = (screenWidth - 1440)/2 + "px";
-                    content.style.top = (screenHeight - 900)/2 + "px";
+                    //chenyang20141204新需求：全屏显示。
+                    //content.style.width = 1440 + "px";
+                    //content.style.height = 900 + "px";
+                    //content.style.left = (screenWidth - 1440)/2 + "px";
+                    //content.style.top = (screenHeight - 900)/2 + "px";
+                    content.style.height = screenHeight + "px";
+                    content.style.width = screenWidth + "px";
                     
-                    nav.style.width = 1440 + "px";
-                    nav.style.left = (screenWidth - 1440)/2 + "px";
-                    nav.style.top = (screenHeight - 900)/2 + "px";
+                    //chenyang20141204-2 使用margin来做更方便。
+                    //nav.style.width = 1440 + "px";
+                    //nav.style.left = (screenWidth - 1440)/2 + "px";
+                    //nav.style.top = (screenHeight - 900)/2 + "px";
                     
                     ha.style.width = 1440 + "px";
                     ha.style.left = (screenWidth - 1440)/2 + "px";
