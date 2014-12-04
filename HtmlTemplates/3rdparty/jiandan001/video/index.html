@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>Video Player</title>
+        <link href="libs/video-js/video-js.css" rel="stylesheet" />
+        <script src="libs/video-js/video.js"></script>
+        <style>
+        body {
+            margin: 0px;
+            padding: 0px;
+        }
+        .video-js {padding-top: 56.25%}
+        .vjs-fullscreen {padding-top: 0px}
+        .vjs-loading-spinner {
+            z-index: 9999;
+        }
+        </style>
+    </head>
+    <body>
+        <video id="fullscreen-video-player" class="video-js vjs-default-skin vjs-fullscreen" controls autoplay
+            data-setup='{ "preload": "auto", "flash": { "swf": "libs/video-js/video-js.swf" }}'>
+            <source src="v1.mp4" type='video/mp4' />
+        </video>
+    </body>
+</html>
