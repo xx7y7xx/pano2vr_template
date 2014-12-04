@@ -193,9 +193,9 @@
             function setFlashSize(){ // 页面加载时，首先获取当前document显示区域的大小
                
                 var screenWidth = $(window).width();
-                var screenHeidth = $(window).height();
+                var screenHeight = $(window).height();
                 console.log("window width : " + screenWidth);
-                console.log("window height : " + screenHeidth);
+                console.log("window height : " + screenHeight);
                 
                 var content = document.getElementById("ex_content"); // flash 显示 div
                 var ib = document.getElementById("iframe_border"); // 弹出框显示 div
@@ -214,21 +214,21 @@
                     content.style.width = 1440 + "px";
                     content.style.height = 900 + "px";
                     content.style.left = (screenWidth - 1440)/2 + "px";
-                    content.style.top = (screenHeidth - 900)/2 + "px";
+                    content.style.top = (screenHeight - 900)/2 + "px";
                     
                     nav.style.width = 1440 + "px";
                     nav.style.left = (screenWidth - 1440)/2 + "px";
-                    nav.style.top = (screenHeidth - 900)/2 + "px";
+                    nav.style.top = (screenHeight - 900)/2 + "px";
                     
                     ha.style.width = 1440 + "px";
                     ha.style.left = (screenWidth - 1440)/2 + "px";
-                    ha.style.top = (screenHeidth - 900)/2 + "px";
+                    ha.style.top = (screenHeight - 900)/2 + "px";
                     
                     /* 设置弹出框区域大小  */
                     ib.style.width = 1440 * 0.9 + "px";
                     ib.style.height =  900 * 0.85 + "px"
                     ib.style.left = ( 1440 * 0.1 )/2 + (screenWidth - 1440)/2 + "px";
-                    ib.style.top = ( 900 * 0.2 )/2 + (screenHeidth - 900)/2 + "px";
+                    ib.style.top = ( 900 * 0.2 )/2 + (screenHeight - 900)/2 + "px";
   
                     /*调整iframe*/
                     if(ifm){
@@ -241,28 +241,28 @@
                     
                     /** 设置logo */
                     logoImg.style.left = (screenWidth - 1440)/2 + "px";
-                    logoImg.style.top = (screenHeidth - 900)/2 + "px";
+                    logoImg.style.top = (screenHeight - 900)/2 + "px";
                     
                     return ;
                 }
                 
                 // 如果是宽屏，以高为准，左右留白
-                if(screenWidth > screenHeidth){
+                if(screenWidth > screenHeight){
                     content.style.position = "absolute";
                     // 设置flash显示大小
-                    content.style.height = screenHeidth + "px";
-                    content.style.width = (1440*screenHeidth)/900 + "px";
+                    content.style.height = screenHeight + "px";
+                    content.style.width = (1440*screenHeight)/900 + "px";
                     // 设置左右留白
-                    content.style.left = ( screenWidth - (1440*screenHeidth)/900 )/2 + "px";
+                    content.style.left = ( screenWidth - (1440*screenHeight)/900 )/2 + "px";
                     
-                    nav.style.width = (1440*screenHeidth)/900 + "px";
-                    nav.style.left = ( screenWidth - (1440*screenHeidth)/900 )/2 + "px";
+                    nav.style.width = (1440*screenHeight)/900 + "px";
+                    nav.style.left = ( screenWidth - (1440*screenHeight)/900 )/2 + "px";
                     
                     /* 设置弹出框区域大小 */
-                    ib.style.height = screenHeidth * 0.85 + "px";
-                    ib.style.width =  (1440*screenHeidth*0.9)/900 + "px"
-                    ib.style.left = ( screenWidth - (1440*screenHeidth*0.9)/900 )/2 + "px";
-                    ib.style.top = ( screenHeidth - screenHeidth * 0.8 )/2 + "px";
+                    ib.style.height = screenHeight * 0.85 + "px";
+                    ib.style.width =  (1440*screenHeight*0.9)/900 + "px"
+                    ib.style.left = ( screenWidth - (1440*screenHeight*0.9)/900 )/2 + "px";
+                    ib.style.top = ( screenHeight - screenHeight * 0.8 )/2 + "px";
                      
                     /*调整iframe*/
                     if(ifm){
@@ -271,11 +271,11 @@
 
                    
                     /** 设置foot */
-                    foot.style.right = (screenWidth-(1440*screenHeidth)/900)/2 + "px";
+                    foot.style.right = (screenWidth-(1440*screenHeight)/900)/2 + "px";
                     foot.style.bottom = 1 + "px";
                     
                     /** 设置logo */
-                    logoImg.style.left = ( screenWidth - (1440*screenHeidth)/900 )/2 + "px";
+                    logoImg.style.left = ( screenWidth - (1440*screenHeight)/900 )/2 + "px";
                     
                     
                 }else{ //如果是竖屏，以宽为准，上下留白
@@ -284,13 +284,13 @@
                     content.style.width = screenWidth + "px";
                     content.style.height = (900*screenWidth)/1440 + "px";
                     // 设置上下留白
-                    content.style.top = ( screenHeidth - (900*screenWidth)/1440 )/2 + "px";
+                    content.style.top = ( screenHeight - (900*screenWidth)/1440 )/2 + "px";
                     
                     /*  设置弹出框区域大小 */
                     ib.style.height = (900*screenWidth*0.9)/1440 + "px";
                     ib.style.width =  screenWidth*0.9 + "px"
                     ib.style.left = ( screenWidth - screenWidth*0.9 )/2 + "px";
-                    ib.style.top = ( screenHeidth - (900*screenWidth*0.9)/1440 )/2 + "px";
+                    ib.style.top = ( screenHeight - (900*screenWidth*0.9)/1440 )/2 + "px";
                     
                     /*调整iframe*/
                     if(ifm){
@@ -299,11 +299,11 @@
 
 
                     /** 设置foot */
-                    foot.style.right = (screenWidth-(1440*screenHeidth)/900)/2 + "px";
+                    foot.style.right = (screenWidth-(1440*screenHeight)/900)/2 + "px";
                     foot.style.bottom = 1 + "px";
                     
                     /** 设置logo */
-                    logoImg.style.top = ( screenHeidth - (900*screenWidth)/1440 )/2 + "px";
+                    logoImg.style.top = ( screenHeight - (900*screenWidth)/1440 )/2 + "px";
                 }
             }
             
