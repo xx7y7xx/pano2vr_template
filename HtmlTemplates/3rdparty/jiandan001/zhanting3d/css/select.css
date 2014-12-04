@@ -1,0 +1,119 @@
+
+
+ .current_tag {
+  display: block; }
+   .current_tag img {
+    display: block; }
+    
+    
+.tag_picker_arrow {
+  display: none;
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top: 3px;
+  right: 3px;
+  left:50px;
+  text-indent: -9999px;
+  overflow: hidden;
+  background: url("../img/select_filter_triangle.png") no-repeat center center; }
+  
+  
+  .tag_picker .tag_selector {
+	opacity: 0.9;
+    padding: 0;
+    margin-top: -20px;
+    display: none;
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+    background: url("http://static0.city.giltcdn.com/031717ae/old/images/nav/dropdown_bg.png") repeat-x top left; }
+
+    .buywithme  .tag_picker .tag_selector { background-image: url("http://static0.city.giltcdn.com/031717ae/old/images/nav/dropdown_bg-bwm.png");}
+    
+    .tag_picker ul.tags li {
+    margin-left: -10px;
+    margin-right: -10px;
+    padding: 10px 15px;
+    list-style-type: none;
+    font-size: 13px;
+    transition: background-color .3s ease-in;
+    -moz-transition: background-color .3s ease-in;
+    -webkit-transition: background-color .3s ease-in;
+    -o-transition: background-color .3s ease-in;
+    -ms-transition: background-color .3s ease-in;
+    cursor: pointer;
+    color: #ccc;
+}
+
+
+.tag_picker ul.tags li:hover {
+    background: #282828;
+    color: #fff;
+}
+
+
+.tag_picker .tag:hover a {
+      color: #fff; }
+
+   .tag_picker .tag a {
+    color: #aaa;
+    font-size: 13px;
+    display: block;
+    width: 100%; }
+
+     .tag_picker .tag a:hover {
+      text-decoration: none; }
+
+      .tag_picker {
+  position: absolute;
+  left: 300px;
+  height: auto;
+  padding-top: 3px; }
+
+.tag_picker .tag_selector {
+	opacity: 0.9;
+    padding: 0;
+    margin-top: -20px;
+    display: none;
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+    background: url("http://static0.city.giltcdn.com/031717ae/old/images/nav/dropdown_bg.png") repeat-x top left; }
+
+    .buywithme  .tag_picker .tag_selector { background-image: url("http://static0.city.giltcdn.com/031717ae/old/images/nav/dropdown_bg-bwm.png");}
+
+    
+    
+    .tag_picker ul.tags li {
+    margin-left: -10px;
+    margin-right: -10px;
+    padding: 10px 15px;
+    list-style-type: none;
+    font-size: 13px;
+    transition: background-color .3s ease-in;
+    -moz-transition: background-color .3s ease-in;
+    -webkit-transition: background-color .3s ease-in;
+    -o-transition: background-color .3s ease-in;
+    -ms-transition: background-color .3s ease-in;
+    cursor: pointer;
+    color: #ccc;
+}
+
+.tag_picker {
+    transition: background-color .3s ease-in;
+    -moz-transition: background-color .3s ease-in;
+    -webkit-transition: background-color .3s ease-in;
+    -o-transition: background-color .3s ease-in;
+    -ms-transition: background-color .3s ease-in;    
+}
+.tag_picker:hover {
+    background-color: #000;
+}
+
+
+.tag_picker ul.tags li:hover {
+    background: #282828;
+    color: #fff;
+}
+

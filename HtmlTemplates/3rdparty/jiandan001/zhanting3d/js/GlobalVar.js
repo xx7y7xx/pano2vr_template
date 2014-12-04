@@ -1,0 +1,1 @@
+var GLOBAL_VAR = "/web360/product.html"
