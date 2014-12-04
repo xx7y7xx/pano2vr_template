@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>ResponsiveSlides.js &middot; Responsive jQuery slideshow</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="lib/responsiveslides.css">
+  <link rel="stylesheet" href="demo.css">
+  <script src="lib/jquery.min.js"></script>
+  <script src="lib/responsiveslides.min.js"></script>
+  <script>
+    // You can also use "$(window).load(function() {"
+    $(function () {
+
+function UrlExists(url)
+{
+    var http = new XMLHttpRequest();
+    http.open('HEAD', url, false);
+    http.send();
+    return http.status!=404;
+}
+
+for ( var i = 1; i < 10; i++ )
+{
+    var url = i+'.jpg';
+    var bSuc = UrlExists(url);
+    if( bSuc )
+    {
+        $('.rslides').append('<li><img src="'+url+'" alt=""></li>');
+    }
+}
+    
+      // Slideshow 4
+      $("#slider4").responsiveSlides({
+        auto: false,
+        pager: false,
+        nav: true,
+        speed: 500,
+        namespace: "callbacks"
+      });
+
+    });
+  </script>
+</head>
+<body>
+  <div id="wrapper">
+    <!-- Slideshow 4 -->
+    <div class="callbacks_container">
+      <ul class="rslides" id="slider4">
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
