@@ -297,10 +297,11 @@ document.writeln(formvalue["zt3d_zhanban_2"]);
                     //nav.style.left = ( screenWidth - (1440*screenHeight)/900 )/2 + "px";
                     
                     /* 设置弹出框区域大小 */
+                    // 展板大小是900x660
                     ib.style.height = screenHeight * 0.85 + "px";
-                    ib.style.width =  (1440*screenHeight*0.9)/900 + "px"
-                    ib.style.left = ( screenWidth - (1440*screenHeight*0.9)/900 )/2 + "px";
-                    ib.style.top = ( screenHeight - screenHeight * 0.8 )/2 + "px";
+                    ib.style.width =  (900/660)*screenHeight*0.85 + "px"
+                    ib.style.left = ( screenWidth - (900/660)*screenHeight*0.95 )/2 + "px";
+                    ib.style.top = ( screenHeight * 0.15 )/2 + "px";
                      
                     /*调整iframe*/
                     if(ifm){
