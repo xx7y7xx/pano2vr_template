@@ -197,7 +197,7 @@ document.writeln(formvalue["zt3d_zhanban_2"]);
                  if(document.all){  
                     if((sw - vw) < 5 &&  ( vh - sh ) < 36 ){
                         var content = document.getElementById("ex_content"); // flash 显示 div
-                        content.style.position = "absolute";
+                        //content.style.position = "absolute";
                         content.style.width = sw + "px";
                         content.style.height = sh + "px";
                         content.style.left = 0 + "px";
@@ -234,7 +234,7 @@ document.writeln(formvalue["zt3d_zhanban_2"]);
                 // 如果超出1440px宽时，我们就不以屏幕的大小动态的计算宽高了，直接限定一个宽高，不随着屏幕分辨率的增加而增加
                 if(screenWidth > 1440){
                     // flash 显示区域
-                    content.style.position = "absolute";
+                    //content.style.position = "absolute";
                     //chenyang20141204新需求：全屏显示。
                     //content.style.width = 1440 + "px";
                     //content.style.height = 900 + "px";
@@ -281,7 +281,7 @@ document.writeln(formvalue["zt3d_zhanban_2"]);
                 
                 // 如果是宽屏，以高为准，左右留白
                 if(screenWidth > screenHeight){
-                    content.style.position = "absolute";
+                    //content.style.position = "absolute";
                     // 设置flash显示大小
                     content.style.height = screenHeight + "px";
                     //chenyang20141204新需求：全屏显示。
@@ -318,7 +318,7 @@ document.writeln(formvalue["zt3d_zhanban_2"]);
                     
                     
                 }else{ //如果是竖屏，以宽为准，上下留白
-                    content.style.position = "absolute";
+                    //content.style.position = "absolute";
                     // 设置flash显示大小
                     content.style.width = screenWidth + "px";
                     content.style.height = (900*screenWidth)/1440 + "px";
