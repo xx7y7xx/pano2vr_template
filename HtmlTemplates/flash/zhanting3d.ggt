@@ -258,10 +258,10 @@ document.writeln(formvalue["zt3d_zhanban_2"]);
                     //ib.style.height =  900 * 0.85 + "px";
                     //ib.style.left = ( 1440 * 0.15 )/2 + (screenWidth - 1440)/2 + "px";
                     //ib.style.top = ( 900 * 0.2 )/2 + (screenHeight - 900)/2 + "px";
-                    ib.style.width = screenWidth * 0.8 + "px";
-                    ib.style.height =  screenHeight * 0.8 + "px";
-                    ib.style.left = ( screenWidth * 0.2 )/2 + "px";
-                    ib.style.top = ( screenHeight * 0.2 )/2 + "px";
+                    ib.style.height = screenHeight * 0.85 + "px";
+                    ib.style.width =  (900/660)*screenHeight*0.85 + "px"
+                    ib.style.left = ( screenWidth - (900/660)*screenHeight*0.95 )/2 + "px";
+                    ib.style.top = ( screenHeight * 0.15 )/2 + "px";
   
                     /*调整iframe*/
                     if(ifm){
