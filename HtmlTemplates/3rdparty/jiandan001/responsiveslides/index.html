@@ -14,9 +14,13 @@
 
 function UrlExists(url)
 {
-    var http = new XMLHttpRequest();
-    http.open('HEAD', url, false);
-    http.send();
+    try {
+        var http = new XMLHttpRequest();
+        http.open('HEAD', url, false);
+        http.send();
+    } catch (e) {
+        console.log(e);
+    }
     return http.status!=404;
 }
 
