@@ -39,7 +39,9 @@
         form.addLine();
     }
     
+    form.addText("返回按钮");
     form.addCheckBox("pano_back", "是否显示返回按钮", true);
+    form.addLineEdit("pano_back_url", "链接地址", 200, "../index.html");
     form.addLine();
 	
     addTitle('展板列表');
@@ -880,11 +882,18 @@ document.writeln(formvalue["zt3d_zhanban_2"]);
                         document.write("</a></li>\n");
                     }
                     ?>
-                    <li class="submenu" id="go-back" style="position: absolute;right: 0;"><a class="submenulink" target="_self" href="../index.html">
+                    <li class="submenu" id="go-back" style="position: absolute;right: 0;">
                     <?ggs
-                        document.writeEncoded("返回");
-                    ?>
-                    </a></li>
+                        if(formvalue['pano_back_url'] != '')
+                        {
+                            document.write('<a class="submenulink" target="_self" href="');
+                            document.write(formvalue['pano_back_url']);
+                            document.write('">');
+                            document.writeEncoded("返回");
+                            document.write("</a>\n");
+                        }
+                    ?>  
+                    </li>
                 </ul>
             </div>
         </div>
@@ -917,7 +926,6 @@ files = {
         "js/GlobalVar.js",
         "js/HotSpot.js",
         "img/del_but.png",
-        "img/logo.png",
         "source/hot_9999/index.html",
         "source/hot_9999/img/1.jpg"
     ]
