@@ -18,6 +18,11 @@
     form.addLineEdit("pano_html_title", "网页标题", 100, "中国人民大学附属中学3D展览中心");
     form.addLine();
     
+    form.addText("背景音乐");
+    form.addCheckBox("pano_html_background_music", "是否播放背景音乐", true);
+    form.addLineEdit("pano_html_background_music_path", "背景音乐路径", 100, "pano/30385959.mp3");
+    form.addLine();
+    
     addTitle('导航栏');
     
     form.addLineEdit("pano_nav_logo", "Logo", 100, "img/logo.png");
@@ -73,6 +78,13 @@
         <link rel="stylesheet" type="text/css" href="lib/bootstrap-ie6.css">
         <link rel="stylesheet" type="text/css" href="lib/ie.css">
         <link rel="stylesheet" href="css/select.css" type="text/css">
+        
+        <!-- video.js must be in the <head> for older IEs to work. -->
+        <script src="lib/video.js"></script>
+        <script type="text/javascript">
+            videojs.options.flash.swf = "lib/video-js.swf";
+        </script>
+        
         <title><?ggs document.writeEncoded(formvalue["pano_html_title"]); ?></title>
         <style>
             #go-back {
@@ -910,6 +922,14 @@ document.writeln(formvalue["zt3d_zhanban_2"]);
                 <embed height="100%" width="100%"  wmode="Opaque" quality="high" src="pano.swf" />
             </object>
         </div>
+        <?ggs
+        if(formvalue['pano_html_background_music'] != '')
+        {
+            document.write('<video controls="" autoplay="" name="media" style="display: none;">');
+            document.write('<source src="' + formvalue['pano_html_background_music_path'] + '" type="audio/mp3" ></source>')
+            document.write('</video>');
+        }
+        ?>
     </body>
 </html>
 <?ggs
@@ -922,6 +942,12 @@ files = {
         "lib/bootstrap-ie6.css",
         "lib/bootstrap.min.css",
         "lib/ie.css",
+        "lib/video.js",
+        "lib/video-js.min.css",
+        "lib/font/vjs.eot",
+        "lib/font/vjs.svg",
+        "lib/font/vjs.ttf",
+        "lib/font/vjs.woff",
         "js/AC_RunActiveContent.js",
         "js/GlobalVar.js",
         "js/HotSpot.js",
