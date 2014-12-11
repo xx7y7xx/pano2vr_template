@@ -267,9 +267,7 @@ for(idx = 0; idx < 100; idx++)
         document.writeln('<a name="latest_exhi"></a>');
     else
     {
-        document.write('<a name="');
-        document.writeEncoded(navtitle);
-        document.write('"></a>');
+        document.write('<a name="nav'+idx+'"></a>');
     }
         
     document.write("<h2>");
@@ -338,7 +336,9 @@ for(idx = 0; idx < 100; idx++)
 					<li class="cate_li li_a item1">
 						<span></span>
 <?ggs
+    document.write('<a href="#nav'+idx+'">');
     document.writelnEncoded(navtitle);
+    document.write('</a>');
 ?>
 					</li>
 <?ggs
@@ -404,8 +404,9 @@ files = {
         "libs/jquery/js/jquery.placeholder.js",
         "js/list/category.js",
         "js/list/bannar.js",
+        "js/ie6png.js",
         "css/list.css",
-        "js/ie6png.js"
+        "image/cate.gif"
     ]
 };
 for ( fi in files.list )
