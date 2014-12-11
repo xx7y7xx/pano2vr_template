@@ -115,16 +115,16 @@
     {
         var navitem = json.nav[idx];
         
-        addTitle2(navitem["title"]);
+        addTitle2(navitem["title"] + " (导航" + idx + ")");
         
-        form.addLineEdit("zhanguan_nav"+idx+"_title", "Nav" + idx + " Title", 100, navitem["title"]);
+        form.addLineEdit("zhanguan_nav"+idx+"_title", "  标题", 100, navitem["title"]);
         
         for(idx2 in navitem["pano"])
         {
             var panoitem = navitem["pano"][idx2];
-            form.addText("Nav" + idx + " Pano" + idx2);
-            form.addLineEdit("zhanguan_nav" + idx + "_pano" + idx2 + "_thumbnail", "  缩略图", 100, panoitem["thumbnail"]);
-            form.addLineEdit("zhanguan_nav" + idx + "_pano" + idx2 + "_path", "  360展厅地址", 100, panoitem["path"]);
+            form.addText("  第" + idx2 + "个360展厅");
+            form.addLineEdit("zhanguan_nav" + idx + "_pano" + idx2 + "_thumbnail", "    缩略图", 100, panoitem["thumbnail"]);
+            form.addLineEdit("zhanguan_nav" + idx + "_pano" + idx2 + "_path", "    360展厅地址", 100, panoitem["path"]);
         }
     }
 	
