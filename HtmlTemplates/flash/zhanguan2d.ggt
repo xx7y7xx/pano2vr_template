@@ -406,7 +406,8 @@ files = {
         "js/list/bannar.js",
         "js/ie6png.js",
         "css/list.css",
-        "image/cate.gif"
+        "image/cate.gif",
+        "image/search.gif"
     ]
 };
 for ( fi in files.list )
