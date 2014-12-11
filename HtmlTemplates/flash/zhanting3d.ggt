@@ -933,6 +933,7 @@ document.writeln(formvalue["zt3d_zhanban_2"]);
     </body>
 </html>
 <?ggs
+// copy files for index.html
 files = {
     "prefix" : "3rdparty/jiandan001/zhanting3d",
     "list" : [

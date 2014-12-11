@@ -395,3 +395,22 @@ for(idx = 0; idx < 100; idx++)
 </body>
 
 </html>
+<?ggs
+// copy files for index.html
+files = {
+    "prefix" : "3rdparty/jiandan001/zhanguan2d",
+    "list" : [
+        "libs/jquery/jquery.js",
+        "libs/jquery/js/jquery.placeholder.js",
+        "js/list/category.js",
+        "js/list/bannar.js",
+        "css/list.css",
+        "js/ie6png.js"
+    ]
+};
+for ( fi in files.list )
+{
+    var fpath = files.list[fi];
+    document.addfile("../" + files.prefix + "/" + fpath, fpath);
+}
+?>
