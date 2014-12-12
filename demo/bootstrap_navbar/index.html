@@ -14,7 +14,28 @@
     <link href="lib/bootstrap_navbar/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="lib/bootstrap_navbar/navbar-fixed-top.css" rel="stylesheet">
+    <!--<link href="lib/bootstrap_navbar/navbar-static-top.css" rel="stylesheet">-->
+    
+    <!-- pano2vr -->
+    <style>
+        .warning {
+            font-weight: bold;
+        }
+    </style>
+    <script type="text/javascript" src="swfobject.js"></script>
+    
+    <!-- user defined style -->
+    <style>
+        .jumbotron, .jumbotron .container {
+            height: 100%;
+            width: 100%;
+            margin: 0px;
+            padding: 0px;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+    </style>
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="lib/bootstrap_navbar/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -29,8 +50,8 @@
 
   <body>
 
-    <!-- Fixed navbar -->
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-static-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -55,20 +76,40 @@
         </div><!--/.nav-collapse -->
       </div>
     </nav>
+    
+    <div class="jumbotron">
+      <div class="container">
+        
+		<script type="text/javascript">
+<!--
+	
+			var flashvars = {};
+			var params = {};
+			params.quality = "high";
+			params.bgcolor = "#ffffff";
+			params.allowscriptaccess = "sameDomain";
+			params.allowfullscreen = "true";
+			params.base=".";
+			var attributes = {};
+			attributes.id = "pano";
+			attributes.name = "pano";
+			attributes.align = "middle";
+			swfobject.embedSWF(
+				"pano.swf", "flashContent", 
+				"100%", "100%", 
+				"9.0.0", "expressInstall.swf", 
+				flashvars, params, attributes);
+//-->
+		</script>
+		<div id="flashContent">
+			<p><a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a></p>
+		</div>
+		<noscript>
+			<p class="warning">请启动Javascript!</p>
+		</noscript>
 
-    <div class="container">
-
-      <!-- Main component for a primary marketing message or call to action -->
-      <div class="jumbotron">
-        <h1>Navbar example</h1>
-        <p>This example is a quick exercise to illustrate how the default, static and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
-        <p>To see the difference between static and fixed top navbars, just scroll.</p>
-        <p>
-          <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>
-        </p>
-      </div>
-
-    </div> <!-- /container -->
+      </div> <!-- /container -->
+    </div> <!-- /jumbotron -->
 
 
     <!-- Bootstrap core JavaScript
