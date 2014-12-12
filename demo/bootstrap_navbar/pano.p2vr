@@ -5,7 +5,7 @@
     <input>
       <patch/>
       <type>auto</type>
-      <filename>//192.168.2.21/share/jiandan001/prj/xjslwch/zongheguanA/zongheguanA.jpg</filename>
+      <filename>pano.jpg</filename>
       <hfov>360</hfov>
     </input>
     <viewingparameter>
