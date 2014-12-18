@@ -98,6 +98,8 @@
     form.addLine();
     form.addLineEdit("zhanguan_html_logo", "Logo", 100, "image/logo.png");
     form.addLine();
+    form.addLineEdit("zhanguan_back_button", "返回按钮URL", 100, "../zhanting/index.html");
+    form.addLine();
     
     addTitle("Banner")
     
@@ -192,7 +194,7 @@
 					<span></span>
 				</a>
 -->
-				<a target="_self" href="/rdfz/jiaofujigouzhanlanguan/index.html" style="position: absolute;right: 172px;">
+				<a target="_self" href="<?ggs document.writeEncoded(formvalue["zhanguan_back_button"]); ?>" style="position: absolute;right: 172px;">
 					<span style="position: relative;left: -14px;"></span>
 					<?ggs document.writelnEncoded("返回大厅"); ?>
 				</a>
