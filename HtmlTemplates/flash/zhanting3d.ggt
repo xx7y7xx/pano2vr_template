@@ -2,6 +2,23 @@
 /*
 	Create the form in the HTML dialog box
 */
+
+    //
+    // 全局变量
+    // 
+    
+    // 展板总数（如果修改，请同步ggs中的展板总数。
+    var zhanban_count = 50;
+    
+    // 如果修改，请同步ggs中的template。
+    var template = [
+        "无",
+        "单张图",
+        "多张图",
+        "360",
+        "视频"
+    ];
+    
     function addTitle(str)
     {
         form.addText("======================================");
@@ -50,15 +67,7 @@
     form.addLine();
 	
     addTitle('展板列表');
-    // 如果修改，请同步ggs中的template。
-    template = [
-        "无",
-        "单张图",
-        "多张图",
-        "360",
-        "视频"
-    ];
-    for(var i = 1 ; i < 30 ; i++)
+    for(var i = 1 ; i < zhanban_count ; i++)
     {
         form.addComboBox("zt3d_zhanban_"+i, "展板"+i, template, 0);
     }
@@ -67,6 +76,24 @@
 	form.addOutputFormat("HTML (.html)","html");
 	form.addOutputFormat("HTML (.htm)","htm");
 	
+?>
+<?ggs
+
+//
+// 全局变量
+//
+
+var template = [
+    false, //"无",
+    "simple_image_temp", //"单张图",
+    "responsiveslides", //"多张图",
+    "fake_360", //"360",
+    "video" //"视频"
+];
+
+// 展板总数（如果修改，请同步ggs中的展板总数。
+var zhanban_count = 50;
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -1028,14 +1055,7 @@ function add_zhanpin(spotid, zpid)
         document.addfile(from, to);
     }
 }
-template = [
-    false, //"无",
-    "simple_image_temp", //"单张图",
-    "responsiveslides", //"多张图",
-    "fake_360", //"360",
-    "video" //"视频"
-];
-for(var i = 1 ; i < 30 ; i++)
+for(var i = 1 ; i < zhanban_count ; i++)
 {
     var zpid = template[formvalue['zt3d_zhanban_'+i]];
     if(zpid)
