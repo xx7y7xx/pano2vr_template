@@ -3,6 +3,13 @@
 	Create the form in the HTML dialog box
 */
 
+/*
+
+手机版素材规范：
+1. pano2vr项目中，选择flash输出格式，立方体面片尺寸设定为1500px（以下）。
+
+*/
+
     //
     // 全局变量
     // 
