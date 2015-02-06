@@ -10,15 +10,12 @@
     // 展板总数（如果修改，请同步ggs中的展板总数。
     var zhanban_count = 50;
     
-    // 如果修改
-    // 1. 请同步ggs中的template变量。
-    // 2. 请同步ggs中的files变量(template file list)。
+    // 如果修改，请同步ggs中的template。
     var template = [
         "无",
         "单张图",
         "多张图",
-        "html-360",
-        "swf-360",
+        "360",
         "视频"
     ];
     
@@ -86,15 +83,11 @@
 // 全局变量
 //
 
-// 如果修改
-// 1. 请同步ggf中的template变量。
-// 2. 请同步ggs中的files变量(template file list)。
 var template = [
     false, //"无",
     "simple_image_temp", //"单张图",
     "responsiveslides", //"多张图",
-    "fake_360", //"html-360",
-    "swf_360", //"swf-360",
+    "fake_360", //"360",
     "video" //"视频"
 ];
 
@@ -998,15 +991,9 @@ for ( fi in files.list )
 }
 ?>
 <?ggs
-// 热点上的展品。
 function add_zhanpin(spotid, zpid)
 {
     var files = {};
-    
-    // 如果修改
-    // 1. 请同步ggf中的template变量。
-    // 1. 请同步ggs中的template变量。
-    
     files.simple_image_temp = [
         "index.html"
     ];
@@ -1058,11 +1045,6 @@ function add_zhanpin(spotid, zpid)
         "libs/video-js/demo.html",
         "libs/video-js/fonts",
         "libs/video-js/video-js.min.css",
-        "index.html"
-    ];
-    files.swf_360 = [
-        "pano.swf",
-        "swfobject.js",
         "index.html"
     ];
     for ( fi in files[zpid] )
