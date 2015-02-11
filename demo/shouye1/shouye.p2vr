@@ -5,7 +5,7 @@
     <input>
       <patch/>
       <type>auto</type>
-      <filename>index.jpg</filename>
+      <filename>_.jpg</filename>
       <hfov>360</hfov>
     </input>
     <viewingparameter>
@@ -37,11 +37,16 @@
           <filename>index.html</filename>
           <template>jiandan001-shouye.ggt</template>
           <values>
+            <value id="anniu1_weizhi_x">289</value>
+            <value id="anniu2_weizhi_x">531</value>
+            <value id="anniu3_weizhi_x">765</value>
+            <value id="anniu_banjing">82</value>
+            <value id="anniu_weizhi_y">693</value>
             <value id="background_file">beijing.jpg</value>
             <value id="html_title">北京101中学</value>
-            <value id="nav1_url">../bayizhongxueshijing360/</value>
-            <value id="nav2_url">../bayiwaijing/</value>
-            <value id="nav3_url">../3Dxiaoyuan/3Dxiaoyuan.exe</value>
+            <value id="nav1_url">http://3d.beijing101.com/360/</value>
+            <value id="nav2_url">../101xuting/</value>
+            <value id="nav3_url">http://3d.beijing101.com/3d/</value>
           </values>
         </html>
         <facequality/>
