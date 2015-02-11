@@ -2,7 +2,9 @@
 /*
 	Create the form in the HTML dialog box
 */
-	form.addLineEdit("html_title", "网页标题", 100, "北京101中学");
+  form.addText("注意：背景图尺寸比例必须是1024x850");
+  form.addLine();
+  form.addLineEdit("html_title", "网页标题", 100, "北京101中学");
   form.addLineEdit("background_file", "背景图片", 100, "beijing.jpg");
   form.addLineEdit("nav1_url", "导航按钮1", 100, "../bayizhongxueshijing360/");
   form.addLineEdit("nav2_url", "导航按钮2", 100, "../bayiwaijing/");
