@@ -9,6 +9,12 @@
   form.addLineEdit("nav1_url", "导航按钮1", 100, "../bayizhongxueshijing360/");
   form.addLineEdit("nav2_url", "导航按钮2", 100, "../bayiwaijing/");
   form.addLineEdit("nav3_url", "导航按钮3 - 下载地址", 100, "../3Dxiaoyuan/3Dxiaoyuan.exe");
+  form.addLineEdit("anniu_banjing", "按钮半径", 100, "66");
+  form.addLineEdit("anniu1_weizhi_x", "按钮1 - x", 100, "525");
+  form.addLineEdit("anniu2_weizhi_x", "按钮2 - x", 100, "690");
+  form.addLineEdit("anniu3_weizhi_x", "按钮3 - x", 100, "855");
+  form.addLineEdit("anniu_weizhi_y", "所有按钮 - y", 100, "740");
+  
 ?>
 
 <body style="background: #CCFFFF;">
@@ -44,8 +50,13 @@ u[o]&&(delete u[o],c?delete n[l]:typeof n.removeAttribute!==i?n.removeAttribute(
         var height = window.innerHeight-20;
         var pw = width/1024;
         var ph = height/850;
-        var a = new Array(525,740,690,740,855,740);
-        var r = 66;
+        var a = new Array(<?ggs document.write(formvalue['anniu1_weizhi_x']); ?>,
+            <?ggs document.write(formvalue['anniu_weizhi_y']); ?>,
+            <?ggs document.write(formvalue['anniu2_weizhi_x']); ?>,
+            <?ggs document.write(formvalue['anniu_weizhi_y']); ?>,
+            <?ggs document.write(formvalue['anniu3_weizhi_x']); ?>,
+            <?ggs document.write(formvalue['anniu_weizhi_y']); ?>);
+        var r = <?ggs document.write(formvalue['anniu_banjing']); ?>;
         //设置外边距
         if(pw > ph){
             var imgWidth = Math.ceil(1024*ph);
@@ -193,8 +204,8 @@ u[o]&&(delete u[o],c?delete n[l]:typeof n.removeAttribute!==i?n.removeAttribute(
                 var wMar = width - Math.ceil(1024*ph);  
                 //console.log(wMar);
                 wMar = Math.ceil(wMar/2);       //图片的左右外边距      
-                var r = Math.ceil(66*ph);       //点击区域的圆的半径
-                var rw = Math.ceil(855*ph);     //圆心的X坐标
+                var r = Math.ceil(<?ggs document.write(formvalue['anniu_banjing']); ?>*ph);       //点击区域的圆的半径
+                var rw = Math.ceil(<?ggs document.write(formvalue['anniu3_weizhi_x']); ?>*ph);     //圆心的X坐标
                 var left = wMar + rw-120;
                 var w = imgWidth-rw;
                 if(w > 120){
@@ -202,24 +213,24 @@ u[o]&&(delete u[o],c?delete n[l]:typeof n.removeAttribute!==i?n.removeAttribute(
                 }else{
                     right = wMar + 20;
                 }                   
-                var top = Math.ceil(740*ph)-130-r;
+                var top = Math.ceil(<?ggs document.write(formvalue['anniu_weizhi_y']); ?>*ph)-130-r;
                 
             }else{
                 var imgHeight = Math.ceil(850*pw);  //此时图片的高度
-                var rh = Math.ceil(740*pw); //圆心的Y坐标
+                var rh = Math.ceil(<?ggs document.write(formvalue['anniu_weizhi_y']); ?>*pw); //圆心的Y坐标
                 var hMar = height - imgHeight;     //上下外边距
                 //console.log(wMar);
                 hMar = Math.ceil(hMar/2);
-                var r = Math.ceil(66*pw);       //点击区域的圆的半径
-                var rw = Math.ceil(855*pw);     //圆心的X坐标
+                var r = Math.ceil(<?ggs document.write(formvalue['anniu_banjing']); ?>*pw);       //点击区域的圆的半径
+                var rw = Math.ceil(<?ggs document.write(formvalue['anniu3_weizhi_x']); ?>*pw);     //圆心的X坐标
                 var w = width - rw ;
                 if(w > 120){
                     right = width - rw - 120;
                 }else{
                     right = 0 ;
                 }
-                var left = Math.ceil(855*pw)-120;
-                var top = Math.ceil(740*pw)-130-r;
+                var left = Math.ceil(<?ggs document.write(formvalue['anniu3_weizhi_x']); ?>*pw)-120;
+                var top = Math.ceil(<?ggs document.write(formvalue['anniu_weizhi_y']); ?>*pw)-130-r;
            
             }
             //console.log(top);
