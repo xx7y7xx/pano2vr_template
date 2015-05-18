@@ -8,7 +8,7 @@
     // 
     
     // 展板总数（如果修改，请同步ggs中的展板总数。
-    var ZHANBAN_COUNT = 50;
+    var ZHANBAN_COUNT = 100;
     
     // 如果修改
     // 1. 请同步ggs中的FILES.zhanpin全局变量(模板依赖的文件列表)，保持数组下标一致。
@@ -94,8 +94,8 @@
 // 全局变量
 //
 
-// 展板总数（如果修改，请同步ggs中的展板总数。
-var ZHANBAN_COUNT = 50;
+// 展板总数（如果修改，请同步ggf中的展板总数。
+var ZHANBAN_COUNT = 100;
 
 //
 // （1）3d展厅依赖的文件列表
