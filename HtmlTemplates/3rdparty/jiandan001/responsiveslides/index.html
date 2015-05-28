@@ -6,6 +6,24 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="lib/responsiveslides.css">
   <link rel="stylesheet" href="demo.css">
+  <style>
+  .infoNum {
+    position: absolute;
+    bottom: 0;
+    z-index: 9999;
+    text-align: center;
+    width: 100%;
+    font-family: Georgia, tahoma;
+  }
+  .curNum {
+    font-size: 30px;
+    color: #379be9;
+  }
+  .tatolNum {
+    font-size: 20px;
+    color: #757575;
+  }
+  </style>
   <script src="lib/jquery.min.js"></script>
   <script src="lib/responsiveslides.min.js"></script>
   <script>
@@ -24,14 +42,17 @@ function UrlExists(url)
     return http.status!=404;
 }
 
-for ( var i = 1; i < 199; i++ )
+var pic_count = 0;
+for ( i = 1; i < 199; i++ )
 {
-    var url = i+'.jpg';
-    var bSuc = UrlExists(url);
-    if( bSuc )
-    {
-        $('.rslides').append('<li><img src="'+url+'" alt=""></li>');
-    }
+  var url = i+'.jpg';
+  if( UrlExists(url) ) pic_count++;
+}
+
+for ( var i = 1; i <= pic_count; i++ )
+{
+  var url = i+'.jpg';
+  $('.rslides').append('<li><div class="infoNum"><span class="curNum">'+i+'</span><span class="tatolNum">/'+pic_count+'</span></div><img src="'+url+'" alt=""></li>');
 }
     
       // Slideshow 4
