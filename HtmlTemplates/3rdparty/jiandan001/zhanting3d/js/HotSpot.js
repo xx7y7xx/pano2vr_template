@@ -98,5 +98,6 @@ var HOTSPOT_JSON_LIST = [
     {"id" : "97" , "ref" : "source/hot_97/index.html"},
     {"id" : "98" , "ref" : "source/hot_98/index.html"},
     {"id" : "99" , "ref" : "source/hot_99/index.html"},
-    {"id" : "9999" , "ref" : "source/hot_9999/index.html"}
+    {"id" : "9999" , "ref" : "source/hot_9999/index.html"},
+	{"id" : "10000" , "ref" : "source/hot_10000/index.html"}
 ];

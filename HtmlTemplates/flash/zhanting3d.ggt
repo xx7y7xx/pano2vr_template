@@ -76,6 +76,10 @@
     form.addCheckBox("pano_back", "是否显示返回按钮", true);
     form.addLineEdit("pano_back_url", "链接地址", 200, "../index.html");
     form.addLine();
+
+    form.addText("联系方式");
+    form.addCheckBox("pano_contact", "是否显示联系方式按钮", false);
+    form.addLine();
 	
     addTitle('展板列表');
     for(var i = 1 ; i < ZHANBAN_COUNT ; i++)
@@ -123,7 +127,9 @@ FILES.zhanting = {
         "js/HotSpot.js",
         "img/del_but.png",
         "source/hot_9999/index.html",
-        "source/hot_9999/img/1.jpg"
+        "source/hot_9999/img/1.jpg",
+        "source/hot_10000/index.html",
+        "source/hot_10000/img/1.jpg"
     ]
 };
 
@@ -242,11 +248,19 @@ FILES.zhanpin[5] = {
         
         <title><?ggs document.writeEncoded(formvalue["pano_html_title"]); ?></title>
         <style>
-            #go-back {
+          #go-back {
+            float: left;
 <?ggs if (formvalue["pano_back"] == "false") {  ?>
-                display: none;
+            display: none;
 <?ggs }  ?>
-            }
+          }
+          #pano-contact {
+            float: left;
+            cursor: pointer;
+<?ggs if (formvalue["pano_contact"] == "false") {  ?>
+            display: none;
+<?ggs }  ?>
+          }
         </style>
         <script type="text/javascript" src="js/GlobalVar.js"></script>
         <script type="text/javascript" src="js/HotSpot.js"></script>
@@ -1049,17 +1063,17 @@ document.writeln(formvalue["zt3d_zhanban_2"]);
                         document.write("</a></li>\n");
                     }
                     ?>
-                    <li class="submenu" id="go-back" style="position: absolute;right: 0;">
-                    <?ggs
-                        if(formvalue['pano_back_url'] != '')
-                        {
-                            document.write('<a class="submenulink" target="_self" href="');
-                            document.write(formvalue['pano_back_url']);
-                            document.write('">');
-                            document.writeEncoded("返回");
-                            document.write("</a>\n");
-                        }
-                    ?>  
+                    <li class="submenu" style="position: absolute;right: 0;">
+                      <a id="pano-contact" class="submenulink" onclick="receiveUrl('10000');">
+                      <?ggs
+                        document.writeEncoded("联系方式");
+                      ?>
+                      </a>
+                      <a id="go-back" class="submenulink" target="_self" href="<?ggs document.write(formvalue['pano_back_url']); ?>">
+                      <?ggs
+                        document.writeEncoded("返回");
+                      ?>
+                      </a>
                     </li>
                 </ul>
             </div>
