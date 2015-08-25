@@ -3,24 +3,25 @@
 	Create the form in the HTML dialog box
 */
 
-    //
-    // 全局变量
-    // 
-    
-    // 展板总数（如果修改，请同步ggs中的展板总数。
-    var ZHANBAN_COUNT = 100;
-    
-    // 如果修改
-    // 1. 请同步ggs中的FILES.zhanpin全局变量(模板依赖的文件列表)，保持数组下标一致。
-	// 2. 添加新的展品模板，请尽量往后追加，而不是替换已有的下标，否则老项目的p2vr文件中都是保存的数组下标，就会出现问题了。
-    var TEMPLATE = [];
-	TEMPLATE[0] = "无";
-	TEMPLATE[1] = "单张图";
-	TEMPLATE[2] = "多张图";
-	TEMPLATE[3] = "360(html)"; // 使用js间隔1s来更换图片，实现的旋转效果。
-	TEMPLATE[4] = "视频";
-	TEMPLATE[5] = "360(swf)"; // 旋转逻辑放在flash中了。
-    // 这里存储的是下拉菜单显示的文字，下拉菜单存储的数值是数组下标
+//
+// 全局变量
+// 
+
+// 展板总数（如果修改，请同步ggs中的展板总数。
+var ZHANBAN_COUNT = 100;
+
+// 如果修改
+// 1. 请同步ggs中的FILES.zhanpin全局变量(模板依赖的文件列表)，保持数组下标一致。
+// 2. 添加新的展品模板，请尽量往后追加，而不是替换已有的下标，否则老项目的p2vr文件中都是保存的数组下标，就会出现问题了。
+var TEMPLATE = [];
+TEMPLATE.push("无");
+TEMPLATE.push("单张图");
+TEMPLATE.push("多张图");
+TEMPLATE.push("多张图（无页码）");
+TEMPLATE.push("360(html)"); // 使用js间隔1s来更换图片，实现的旋转效果。
+TEMPLATE.push("视频");
+TEMPLATE.push("360(swf)"); // 旋转逻辑放在flash中了。
+// 这里存储的是下拉菜单显示的文字，下拉菜单存储的数值是数组下标
     
 	//
 	// 定义函数
@@ -126,6 +127,7 @@ FILES.zhanting = {
         "js/GlobalVar.js",
         "js/HotSpot.js",
         "img/del_but.png",
+        "img/logo.png",
         "source/hot_9999/index.html",
         "source/hot_9999/img/1.jpg",
         "source/hot_10000/index.html",
@@ -144,18 +146,18 @@ FILES.zhanting = {
 FILES.zhanpin = [];
 
 // 无
-FILES.zhanpin[0] = false;
+FILES.zhanpin.push(false);
 
 // 单张图
-FILES.zhanpin[1] = {
+FILES.zhanpin.push({
 	"prefix" : "3rdparty/jiandan001/simple_image_temp",
 	"list" : [
 		"index.html"
 	]
-};
+});
 
 // 多张图
-FILES.zhanpin[2] = {
+FILES.zhanpin.push({
 	"prefix" : "3rdparty/jiandan001/responsiveslides",
 	"list" : [
 		"lib/responsiveslides.css",
@@ -169,10 +171,27 @@ FILES.zhanpin[2] = {
 		"index.html",
 		"demo.css"
 	]
-};
+});
+
+// 多张图（无页码）
+FILES.zhanpin.push({
+	"prefix" : "3rdparty/jiandan001/responsiveslides_wuyema",
+	"list" : [
+		"lib/responsiveslides.css",
+		"lib/responsiveslides.min.js",
+		"lib/jquery.min.js",
+		"lib/responsiveslides.js",
+		"themes/themes.html",
+		"themes/themes.gif",
+		"themes/themes.css",
+		"images/bg.png",
+		"index.html",
+		"demo.css"
+	]
+});
 
 // 360, html版
-FILES.zhanpin[3] = {
+FILES.zhanpin.push({
 	"prefix" : "3rdparty/jiandan001/fake_360",
 	"list" : [
 		"images/bg.jpg",
@@ -185,10 +204,10 @@ FILES.zhanpin[3] = {
 		"libs/jquery.js",
 		"index.html"
     ]
-};
+});
 
 // 视频
-FILES.zhanpin[4] = {
+FILES.zhanpin.push({
 	"prefix" : "3rdparty/jiandan001/video",
 	"list" : [
 		"libs/video-js/video-js.css",
@@ -217,16 +236,16 @@ FILES.zhanpin[4] = {
 		"libs/video-js/video-js.min.css",
 		"index.html"
     ]
-};
+});
 
 // 360，flash版
-FILES.zhanpin[5] = {
+FILES.zhanpin.push({
 	"prefix" : "3rdparty/jiandan001/swf_360",
 	"list" : [
 		"swfobject.js",
 		"index.html"
     ]
-};
+});
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -265,15 +284,6 @@ FILES.zhanpin[5] = {
         <script type="text/javascript" src="js/GlobalVar.js"></script>
         <script type="text/javascript" src="js/HotSpot.js"></script>
         <script type="text/javascript" src="js/AC_RunActiveContent.js"></script>
-
-<!--
-<?ggs
-document.writeln(formvalue["zt3d_zhanban_1"]);
-document.writeln(formvalue["zt3d_zhanban_2"]);
-?>
--->
-     
-        
         <script type="text/javascript">
             
 /**
@@ -1092,7 +1102,7 @@ document.writeln(formvalue["zt3d_zhanban_2"]);
             </object>
         </div>
         <?ggs
-        if(formvalue['pano_html_background_music'] != '')
+        if(formvalue['pano_html_background_music'] == true)
         {
             document.write('<video controls="" autoplay="" name="media" style="display: none;">');
             document.write('<source src="' + formvalue['pano_html_background_music_path'] + '" type="audio/mp3" ></source>')
