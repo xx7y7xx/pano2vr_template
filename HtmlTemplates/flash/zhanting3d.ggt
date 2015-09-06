@@ -4,11 +4,17 @@
 */
 
 //
-// 全局变量
+// 全局变量（如果修改，请同步ggs）
 // 
 
-// 展板总数（如果修改，请同步ggs中的展板总数。
+// 导航栏总数
+var NAV_COUNT = 30;
+
+// 展板总数
 var ZHANBAN_COUNT = 100;
+
+// 导航栏变量名前缀
+var NAV_PREFIX = "pano_nav";
 
 // 如果修改
 // 1. 请同步ggs中的FILES.zhanpin全局变量(模板依赖的文件列表)，保持数组下标一致。
@@ -23,84 +29,91 @@ TEMPLATE.push("视频");
 TEMPLATE.push("360(swf)"); // 旋转逻辑放在flash中了。
 // 这里存储的是下拉菜单显示的文字，下拉菜单存储的数值是数组下标
     
-	//
-	// 定义函数
-	//
+//
+// 定义函数
+//
 	
-    function addTitle(str)
-    {
-        form.addText("======================================");
-        form.addText("             " + str);
-        form.addText("======================================");
-    }
-    function addTitle2(str)
-    {
-        form.addText("-------------------------");
-        form.addText("         " + str);
-        form.addText("-------------------------");
-    }
+function addTitle(str)
+{
+    form.addText("======================================");
+    form.addText("             " + str);
+    form.addText("======================================");
+}
+function addTitle2(str)
+{
+    form.addText("-------------------------");
+    form.addText("         " + str);
+    form.addText("-------------------------");
+}
     
-	//
-	// 开始生成表单
-	//
+//
+// 开始生成表单
+//
 	
-    form.addLineEdit("pano_html_title", "网页标题", 100, "中国人民大学附属中学3D展览中心");
-    form.addLine();
-    
-    form.addText("背景音乐");
-    form.addCheckBox("pano_html_background_music", "是否播放背景音乐", true);
-    form.addLineEdit("pano_html_background_music_path", "背景音乐路径", 100, "pano/30385959.mp3");
-    form.addLine();
-    
-    addTitle('导航栏');
-    
-    form.addLineEdit("pano_nav_logo", "Logo", 100, "img/logo.png");
-    form.addLine();
-    
-    for(var i = 1 ; i < 12 ; i++)
-    {
-        form.addText("导航栏"+i);
-        if(i == 1)
-        {
-            form.addLineEdit("pano_nav"+i+"_title", "链接标题", 100, "中国人民大学附属中学3D展览中心");
-            form.addLineEdit("pano_nav"+i+"_url", "链接地址", 200, "../zhongguorenmindaxuefushuzhongxuesandzhanlanzhongxin/index.html");
-        }
-        else
-        {
-            form.addLineEdit("pano_nav"+i+"_title", "链接标题", 100, "");
-            form.addLineEdit("pano_nav"+i+"_url", "链接地址", 200, "");
-        }
-        form.addLine();
-    }
-    
-    form.addText("返回按钮");
-    form.addCheckBox("pano_back", "是否显示返回按钮", true);
-    form.addLineEdit("pano_back_url", "链接地址", 200, "../index.html");
-    form.addLine();
+form.addLineEdit("pano_html_title", "网页标题", 100, "中国人民大学附属中学3D展览中心");
+form.addLine();
 
-    form.addText("联系方式");
-    form.addCheckBox("pano_contact", "是否显示联系方式按钮", false);
-    form.addLine();
-	
-    addTitle('展板列表');
-    for(var i = 1 ; i < ZHANBAN_COUNT ; i++)
+form.addText("背景音乐");
+form.addCheckBox("pano_html_background_music", "是否播放背景音乐", true);
+form.addLineEdit("pano_html_background_music_path", "背景音乐路径", 100, "pano/30385959.mp3");
+form.addLine();
+
+addTitle('导航栏');
+
+form.addLineEdit(NAV_PREFIX + "_logo", "Logo", 100, "img/logo.png");
+form.addLine();
+
+for(var i = 1 ; i <= NAV_COUNT ; i++)
+{
+  var prefix = NAV_PREFIX + i + "_";
+    form.addText("导航栏"+i);
+    if(i == 1)
     {
-        form.addComboBox("zt3d_zhanban_"+i, "展板"+i, TEMPLATE, 0);
+        form.addLineEdit(prefix + "title", "链接标题", 100, "中国人民大学附属中学3D展览中心");
+        form.addLineEdit(prefix + "url", "链接地址", 200, "../zhongguorenmindaxuefushuzhongxuesandzhanlanzhongxin/index.html");
     }
+    else
+    {
+        form.addLineEdit(prefix + "title", "链接标题", 100, "");
+        form.addLineEdit(prefix + "url", "链接地址", 200, "");
+    }
+    form.addLine();
+}
     
-	// define possible output formats
-	form.addOutputFormat("HTML (.html)","html");
-	form.addOutputFormat("HTML (.htm)","htm");
+form.addText("返回按钮");
+form.addCheckBox("pano_back", "是否显示返回按钮", true);
+form.addLineEdit("pano_back_url", "链接地址", 200, "../index.html");
+form.addLine();
+
+form.addText("联系方式");
+form.addCheckBox("pano_contact", "是否显示联系方式按钮", false);
+form.addLine();
+
+addTitle('展板列表');
+for(var i = 1 ; i < ZHANBAN_COUNT ; i++)
+{
+    form.addComboBox("zt3d_zhanban_"+i, "展板"+i, TEMPLATE, 0);
+}
+    
+// define possible output formats
+form.addOutputFormat("HTML (.html)","html");
+form.addOutputFormat("HTML (.htm)","htm");
 	
 ?>
 <?ggs
 
 //
-// 全局变量
+// 全局变量（如果修改，请同步ggs）
 //
 
-// 展板总数（如果修改，请同步ggf中的展板总数。
+// 导航栏总数
+var NAV_COUNT = 30;
+
+// 展板总数
 var ZHANBAN_COUNT = 100;
+
+// 导航栏变量名前缀
+var NAV_PREFIX = "pano_nav";
 
 //
 // （1）3d展厅依赖的文件列表
@@ -992,85 +1005,17 @@ FILES.zhanpin.push({
                     {
                         document.write('<li><img src="' + formvalue['pano_nav_logo'] + '" style="width:55px;height:30px;margin-top:5px;"></li>');
                     }
-                    if(formvalue['pano_nav1_title'] != '')
-                    {
-                        document.write('<li class="submenu"><a class="submenulink" target="_self" href="');
-                        document.write(formvalue['pano_nav1_url']);
-                        document.write('">');
-                        document.writeEncoded(formvalue['pano_nav1_title']);
-                        document.write("</a></li>\n");
-                    }
-                    if(formvalue['pano_nav2_title'] != '')
-                    {
-                        document.write('<li class="submenu"><a class="submenulink" target="_self" href="');
-                        document.write(formvalue['pano_nav2_url']);
-                        document.write('">');
-                        document.writeEncoded(formvalue['pano_nav2_title']);
-                        document.write("</a></li>\n");
-                    }
-                    if(formvalue['pano_nav3_title'] != '')
-                    {
-                        document.write('<li class="submenu"><a class="submenulink" target="_self" href="');
-                        document.write(formvalue['pano_nav3_url']);
-                        document.write('">');
-                        document.writeEncoded(formvalue['pano_nav3_title']);
-                        document.write("</a></li>\n");
-                    }
-                    if(formvalue['pano_nav4_title'] != '')
-                    {
-                        document.write('<li class="submenu"><a class="submenulink" target="_self" href="');
-                        document.write(formvalue['pano_nav4_url']);
-                        document.write('">');
-                        document.writeEncoded(formvalue['pano_nav4_title']);
-                        document.write("</a></li>\n");
-                    }
-                    if(formvalue['pano_nav5_title'] != '')
-                    {
-                        document.write('<li class="submenu"><a class="submenulink" target="_self" href="');
-                        document.write(formvalue['pano_nav5_url']);
-                        document.write('">');
-                        document.writeEncoded(formvalue['pano_nav5_title']);
-                        document.write("</a></li>\n");
-                    }
-                    if(formvalue['pano_nav6_title'] != '')
-                    {
-                        document.write('<li class="submenu"><a class="submenulink" target="_self" href="');
-                        document.write(formvalue['pano_nav6_url']);
-                        document.write('">');
-                        document.writeEncoded(formvalue['pano_nav6_title']);
-                        document.write("</a></li>\n");
-                    }
-                    if(formvalue['pano_nav7_title'] != '')
-                    {
-                        document.write('<li class="submenu"><a class="submenulink" target="_self" href="');
-                        document.write(formvalue['pano_nav7_url']);
-                        document.write('">');
-                        document.writeEncoded(formvalue['pano_nav7_title']);
-                        document.write("</a></li>\n");
-                    }
-                    if(formvalue['pano_nav8_title'] != '')
-                    {
-                        document.write('<li class="submenu"><a class="submenulink" target="_self" href="');
-                        document.write(formvalue['pano_nav8_url']);
-                        document.write('">');
-                        document.writeEncoded(formvalue['pano_nav8_title']);
-                        document.write("</a></li>\n");
-                    }
-                    if(formvalue['pano_nav9_title'] != '')
-                    {
-                        document.write('<li class="submenu"><a class="submenulink" target="_self" href="');
-                        document.write(formvalue['pano_nav9_url']);
-                        document.write('">');
-                        document.writeEncoded(formvalue['pano_nav9_title']);
-                        document.write("</a></li>\n");
-                    }
-                    if(formvalue['pano_nav10_title'] != '')
-                    {
-                        document.write('<li class="submenu"><a class="submenulink" target="_self" href="');
-                        document.write(formvalue['pano_nav10_url']);
-                        document.write('">');
-                        document.writeEncoded(formvalue['pano_nav10_title']);
-                        document.write("</a></li>\n");
+                    var prefix = "";
+                    for (var i = 1; i <= NAV_COUNT; i++) {
+                      prefix = NAV_PREFIX + i + "_";
+                      if(formvalue[prefix + 'title'] == '') {
+                        continue;
+                      }
+                      document.write('<li class="submenu"><a class="submenulink" target="_self" href="');
+                      document.write(formvalue[prefix + 'url']);
+                      document.write('">');
+                      document.writeEncoded(formvalue[prefix + 'title']);
+                      document.write("</a></li>\n");
                     }
                     ?>
                     <li class="submenu" style="position: absolute;right: 0;">
