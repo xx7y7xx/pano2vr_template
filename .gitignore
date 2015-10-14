@@ -2,3 +2,13 @@ HtmlTemplates/3rdparty/jiandan001/simple_gallery/*
 HtmlTemplates/flash/zp_simple_gallery.ggt
 *.exe
 .~*
+
+# Test project
+test/zhanting3d/img
+test/zhanting3d/js
+test/zhanting3d/css
+test/zhanting3d/lib
+test/zhanting3d/source
+test/zhanting3d/pano.preview.jpg
+test/zhanting3d/pano.swf
+test/zhanting3d/index.html
