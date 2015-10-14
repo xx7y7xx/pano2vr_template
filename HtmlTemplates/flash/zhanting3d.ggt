@@ -305,6 +305,11 @@ $(function() {
       $(value).parent().toggleClass("active");
     }
   });
+
+  // Click region outside of iframe to close iframe window.
+  $("#ex_bg").click(function() {
+    closeIframe();
+  })
 });
 </script>
         <script type="text/javascript">
