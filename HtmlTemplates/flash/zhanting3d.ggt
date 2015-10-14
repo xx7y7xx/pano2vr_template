@@ -60,7 +60,7 @@ form.addLine();
 
 addTitle('导航栏');
 
-form.addLineEdit(NAV_PREFIX + "_logo", "Logo", 100, "img/logo.png");
+form.addText("Logo应该放在 img/logo.png ");
 form.addLine();
 
 for(var i = 1 ; i <= NAV_COUNT ; i++)
@@ -140,7 +140,7 @@ FILES.zhanting = {
         "js/GlobalVar.js",
         "js/HotSpot.js",
         "img/del_but.png",
-        "img/logo.png",
+        "img/caozuozhinan.png",
         "source/hot_9999/index.html",
         "source/hot_9999/img/1.jpg",
         "source/hot_10000/index.html",
@@ -980,8 +980,8 @@ FILES.zhanpin.push({
                 float: right;
                 left:10px;
                 bottom: 5px;
-                width: 60px;
-                height:25px;
+                width: 120px;
+                height:40px;
                 cursor:pointer;
             }
             .navbar-inner {
@@ -993,18 +993,15 @@ FILES.zhanpin.push({
     <body style="text-align: center;">
         <div id="footer">        
             <div id="span1">
-                <p onclick="receiveUrl('9999');" style="color: #4D0BDA;"><?ggs document.writeEncoded("操作指南"); ?></p>
+                <p onclick="receiveUrl('9999');" style="color: #4D0BDA;"><img src="img/caozuozhinan.png"></p>
             </div>                      
         </div>
         <div id="ex_bg" style=" display: none;"> </div>
         <div id="nabar" class="navbar" style="width: 100%; opacity: 1; z-index: 9998;">
             <div class="navbar-inner">
                 <ul class="nav" style="width:100%;">
+                    <li><img src="img/logo.png" style="width:55px;height:30px;margin-top:5px;"></li>
                     <?ggs
-                    if(formvalue['pano_nav_logo'] != '')
-                    {
-                        document.write('<li><img src="' + formvalue['pano_nav_logo'] + '" style="width:55px;height:30px;margin-top:5px;"></li>');
-                    }
                     var prefix = "";
                     for (var i = 1; i <= NAV_COUNT; i++) {
                       prefix = NAV_PREFIX + i + "_";
