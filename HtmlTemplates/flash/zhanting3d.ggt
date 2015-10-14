@@ -60,7 +60,7 @@ form.addLine();
 
 addTitle('导航栏');
 
-form.addText("Logo应该放在 img/logo.png ");
+form.addText('Logo应该放在"img/logo.png"，尺寸必须是55x30。');
 form.addLine();
 
 for(var i = 1 ; i <= NAV_COUNT ; i++)
