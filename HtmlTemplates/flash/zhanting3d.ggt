@@ -297,6 +297,16 @@ FILES.zhanpin.push({
         <script type="text/javascript" src="js/GlobalVar.js"></script>
         <script type="text/javascript" src="js/HotSpot.js"></script>
         <script type="text/javascript" src="js/AC_RunActiveContent.js"></script>
+<script>
+$(function() {
+  // Highlight current page in navbar.
+  $(".submenulink").each(function(key,value) {
+    if (value.href == window.location.href) {
+      $(value).parent().toggleClass("active");
+    }
+  });
+});
+</script>
         <script type="text/javascript">
             
 /**
