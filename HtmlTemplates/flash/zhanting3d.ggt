@@ -49,6 +49,8 @@ function addTitle2(str)
 //
 // 开始生成表单
 //
+
+addTitle('基本信息');
 	
 form.addLineEdit("pano_html_title", "网页标题", 100, "中国人民大学附属中学3D展览中心");
 form.addLine();
@@ -56,6 +58,9 @@ form.addLine();
 form.addText("背景音乐");
 form.addCheckBox("pano_html_background_music", "是否播放背景音乐", true);
 form.addLineEdit("pano_html_background_music_path", "背景音乐路径", 100, "pano/30385959.mp3");
+form.addLine();
+
+form.addLineEdit("pano_html_beian", "备案信息", 100, "京ICP备14058628号");
 form.addLine();
 
 addTitle('导航栏');
@@ -272,6 +277,30 @@ FILES.zhanpin.push({
         <link rel="stylesheet" type="text/css" href="lib/ie.css">
         <link rel="stylesheet" href="css/select.css" type="text/css">
         
+<script>
+/**
+ * Protect window.console method calls, e.g. console is not defined on IE
+ * unless dev tools are open, and IE doesn't define console.debug
+ */
+(function() {
+  if (!window.console) {
+    window.console = {};
+  }
+  // union of Chrome, FF, IE, and Safari console methods
+  var m = [
+    "log", "info", "warn", "error", "debug", "trace", "dir", "group",
+    "groupCollapsed", "groupEnd", "time", "timeEnd", "profile", "profileEnd",
+    "dirxml", "assert", "count", "markTimeline", "timeStamp", "clear"
+  ];
+  // define undefined methods as noops to prevent errors
+  for (var i = 0; i < m.length; i++) {
+    if (!window.console[m[i]]) {
+      window.console[m[i]] = function() {};
+    }    
+  } 
+})();
+</script>
+
         <!-- video.js must be in the <head> for older IEs to work. -->
         <script src="lib/video.js"></script>
         <script type="text/javascript">
@@ -528,7 +557,6 @@ $(function() {
                     if(ifm){
                     ifm.style.height =ib.style.height;
                     ifm.style.width =  ib.style.width; }
-
                    
                     /** 设置foot */
                     foot.style.right = (screenWidth-(1440*screenHeight)/900)/2 + "px";
@@ -1058,15 +1086,16 @@ $(function() {
                 <embed height="100%" width="100%"  wmode="Opaque" quality="high" src="<?ggs document.write(document.encodeUrlUtf8(outputfile)); ?>" />
             </object>
         </div>
-        <?ggs
-        if(formvalue['pano_html_background_music'] == true)
-        {
-            document.write('<video controls="" autoplay="" name="media" style="display: none;">');
-            document.write('<source src="' + formvalue['pano_html_background_music_path'] + '" type="audio/mp3" ></source>')
-            document.write('</video>');
-        }
-        ?>
-    </body>
+  <?ggs
+  if(formvalue['pano_html_background_music'] == true)
+  {
+    document.write('<video controls="" autoplay="" name="media" style="display: none;">');
+    document.write('<source src="' + formvalue['pano_html_background_music_path'] + '" type="audio/mp3" ></source>')
+    document.write('</video>');
+  }
+  ?>
+  <div style="position:absolute;top:94%;left:1%;font-size:15px;font-family:'SimSun';font-weight:normal;color:#FFFFFF;"><p><?ggs document.writeEncoded(formvalue["pano_html_beian"]); ?></p></div>
+</body>
 </html>
 <?ggs
 // 从模板中将3d展厅所依赖的文件复制到项目文件夹中。
