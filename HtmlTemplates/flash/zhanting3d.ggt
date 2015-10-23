@@ -60,7 +60,7 @@ form.addCheckBox("pano_html_background_music", "是否播放背景音乐", true)
 form.addLineEdit("pano_html_background_music_path", "背景音乐路径", 100, "pano/30385959.mp3");
 form.addLine();
 
-form.addLineEdit("pano_html_beian", "备案信息", 100, "京ICP备14058628号");
+form.addLineEdit("pano_html_beian", "备案信息", 100, "");
 form.addLine();
 
 addTitle('导航栏');
