@@ -1087,7 +1087,7 @@ $(function() {
             </object>
         </div>
   <?ggs
-  if(formvalue['pano_html_background_music'] == true)
+  if(formvalue['pano_html_background_music'] == "true")
   {
     document.write('<video controls="" autoplay="" name="media" style="display: none;">');
     document.write('<source src="' + formvalue['pano_html_background_music_path'] + '" type="audio/mp3" ></source>')
