@@ -268,15 +268,38 @@ FILES.zhanpin.push({
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <link href="lib/bootstrap.min.css" rel="stylesheet" type="text/css">
-        <script type="text/javascript" src="lib/jquery.js"></script>
-        <script type="text/javascript" src="lib/bootstrap.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="lib/bootstrap-ie6.css">
-        <link rel="stylesheet" type="text/css" href="lib/ie.css">
-        <link rel="stylesheet" href="css/select.css" type="text/css">
-        
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title><?ggs document.writeEncoded(formvalue["pano_html_title"]); ?></title>
+<link href="lib/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="lib/bootstrap-ie6.css">
+<link rel="stylesheet" type="text/css" href="lib/ie.css">
+<link rel="stylesheet" href="css/select.css" type="text/css">
+
+<style>
+  #go-back {
+    float: left;
+<?ggs if (formvalue["pano_back"] == "false") {  ?>
+      display: none;
+<?ggs }  ?>
+  }
+  #pano-contact {
+    float: left;
+    cursor: pointer;
+<?ggs if (formvalue["pano_contact"] == "false") {  ?>
+      display: none;
+<?ggs }  ?>
+  }
+</style>
+
+<script type="text/javascript" src="lib/jquery.js"></script>
+<script type="text/javascript" src="lib/bootstrap.min.js"></script>
+<!-- video.js must be in the <head> for older IEs to work. -->
+<script src="lib/video.js"></script>
+<script type="text/javascript">
+  videojs.options.flash.swf = "lib/video-js.swf";
+</script>
+
 <script>
 /**
  * Protect window.console method calls, e.g. console is not defined on IE
@@ -301,31 +324,10 @@ FILES.zhanpin.push({
 })();
 </script>
 
-        <!-- video.js must be in the <head> for older IEs to work. -->
-        <script src="lib/video.js"></script>
-        <script type="text/javascript">
-            videojs.options.flash.swf = "lib/video-js.swf";
-        </script>
-        
-        <title><?ggs document.writeEncoded(formvalue["pano_html_title"]); ?></title>
-        <style>
-          #go-back {
-            float: left;
-<?ggs if (formvalue["pano_back"] == "false") {  ?>
-            display: none;
-<?ggs }  ?>
-          }
-          #pano-contact {
-            float: left;
-            cursor: pointer;
-<?ggs if (formvalue["pano_contact"] == "false") {  ?>
-            display: none;
-<?ggs }  ?>
-          }
-        </style>
-        <script type="text/javascript" src="js/GlobalVar.js"></script>
-        <script type="text/javascript" src="js/HotSpot.js"></script>
-        <script type="text/javascript" src="js/AC_RunActiveContent.js"></script>
+<script type="text/javascript" src="js/GlobalVar.js"></script>
+<script type="text/javascript" src="js/HotSpot.js"></script>
+<script type="text/javascript" src="js/AC_RunActiveContent.js"></script>
+
 <script>
 $(function() {
   // Highlight current page in navbar.
@@ -338,33 +340,27 @@ $(function() {
   // Click region outside of iframe to close iframe window.
   $("#ex_bg").click(function() {
     closeIframe();
-  })
+  });
+
+  // Background music switch
+  $(".music-switch").click(function() {
+    var btn = $(this);
+    var music = videojs("background-music");
+    if (btn.hasClass("on")) {
+      btn.removeClass("on");
+      btn.addClass("off");
+      music.pause();
+    } else {
+      btn.removeClass("off");
+      btn.addClass("on");
+      music.play();
+    }
+  });
 });
 </script>
+
         <script type="text/javascript">
             
-/**
- * Protect window.console method calls, e.g. console is not defined on IE
- * unless dev tools are open, and IE doesn't define console.debug
- */
-//http://stackoverflow.com/a/13817235
-(function() {
-  if (!window.console) {
-    window.console = {};
-  }
-  // union of Chrome, FF, IE, and Safari console methods
-  var m = [
-    "log", "info", "warn", "error", "debug", "trace", "dir", "group",
-    "groupCollapsed", "groupEnd", "time", "timeEnd", "profile", "profileEnd",
-    "dirxml", "assert", "count", "markTimeline", "timeStamp", "clear"
-  ];
-  // define undefined methods as noops to prevent errors
-  for (var i = 0; i < m.length; i++) {
-    if (!window.console[m[i]]) {
-      window.console[m[i]] = function() {};
-    }    
-  } 
-})();
             
             var x;//x控制上导航
             var IFRAMENAME = "" ;
@@ -1023,22 +1019,53 @@ $(function() {
                 float: right;
                 left:10px;
                 bottom: 5px;
-                width: 120px;
+                width: 200px;
                 height:40px;
                 cursor:pointer;
             }
             .navbar-inner {
                 margin: 0 auto;
             }
+            .music-switch {
+              width: 40px;
+            }
+            .music-switch .on {
+              background: url(img/music_on.png);
+            }
+            .music-switch .off {
+              background: url(img/music_off.png);
+            }
+
             
-        </style>
-    </head>
-    <body style="text-align: center;">
-        <div id="footer">        
-            <div id="span1">
-                <p onclick="receiveUrl('9999');" style="color: #4D0BDA;"><img src="img/caozuozhinan.png"></p>
-            </div>                      
-        </div>
+
+  /* Tutorial button */
+  .tutorial-btn img {
+    width: 100px;
+  }
+
+  /* Music switch button */
+  .music-switch {
+    width: 100px;
+    height: 100px;
+    float: left;
+  }
+  .music-switch.on {
+    background: url(http://192.168.2.21/art2/jiandan001/pano2vr_template/HtmlTemplates/3rdparty/jiandan001/zhanting3d/img/music_on.png);
+    background-repeat: no-repeat;
+  }
+  .music-switch.off {
+    background: url(http://192.168.2.21/art2/jiandan001/pano2vr_template/HtmlTemplates/3rdparty/jiandan001/zhanting3d/img/music_off.png);
+    background-repeat: no-repeat;
+  }
+</style>
+</head>
+<body style="text-align: center;">
+  <div id="footer">        
+    <div id="span1">
+      <div class="music-switch on"></div>
+      <div class="tutorial-btn" onclick="receiveUrl('9999');" style="color: #4D0BDA;"><img src="img/caozuozhinan.png"></div>
+    </div>                      
+  </div>
         <div id="ex_bg" style=" display: none;"> </div>
         <div id="nabar" class="navbar" style="width: 100%; opacity: 1; z-index: 9998;">
             <div class="navbar-inner">
@@ -1089,7 +1116,7 @@ $(function() {
   <?ggs
   if(formvalue['pano_html_background_music'] == "true")
   {
-    document.write('<video controls="" autoplay="" name="media" style="display: none;">');
+    document.write('<video id="background-music" controls="" autoplay="" name="media" style="display: none;">');
     document.write('<source src="' + formvalue['pano_html_background_music_path'] + '" type="audio/mp3" ></source>')
     document.write('</video>');
   }
