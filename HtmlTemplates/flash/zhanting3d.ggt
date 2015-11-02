@@ -510,12 +510,14 @@ $(function() {
                     ib.style.top = ( screenHeight * 0.15 )/2 + "px";
   
                     /*调整iframe*/
-                    if(ifm){
-                    ifm.style.height =ib.style.height;
-                    ifm.style.width =  ib.style.width;}
+                    if (ifm) {
+                      ifm.style.height =ib.style.height;
+                      ifm.style.width =  ib.style.width;
+                    }
 
                     /** 设置foot */
-                    foot.style.right = (screenWidth-1440)/2 + "px";
+                    // TODO(d3vin.chen@gmail.com): Why not set a fixed value on style property?
+                    //foot.style.right = (screenWidth-1440)/2 + "px";
                     foot.style.bottom = 0 + "px";
                     
                     /** 设置logo */
