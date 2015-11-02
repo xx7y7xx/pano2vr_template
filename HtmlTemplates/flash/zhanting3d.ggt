@@ -146,6 +146,8 @@ FILES.zhanting = {
         "js/HotSpot.js",
         "img/del_but.png",
         "img/caozuozhinan.png",
+        "img/music_on_32x32.png",
+        "img/music_off_32x32.png",
         "source/hot_9999/index.html",
         "source/hot_9999/img/1.jpg",
         "source/hot_10000/index.html",
@@ -1026,40 +1028,36 @@ $(function() {
                 height: 80px;
                 cursor:pointer;
             }
-            .navbar-inner {
-                margin: 0 auto;
-            }
-            .music-switch {
-              width: 40px;
-            }
-            .music-switch .on {
-              background: url(img/music_on.png);
-            }
-            .music-switch .off {
-              background: url(img/music_off.png);
-            }
 
-            
+.navbar-inner {
+    margin: 0 auto;
+}
 
-  /* Tutorial button */
-  .tutorial-btn img {
-    width: 100px;
-  }
+/* Music switch */
 
-  /* Music switch button */
-  .music-switch {
-    width: 100px;
-    height: 100px;
-    float: left;
-  }
-  .music-switch.on {
-    background: url(http://192.168.2.21/art2/jiandan001/pano2vr_template/HtmlTemplates/3rdparty/jiandan001/zhanting3d/img/music_on.png);
-    background-repeat: no-repeat;
-  }
-  .music-switch.off {
-    background: url(http://192.168.2.21/art2/jiandan001/pano2vr_template/HtmlTemplates/3rdparty/jiandan001/zhanting3d/img/music_off.png);
-    background-repeat: no-repeat;
-  }
+/* Music switch button */
+.music-switch {
+  width: 32px;
+  height: 32px;
+  float: left;
+}
+
+.music-switch.on {
+  background: url(img/music_on_32x32.png);
+  background-repeat: no-repeat;
+}
+
+.music-switch.off {
+  background: url(img/music_off_32x32.png);
+  background-repeat: no-repeat;
+}
+
+/* Tutorial button */
+
+.tutorial-btn img {
+  width: 100px;
+}
+
 </style>
 </head>
 <body style="text-align: center;">
