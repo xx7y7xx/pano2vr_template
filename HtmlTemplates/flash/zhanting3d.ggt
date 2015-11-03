@@ -127,32 +127,38 @@ var NAV_PREFIX = "pano_nav";
 FILES = {};
 
 FILES.zhanting = {
-    "prefix" : "3rdparty/jiandan001/zhanting3d",
-    "list" : [
-        "css/select.css",
-        "lib/jquery.js",
-        "lib/bootstrap.min.js",
-        "lib/bootstrap-ie6.css",
-        "lib/bootstrap.min.css",
-        "lib/ie.css",
-        "lib/video.js",
-        "lib/video-js.min.css",
-        "lib/font/vjs.eot",
-        "lib/font/vjs.svg",
-        "lib/font/vjs.ttf",
-        "lib/font/vjs.woff",
-        "js/AC_RunActiveContent.js",
-        "js/GlobalVar.js",
-        "js/HotSpot.js",
-        "img/del_but.png",
-        "img/caozuozhinan.png",
-        "img/music_on_32x32.png",
-        "img/music_off_32x32.png",
-        "source/hot_9999/index.html",
-        "source/hot_9999/img/1.jpg",
-        "source/hot_10000/index.html",
-        "source/hot_10000/img/1.jpg"
-    ]
+  "prefix" : "3rdparty/jiandan001/zhanting3d",
+  "list" : [
+    "css/select.css",
+    "lib/jquery.js",
+    "lib/bootstrap.min.js",
+    "lib/bootstrap-ie6.css",
+    "lib/bootstrap.min.css",
+    "lib/ie.css",
+    "lib/font/vjs.eot",
+    "lib/font/vjs.svg",
+    "lib/font/vjs.ttf",
+    "lib/font/vjs.woff",
+    "js/AC_RunActiveContent.js",
+    "js/GlobalVar.js",
+    "js/HotSpot.js",
+    "img/del_but.png",
+    "img/caozuozhinan.png",
+    "img/music_on_32x32.png",
+    "img/music_off_32x32.png",
+    "source/hot_9999/index.html",
+    "source/hot_9999/img/1.jpg",
+    "source/hot_10000/index.html",
+    "source/hot_10000/img/1.jpg"
+  ],
+  "libs": [
+    "videojs_5.1.0/video.js",
+    "videojs_5.1.0/video-js.min.css",
+    "videojs_5.1.0/font/vjs.eot",
+    "videojs_5.1.0/font/vjs.svg",
+    "videojs_5.1.0/font/vjs.ttf",
+    "videojs_5.1.0/font/vjs.woff",
+  ]
 };
 
 //
@@ -267,6 +273,47 @@ FILES.zhanpin.push({
     ]
 });
 
+/**
+ * Return a timestamp with the format "m/d/yy h:MM:ss TT"
+ * @type {Date}
+ * @from https://gist.github.com/hurjas/2660489
+ */
+function timeStamp() {
+  // Create a date object with the current time
+  var now = new Date();
+
+  // Create an array with the current month, day and time
+  var date = [ now.getMonth() + 1, now.getDate(), now.getFullYear() ];
+
+  // Create an array with the current hour, minute and second
+  var time = [ now.getHours(), now.getMinutes(), now.getSeconds() ];
+
+  // Determine AM or PM suffix based on the hour
+  var suffix = ( time[0] < 12 ) ? "AM" : "PM";
+
+  // Convert hour from military time
+  time[0] = ( time[0] < 12 ) ? time[0] : time[0] - 12;
+
+  // If hour is 0, set it to 12
+  time[0] = time[0] || 12;
+
+  // If seconds and minutes are less than 10, add a zero
+  for ( var i = 1; i < 3; i++ ) {
+    if ( time[i] < 10 ) {
+      time[i] = "0" + time[i];
+    }
+  }
+
+  // Return the formatted string
+  return date.join("/") + " " + time.join(":") + " " + suffix;
+}
+
+// A gloabl variable hold all the log, will dump to file at end of file.
+LOG = "";
+function xlog(msg) {
+  LOG += timeStamp() + " " + msg + "\n";
+}
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -297,9 +344,9 @@ FILES.zhanpin.push({
 <script type="text/javascript" src="lib/jquery.js"></script>
 <script type="text/javascript" src="lib/bootstrap.min.js"></script>
 <!-- video.js must be in the <head> for older IEs to work. -->
-<script src="lib/video.js"></script>
+<script src="lib/videojs_5.1.0/video.js"></script>
 <script type="text/javascript">
-  videojs.options.flash.swf = "lib/video-js.swf";
+  videojs.options.flash.swf = "lib/videojs_5.1.0/video-js.swf";
 </script>
 
 <script>
@@ -1126,12 +1173,26 @@ $(function() {
 </body>
 </html>
 <?ggs
-// 从模板中将3d展厅所依赖的文件复制到项目文件夹中。
 
+// 从模板中将3d展厅所依赖的文件复制到项目文件夹中。
+var fpath, from, to;
 for ( fi in FILES.zhanting.list )
 {
-    var fpath = FILES.zhanting.list[fi];
-    document.addfile("../" + FILES.zhanting.prefix + "/" + fpath, fpath);
+  fpath = FILES.zhanting.list[fi];
+  from = "../" + FILES.zhanting.prefix + "/" + fpath;
+  to = fpath;
+  xlog("From: " + from + "; To: " + to);
+  document.addfile(from, to);
+}
+
+xlog("Copy js/css libs for this project.");
+for ( fi in FILES.zhanting.libs )
+{
+  fpath = FILES.zhanting.libs[fi];
+  from = "../3rdparty/jiandan001/libs/" + fpath;
+  to = "lib/" + fpath;
+  xlog("From: " + from + "; To: " + to);
+  document.addfile(from, to);
 }
 
 // 从模板中将展品（hot spot）所依赖的文件复制到项目文件夹中。
@@ -1152,4 +1213,8 @@ for(var i = 1 ; i < ZHANBAN_COUNT ; i++)
         document.addfile(from, to);
     }
 }
+
+// Dump all the log to log file.
+document.createfile("build.log", LOG);
+
 ?>
