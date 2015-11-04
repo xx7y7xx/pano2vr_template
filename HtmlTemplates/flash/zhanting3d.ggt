@@ -55,9 +55,7 @@ addTitle('基本信息');
 form.addLineEdit("pano_html_title", "网页标题", 100, "中国人民大学附属中学3D展览中心");
 form.addLine();
 
-form.addText("背景音乐");
-form.addCheckBox("pano_html_background_music", "是否播放背景音乐", true);
-form.addLineEdit("pano_html_background_music_path", "背景音乐路径", 100, "pano/30385959.mp3");
+form.addLineEdit("pano_html_background_music_path", "背景音乐路径（留空表示没有背景音乐）", 100, "");
 form.addLine();
 
 form.addLineEdit("pano_html_beian", "备案信息", 100, "");
@@ -129,6 +127,7 @@ FILES = {};
 FILES.zhanting = {
   "prefix" : "3rdparty/jiandan001/zhanting3d",
   "list" : [
+    "css/zhanting3d.css",
     "css/select.css",
     "lib/jquery.js",
     "lib/bootstrap.min.js",
@@ -314,6 +313,24 @@ function xlog(msg) {
   LOG += timeStamp() + " " + msg + "\n";
 }
 
+// Enable or disable plugins?
+PLUGIN_MUSIC = formvalue['pano_html_background_music_path'].trim() != "";
+PLUGIN_BEIAN = formvalue['pano_html_beian'].trim() != "";
+
+function print_music_html() {
+  if (!PLUGIN_MUSIC) return;
+  document.write('<video id="background-music" controls="" autoplay="" name="media" style="display: none;">');
+  document.write('<source src="' + formvalue['pano_html_background_music_path'] + '" type="audio/mp3" ></source>')
+  document.write('</video>');
+}
+
+function print_beian_html() {
+  if (!PLUGIN_BEIAN) return;
+  document.write('<div class="beian"><p>');
+  document.writeEncoded(formvalue["pano_html_beian"]);
+  document.write('</p></div>');
+}
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -408,20 +425,20 @@ $(function() {
 });
 </script>
 
-        <script type="text/javascript">
+<script type="text/javascript">
             
             
-            var x;//x控制上导航
-            var IFRAMENAME = "" ;
+  var x;//x控制上导航
+  var IFRAMENAME = "" ;
+  
+  // 屏幕宽高
+  var screenWidth ;
+  var screenHeight ;
+  window.onload = function() {
+    setFlashSize();  
+  }
             
-            // 屏幕宽高
-            var screenWidth ;
-            var screenHeight ;
-            window.onload = function(){
-                 setFlashSize();  
-            }
-            
-            $(document).ready(function(){
+            $(function() {
                 clearTimeout(x);
                 x=setTimeout(hideTopNav,7200000);
                 
@@ -1075,36 +1092,17 @@ $(function() {
                 height: 80px;
                 cursor:pointer;
             }
-
-.navbar-inner {
-    margin: 0 auto;
+</style>
+<link href="css/zhanting3d.css" rel="stylesheet" type="text/css">
+<style>
+<?ggs
+if (!PLUGIN_MUSIC) {
+  document.write('.music-switch { display: none; }');
 }
-
-/* Music switch */
-
-/* Music switch button */
-.music-switch {
-  width: 32px;
-  height: 32px;
-  float: left;
+if (!PLUGIN_BEIAN) {
+  document.write('.beian { display: none; }');
 }
-
-.music-switch.on {
-  background: url(img/music_on_32x32.png);
-  background-repeat: no-repeat;
-}
-
-.music-switch.off {
-  background: url(img/music_off_32x32.png);
-  background-repeat: no-repeat;
-}
-
-/* Tutorial button */
-
-.tutorial-btn img {
-  width: 100px;
-}
-
+?>
 </style>
 </head>
 <body style="text-align: center;">
@@ -1112,7 +1110,7 @@ $(function() {
     <div id="span1">
       <div class="music-switch on"></div>
       <div class="tutorial-btn" onclick="receiveUrl('9999');" style="color: #4D0BDA;"><img src="img/caozuozhinan.png"></div>
-    </div>                      
+    </div>
   </div>
         <div id="ex_bg" style=" display: none;"> </div>
         <div id="nabar" class="navbar" style="width: 100%; opacity: 1; z-index: 9998;">
@@ -1152,24 +1150,17 @@ $(function() {
         <div style="display: none">
             <img id="logoImg" src="img/logo.png" style="position:absolute;left:0px;width:55px;height:30px;margin-top:5px;margin-left:20px;z-index:9998;">
         </div>
-        <div id="iframe_border">
-            <iframe class="innerObj" ></iframe>
-        </div>
-        <div id="ex_content" style="">
-           <object id="flash_obj" height="100%" width="100%">
-                <param value="Opaque" name="wmode"/>
-                <embed height="100%" width="100%"  wmode="Opaque" quality="high" src="<?ggs document.write(document.encodeUrlUtf8(outputfile)); ?>" />
-            </object>
-        </div>
-  <?ggs
-  if(formvalue['pano_html_background_music'] == "true")
-  {
-    document.write('<video id="background-music" controls="" autoplay="" name="media" style="display: none;">');
-    document.write('<source src="' + formvalue['pano_html_background_music_path'] + '" type="audio/mp3" ></source>')
-    document.write('</video>');
-  }
-  ?>
-  <div style="position:absolute;top:94%;left:1%;font-size:15px;font-family:'SimSun';font-weight:normal;color:#FFFFFF;"><p><?ggs document.writeEncoded(formvalue["pano_html_beian"]); ?></p></div>
+  <div id="iframe_border">
+    <iframe class="innerObj" ></iframe>
+  </div>
+  <div id="ex_content" style="">
+    <object id="flash_obj" height="100%" width="100%">
+      <param value="Opaque" name="wmode"/>
+      <embed height="100%" width="100%"  wmode="Opaque" quality="high" src="<?ggs document.write(document.encodeUrlUtf8(outputfile)); ?>" />
+    </object>
+  </div>
+  <?ggs print_music_html(); ?>
+  <?ggs print_beian_html(); ?>
 </body>
 </html>
 <?ggs

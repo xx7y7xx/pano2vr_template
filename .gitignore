@@ -2,6 +2,7 @@ HtmlTemplates/3rdparty/jiandan001/simple_gallery/*
 HtmlTemplates/flash/zp_simple_gallery.ggt
 *.exe
 .~*
+build.log
 
 # Test project
 test/zhanting3d/img

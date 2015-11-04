@@ -1,0 +1,39 @@
+.navbar-inner {
+  margin: 0 auto;
+}
+
+/* Music switch button */
+
+.music-switch {
+  width: 32px;
+  height: 32px;
+  float: left;
+}
+
+.music-switch.on {
+  background: url(../img/music_on_32x32.png);
+  background-repeat: no-repeat;
+}
+
+.music-switch.off {
+  background: url(../img/music_off_32x32.png);
+  background-repeat: no-repeat;
+}
+
+/* Tutorial button */
+
+.tutorial-btn img {
+  width: 100px;
+}
+
+/* ICP beian */
+
+.beian {
+  position: absolute;
+  top: 94%;
+  left: 1%;
+  font-size: 15px;
+  font-family: "SimSun";
+  font-weight: normal;
+  color: #FFFFFF;
+}
