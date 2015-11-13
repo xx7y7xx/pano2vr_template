@@ -263,18 +263,17 @@ for(idx = 0; idx < 100; idx++)
 ?>
 			<div class="floor">
 <?ggs
-    if(navtitle == "热门展厅")
-        document.write('<a name="hot_exhi"></a>');
-    else if(navtitle == "最新展厅")
-        document.write('<a name="latest_exhi"></a>');
-    else
-    {
-        document.write('<a name="');
-        document.writeEncoded(navtitle);
-        document.write('"></a>');
+    if(navtitle == "热门展厅") {
+      document.write('<a name="hot_exhi"></a>');
+    } else if(navtitle == "最新展厅") {
+      document.write('<a name="latest_exhi"></a>');
+    } else {
+      document.write('<a name="');
+      document.writeEncoded(navtitle);
+      document.write('"></a>');
     }
         
-    document.write("<h2>");
+    document.write('<h2 id="section-' + idx + '">');
     document.writeEncoded(navtitle);
     document.write("</h2>");
 ?>
@@ -322,78 +321,48 @@ for(idx = 0; idx < 100; idx++)
 ?>
 		</div><!-- /.glue_right -->
         
-		<div class="glue_left">
-			<div class="category_wrap">
-				<div class="category_head"><?ggs document.writeEncoded("分类展馆"); ?></div>
-				<ul class="cate_list">
+  <div class="glue_left">
+    <div class="category_wrap">
+      <div class="category_head"><?ggs document.writeEncoded("分类展馆"); ?></div>
+      <ul class="cate_list">
 <?ggs
-for(idx = 0; idx < 100; idx++)
-{
-    var navtitle = formvalue['zhanguan_nav'+idx+'_title'];
-    if(!navtitle || navtitle == '')
-        continue;
-    
-    if(navtitle == "热门展厅" || navtitle == "最新展厅")
-        continue;
-    
-?>
-					<li class="cate_li li_a item1">
-						<span></span>
-<?ggs
-    document.writeEncoded(navtitle);
-?>
-					</li>
-<?ggs
+for(idx = 0; idx < 100; idx++) {
+  var navtitle = formvalue['zhanguan_nav'+idx+'_title'];
+  if(!navtitle || navtitle == '')
+    continue;
+  
+  if(navtitle == "热门展厅" || navtitle == "最新展厅")
+    continue;
+  
+  document.writeln('<li class="cate_li li_a item1">');
+  document.writeln('<span class="icon"></span>');
+  document.writeln('<a href="#section-' + idx + '">' + document.encode(navtitle) + '</a>');
+  document.writeln('</li>');
 }
 ?>
-				</ul>
-				<div class="category_detail">
-					<div class="shadow"></div>
-					<div class="category_detail_con">
-						<h3 class="cate_con_title"><?ggs document.writeEncoded("展厅"); ?></h3>
-						<div class="category">
-							<!-- <div class="categoryTwo" >旅游商品</div>
-							<div class="categoryTwo" >纪念品</div>
-							<div class="categoryTwo" >土特产品</div>
-							<div class="categoryTwo" >地方工艺品</div>
-							<div class="categoryTwo" >收藏品</div>
-							<div class="categoryTwo" >用品</div>
-							<div class="categoryTwo" >礼品</div>
-							<div class="categoryTwo" >包装品</div>
-							<div class="categoryTwo" >食品</div>
-							<div class="categoryTwo" >时尚用品</div> 
-							
-							
-							
-							<div class="categoryTwo"><a target='_blank' href="javascript:;">电视产品</a></div>
-							<div class="categoryTwo"><a target='_blank' href="javascript:;">蓝牙产品</a></div>
-							<div class="categoryTwo"><a target='_blank' href="http://3dly.net/diannao/">电脑产品</a></div>
-							<div class="categoryTwo"><a target='_blank' href="javascript:;">音响产品</a></div>
-							
-							<div class="categoryTwo"><a target='_blank' href="http://3dly.net/jiankun/">供暖产品</a></div>
-							<div class="categoryTwo"><a target='_blank' href="http://3dly.net/kangtehuanbao/">空气清新剂</a></div>
-							<div class="categoryTwo"><a target='_blank' href="http://3dly.net/zhilingyun/">电脑周边产品</a></div>
-							<div class="categoryTwo"><a target='_blank' href="http://3dly.net/changhong/">长虹电视产品</a></div>-->
-						</div>
-					</div>
-				</div><!-- end of category_detail -->
-			</div> <!-- end of category_wrap -->
-		</div>	<!-- end of glue_left -->
-	</div><!-- end of glue_content -->
-		
-	<script type="text/javascript">
-	</script>
+      </ul>
+      <div class="category_detail">
+        <div class="shadow"></div>
+        <div class="category_detail_con">
+          <h3 class="cate_con_title"><?ggs document.writeEncoded("展厅"); ?></h3>
+          <div class="category">
+            <!-- <div class="categoryTwo" >旅游商品</div>
+            <div class="categoryTwo" >纪念品</div>
+            <div class="categoryTwo" >土特产品</div>
+            <div class="categoryTwo"><a target='_blank' href="http://3dly.net/zhilingyun/">电脑周边产品</a></div>
+            <div class="categoryTwo"><a target='_blank' href="http://3dly.net/changhong/">长虹电视产品</a></div>-->
+          </div>
+        </div>
+      </div><!-- end of category_detail -->
+    </div> <!-- end of category_wrap -->
+  </div><!-- end of glue_left -->
+</div><!-- end of glue_content -->
 
-	
-	<script type="text/javascript" src="libs/jquery/jquery.js"></script>
-	<script type="text/javascript" src="libs/jquery/js/jquery.placeholder.js"></script>
-	<script type="text/javascript" src="js/list/category.js"></script>
-	<script type="text/javascript" src="js/list/bannar.js"></script>
-	<!--<script type="text/javascript" src="js/list/prolist.js"></script>
-    <script type="text/javascript" src="js/gdata.js"></script>-->
-	<!-- baidu analytics start -->
-    <!--<script type="text/javascript" src="libs/analytics/baiduAnalytics.js"></script>-->
-    <!-- baidu analytics end -->	
+
+<script type="text/javascript" src="libs/jquery/jquery.js"></script>
+<script type="text/javascript" src="libs/jquery/js/jquery.placeholder.js"></script>
+<script type="text/javascript" src="js/list/category.js"></script>
+<script type="text/javascript" src="js/list/bannar.js"></script>
 </body>
 
 </html>
