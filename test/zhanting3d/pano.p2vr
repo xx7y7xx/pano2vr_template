@@ -700,7 +700,8 @@
           <values>
             <value id="pano_back">true</value>
             <value id="pano_back_url">../index.html</value>
-            <value id="pano_contact">false</value>
+            <value id="pano_company_website">http://xuanran001.com</value>
+            <value id="pano_contact_us_image_path">./contact_us.jpg</value>
             <value id="pano_html_background_music_path"></value>
             <value id="pano_html_beian"></value>
             <value id="pano_html_title">第二届新疆丝绸之路文化创意产业博览会3D网展</value>

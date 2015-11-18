@@ -1,0 +1,27 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden ;
+  text-align: center;
+}
+
+#img {
+  width: 100%;
+  height: 100%;
+}
+
+#innerObj {
+  width: 100%;
+  height: 100%;
+}
+
+#website_link {
+  width: 100px;
+  height: 32px;
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  background: url(./img/website_link.png);
+}
