@@ -28,7 +28,7 @@ TEMPLATE.push("360(html)"); // 使用js间隔1s来更换图片，实现的旋转
 TEMPLATE.push("视频");
 TEMPLATE.push("360(swf)"); // 旋转逻辑放在flash中了。
 // 这里存储的是下拉菜单显示的文字，下拉菜单存储的数值是数组下标
-    
+
 //
 // 定义函数
 //
@@ -51,7 +51,7 @@ function addTitle2(str)
 //
 
 addTitle('基本信息');
-	
+
 form.addLineEdit("pano_html_title", "网页标题", 100, "中国人民大学附属中学3D展览中心");
 form.addLine();
 
@@ -101,7 +101,7 @@ for(var i = 1 ; i < ZHANBAN_COUNT ; i++)
 // define possible output formats
 form.addOutputFormat("HTML (.html)","html");
 form.addOutputFormat("HTML (.htm)","htm");
-	
+
 ?>
 <?ggs
 
