@@ -1,0 +1,309 @@
+<?ggf
+/*
+	Create the form in the HTML dialog box
+*/
+	form.addCheckBox("gyro","动作感应控制（陀螺仪）",false);
+	form.addCheckBox("parseanchor","Direct node access",false);
+	form.addLine();
+	form.addCheckBox("swfgeneric","Flash fallback player",false);
+	form.addFileNameInput("swf","Flash fallback file","Flash Panorama","Flash (*.swf)");
+	form.addCheckBox("swffirst","Prefer Flash if available",false);
+	form.addLine();
+	form.addCheckBox("jsxml","Embedded XML",false);
+	form.addFileNameInput("touchicon","iOS Device Webpage Icon","Webpage Icon","Image (*.jpg *.png)");
+	form.addCheckBox("manifest","Create HTML5 Cache Manifest",false);
+	
+	// define possible output formats
+	form.addOutputFormat("HTML (.html)","html");
+	form.addOutputFormat("HTML (.htm)","htm");
+?>
+<?ggs 
+// Functions to write out HTML5 and Flash code
+	function addHtml5Code() {
+?>	
+			// create the panorama player with the container
+			pano=new pano2vrPlayer("container");
+<?ggs if (formvalue["parseanchor"]=="true") {  ?>
+			pano.startNode=startNode;
+<?ggs }  ?>
+<?ggs if (output.skinFile!="") { ?>
+			// add the skin object
+			skin=new pano2vrSkin(pano);
+			// load the configuration
+<?ggs } ?>
+<?ggs
+	if ((formvalue["jsxml"]=="true") && (formvalue["_gg_panorama"])) {
+			panostr=document.encode(formvalue["_gg_panorama"].toString(),true);
+			panostr=panostr.split("'").join("&#39;"); // workaround for .replace
+			panostr=panostr.split("\n").join("';\n\t\t\tpanorama+='");
+?>
+			panorama='<?ggs document.write(panostr); ?>';
+			pano.readConfigString(panorama);
+<?ggs
+	} else {
+?>
+			pano.readConfigUrl("<?ggs document.write(outputfile); ?>");
+<?ggs
+	}
+?>
+			// hide the URL bar on the iPhone
+			hideUrlBar();
+<?ggs if (formvalue["gyro"]=="true") { ?>
+			// add gyroscope controller
+			gyro=new pano2vrGyro(pano,"container");
+<?ggs } ?>
+<?ggs
+	}
+	function addFlashCode() {
+?>
+			var flashvars = {};
+			var params = {};
+			// enable javascript interface
+			//flashvars.externalinterface="1";
+			params.quality = "high";
+			params.bgcolor = "#ffffff";
+			params.allowscriptaccess = "sameDomain";
+			params.allowfullscreen = "true";
+			var attributes = {};
+			attributes.id = "pano";
+			attributes.name = "pano";
+			attributes.align = "middle";
+<?ggs if (formvalue["parseanchor"]=="true") {  ?>
+			if (startNode.length>0) {
+				flashvars.startnode=startNode;
+			}
+<?ggs }  ?>
+<?ggs
+		if (formvalue['swf']!='') {
+			addFileFlashCode();
+		} else {
+			addGenericFlashCode();
+		}
+			
+	}
+	function addFileFlashCode() {
+?>
+			swfobject.embedSWF(
+				"<?ggs 
+					var swffn=document.expandVariables(formvalue['swf']); // replace placeholders
+					swffn=document.expandFilename(swffn); // absolute path
+					swffn=document.relativeOutputFilename(swffn); // relative to HTML file
+					document.write(document.encodeUrl(swffn)); 
+				?>", "container", 
+				"100%", "100%",
+				"9.0.0", "", 
+				flashvars, params, attributes);
+<?ggs
+	}
+	function addGenericFlashCode() {
+?>
+<?ggs
+	document.addfile("../html5/pano2vr_player.swf","pano2vr_player.swf");
+	if (formvalue["_gg_skin"]) {
+			skinstr=formvalue["_gg_skin"].toString();
+			document.createfile('skin.xml',skinstr);
+?>
+			flashvars.skinxml="skin.xml";
+<?ggs
+	}
+?>
+			flashvars.panoxml="<?ggs document.write(outputfile); ?>";
+			params.base="<?ggs document.write(outputbase); ?>";
+			swfobject.embedSWF(
+				"pano2vr_player.swf", "container", 
+				"100%", "100%",
+				"9.0.0", "", 
+				flashvars, params, attributes);
+<?ggs
+	}
+	
+	function writeUserdata(v) 
+	{
+		var s;
+		s=document.expandVariables(v);
+		s=document.encode(v,true);
+		document.write(s);
+	}
+?>
+<!DOCTYPE html>
+<?ggs 
+var manifest;
+if (formvalue["manifest"]=="true") {
+	// create a HTML5 Offline Application Cache
+	manifestfile=document.expandVariables("$n.manifest");
+	d=new Date();
+	manifest="CACHE MANIFEST\n";
+	manifest+="# created with Pano2VR, " + d.toLocaleString() + "\n"; // make sure the file updates
+	for(var key in formvalue["_gg_filelist"]) {
+		manifest+=formvalue["_gg_filelist"][key] + "\n";
+	}
+	document.writeln('<html manifest="' + manifestfile + '">');	
+} else {  ?>
+<html>
+<?ggs }  ?>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<title><?ggs document.write(document.encode(document.removeTags(document.expandVariables(config.userdata.title)))); ?></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<?ggs		
+	if (formvalue["touchicon"]!="") {
+		// absolut path to the file
+		var touchicon=document.expandFilename(formvalue["touchicon"]);
+		// extract just the name part
+		id=touchicon.lastIndexOf('/');
+		touchiconname=touchicon.substring(id+1);
+		document.addfile(touchicon,touchiconname);
+?>
+		<link rel="apple-touch-icon" href="<?ggs document.write(touchiconname); ?>" />
+<?ggs } ?>		
+<?ggs
+	addFlashFallback=(formvalue['swf']!='') || (formvalue["swfgeneric"]=="true");
+	if (addFlashFallback) {
+		document.addfile("../3rdparty/swfobject/swfobject.js","swfobject.js");
+		manifest+="swfobject.js\n";
+		document.writeln('\t\t<script type="text/javascript" src="swfobject.js">');
+		document.writeln('\t\t</script>');
+	}
+	if (output.skinFile!="") {
+			manifest+="skin.js\n";
+	}
+?>
+		<script type="text/javascript">
+			// hide URL field on the iPhone/iPod touch
+			function hideUrlBar() {
+				if (((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)))) {
+					container = document.getElementById("container");
+					if (container) {
+						var cheight;
+					  	switch(window.innerHeight) {
+							case 208:cheight=268; break; // landscape
+						 	case 260:cheight=320; break; // landscape, fullscreen
+						 	case 336:cheight=396; break; // portrait, in call status bar
+							case 356:cheight=416; break; // portrait 
+							case 424:cheight=484; break; // portrait iPhone5, in call status bar
+							case 444:cheight=504; break; // portrait iPhone5 
+						 	default:
+								cheight=window.innerHeight;
+						}
+						if ((cheight) && ((container.offsetHeight!=cheight) || (window.innerHeight!=cheight))) {
+							container.style.height=cheight + "px";
+							setTimeout(function() { hideUrlBar(); }, 1000);
+						}
+					}
+				}
+				document.getElementsByTagName("body")[0].style.marginTop="1px";
+				window.scrollTo(0, 1);
+			}
+			window.addEventListener("load", hideUrlBar);
+			window.addEventListener("resize", hideUrlBar);
+			window.addEventListener("orientationchange", hideUrlBar);
+		</script>
+		<style type="text/css" title="Default">
+			body, div, h1, h2, h3, span, p {
+				font-family: Verdana,Arial,Helvetica,sans-serif;
+			}
+			/* fullscreen */
+			html {
+				height:100%;
+			}
+			body {
+				height:100%;
+				margin: 0px;
+				overflow:hidden; /* disable scrollbars */
+			}
+			body {
+			  font-size: 10pt;
+			  background : #ffffff;
+			}
+			h1 {
+				font-size: 18pt;
+			}
+			h2 {
+				font-size: 14pt;
+			}
+			.warning { 
+				font-weight: bold;
+			} 
+			/* fix for scroll bars on webkit & Mac OS X Lion */ 
+			::-webkit-scrollbar {
+				background-color: rgba(0,0,0,0.5);
+				width: 0.75em;
+			}
+			::-webkit-scrollbar-thumb {
+    			background-color:  rgba(255,255,255,0.5);
+			}
+		</style>	
+	</head>
+	<body>
+		<script type="text/javascript" src="pano2vr_player.js">
+		</script>
+<?ggs if (output.skinFile!="") { ?>
+		<script type="text/javascript" src="skin.js">
+		</script>
+<?ggs } ?>
+<?ggs if (formvalue["gyro"]=="true") { 
+		document.addfile("../common/pano2vrgyro.js","pano2vrgyro.js");
+		manifest+="pano2vrgyro.js\n";
+?>
+		<script type="text/javascript" src="pano2vrgyro.js">
+		</script>
+<?ggs } ?>
+
+		<div id="container" style="width:100%;height:100%;">
+		This content requires HTML5/CSS3, WebGL, or Adobe Flash Player Version 9 or higher.
+		</div>
+		<script type="text/javascript">
+<?ggs if (formvalue["parseanchor"]=="true") {  ?>
+		var startNode=document.location.hash.substring(1);
+
+		if (("onhashchange" in window) && (!(/MSIE (\d+\.\d+);/.test(navigator.userAgent)))) {
+			window.onhashchange = function () {
+				pano.openNext('{' + window.location.hash.substring(1) + '}');
+         	}
+	    } else {
+        	var lastHash = window.location.hash;
+        	window.setInterval(function () {
+	           	if (window.location.hash != lastHash) {
+   	        		lastHash = window.location.hash;
+					pano.openNext('{' + window.location.hash.substring(1) + '}');
+        	   	}
+        	}, 100);
+		}
+<?ggs } ?>	
+<?ggs if (addFlashFallback) { 
+	if (formvalue["swffirst"]=="true") {  
+?>
+		if (swfobject.hasFlashPlayerVersion("9.0.0")) {
+<?ggs addFlashCode(); ?>			
+		} else 
+		// check for CSS3 3D transformations and WebGL
+		if (ggHasHtml5Css3D() || ggHasWebGL()) {
+<?ggs addHtml5Code(); ?>
+<?ggs } else { // swf first ?>
+		// check for CSS3 3D transformations and WebGL
+		if (ggHasHtml5Css3D() || ggHasWebGL()) {
+		// use HTML5 panorama
+<?ggs addHtml5Code(); ?>
+		} else 
+		if (swfobject.hasFlashPlayerVersion("9.0.0")) {
+<?ggs addFlashCode(); ?>
+			
+<?ggs } // swf first  ?>
+		}
+<?ggs } else {
+		addHtml5Code();
+	  }
+?>
+		</script>
+		<noscript>
+			<p><b>Please enable Javascript!</b></p>
+		</noscript>
+<?ggs
+if (formvalue["manifest"]=="true") {
+	document.createfile(manifestfile,manifest);	
+}	
+?>
+	</body>
+</html>
