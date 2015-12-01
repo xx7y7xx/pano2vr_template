@@ -84,7 +84,6 @@ for(var i = 1 ; i <= NAV_COUNT ; i++)
 }
     
 form.addText("返回按钮");
-form.addCheckBox("pano_back", "是否显示返回按钮", true);
 form.addLineEdit("pano_back_url", "链接地址", 200, "../index.html");
 form.addLine();
 
@@ -340,7 +339,7 @@ o.toString()+"());"+a;try{return new Function(b.varname,a)}catch(n){typeof conso
  */
 
 // Enable or disable plugins?
-PLUGIN_GO_BACK_BUTTON = formvalue["pano_back"].trim() != "";
+PLUGIN_GO_BACK_BUTTON = formvalue["pano_back_url"].trim() != "";
 PLUGIN_MUSIC = formvalue['pano_html_background_music_path'].trim() != "";
 PLUGIN_BEIAN = formvalue['pano_html_beian'].trim() != "";
 PLUGIN_CONTACT_US = formvalue['pano_contact_us_image_path'].trim() != "";
