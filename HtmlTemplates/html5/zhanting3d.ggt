@@ -367,18 +367,25 @@ if (formvalue["manifest"]=="true") {
     <!-- Custom styles for this template -->
     <!--<link href="lib/bootstrap_navbar/navbar-static-top.css" rel="stylesheet">-->
     
-    <!-- user defined style -->
-    <style>
-        .jumbotron, .jumbotron .container {
-            height: 100%;
-            width: 100%;
-            margin: 0px;
-            padding: 0px;
-            position: absolute;
-            top: 0px;
-            left: 0px;
-        }
-    </style>
+<!-- user defined style -->
+<style>
+.jumbotron, .jumbotron .container {
+  height: 100%;
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+nav {
+  margin-bottom: 0px;
+}
+#container {
+  position: absolute;
+  top: 0px;
+}
+</style>
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="lib/bootstrap_navbar/ie8-responsive-file-warning.js"></script><![endif]-->
