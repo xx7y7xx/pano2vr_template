@@ -393,9 +393,14 @@ function print_contact_us() {
 <link rel="stylesheet" href="./style.css" type="text/css" />
 </head>
 <body>
-<div id="img"><img id="innerObj" src="../../{{=it.image}}"></div>
+<div id="img">
+  <img id="innerObj" src="../../{{=it.image}}">
+</div>
 {{? it.enable }}
-<a href="{{=it.link}}" target="_blank"><div id="website_link"></div></a>
+<a href="{{=it.link}}" target="_blank">
+  <div class="web-site-btn left"></div>
+  <div class="web-site-btn right"></div>
+</a>
 {{?}}
 </body>
 </html>
