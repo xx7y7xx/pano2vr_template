@@ -30,8 +30,75 @@ TEMPLATE.push("360(swf)"); // 旋转逻辑放在flash中了。
 // 这里存储的是下拉菜单显示的文字，下拉菜单存储的数值是数组下标
 
 //
+// 定义函数
+//
+	
+function addTitle(str)
+{
+    form.addText("======================================");
+    form.addText("             " + str);
+    form.addText("======================================");
+}
+function addTitle2(str)
+{
+    form.addText("-------------------------");
+    form.addText("         " + str);
+    form.addText("-------------------------");
+}
+
+//
 // 开始生成表单
 //
+
+addTitle('基本信息');
+
+form.addLineEdit("pano_html_title", "网页标题", 100, "中国人民大学附属中学3D展览中心");
+form.addLine();
+
+form.addLineEdit("pano_html_background_music_path", "背景音乐路径（留空表示没有背景音乐）", 100, "");
+form.addLine();
+
+form.addLineEdit("pano_html_beian", "备案信息", 100, "");
+form.addLine();
+
+addTitle('导航栏');
+
+form.addText('Logo应该放在"img/logo.png"，尺寸必须是55x30。');
+form.addLine();
+
+for(var i = 1 ; i <= NAV_COUNT ; i++)
+{
+  var prefix = NAV_PREFIX + i + "_";
+    form.addText("导航栏"+i);
+    if(i == 1)
+    {
+        form.addLineEdit(prefix + "title", "链接标题", 100, "中国人民大学附属中学3D展览中心");
+        form.addLineEdit(prefix + "url", "链接地址", 200, "../zhongguorenmindaxuefushuzhongxuesandzhanlanzhongxin/index.html");
+    }
+    else
+    {
+        form.addLineEdit(prefix + "title", "链接标题", 100, "");
+        form.addLineEdit(prefix + "url", "链接地址", 200, "");
+    }
+    form.addLine();
+}
+    
+form.addText("返回按钮");
+form.addLineEdit("pano_back_url", "链接地址", 200, "../index.html");
+form.addLine();
+
+form.addText("联系方式");
+form.addLineEdit("pano_contact_us_image_path", "联系我们（图片）", "");
+form.addLineEdit("pano_company_website", "公司官网（链接）", "");
+form.addLine();
+
+addTitle('展板列表');
+for(var i = 1 ; i < ZHANBAN_COUNT ; i++)
+{
+    form.addComboBox("zt3d_zhanban_"+i, "展板"+i, TEMPLATE, 0);
+}
+
+addTitle('其他信息');
 
 form.addCheckBox("gyro","动作感应控制（陀螺仪）",false);
 form.addCheckBox("parseanchor","Direct node access",false);
@@ -73,13 +140,130 @@ FILES = {};
 FILES.zhanting = {
   "prefix" : "3rdparty/jiandan001/zhanting3d",
   "list" : [
+    "css/zhanting3d.css",
     "lib/bootstrap_navbar/bootstrap.min.css",
     "lib/bootstrap_navbar/ie-emulation-modes-warning.js",
     "lib/bootstrap_navbar/jquery.min.js",
     "lib/bootstrap_navbar/bootstrap.min.js",
-    "lib/bootstrap_navbar/ie10-viewport-bug-workaround.js"
+    "lib/bootstrap_navbar/ie10-viewport-bug-workaround.js",
+    "js/zhanting3d.js",
+    "js/AC_RunActiveContent.js",
+    "js/GlobalVar.js",
+    "js/HotSpot.js"
   ]
 };
+
+//
+// （2）展品（hot spot）依赖的文件列表。
+//
+
+// 如果修改
+// 1. 请同步ggf中的TEMPLATE变量。
+// 3. 数组下标必须和ggf中的TEMPLATE下标保持一致。
+
+FILES.zhanpin = [];
+
+// 无
+FILES.zhanpin.push(false);
+
+// 单张图
+FILES.zhanpin.push({
+	"prefix" : "3rdparty/jiandan001/simple_image_temp",
+	"list" : [
+		"index.html"
+	]
+});
+
+// 多张图
+FILES.zhanpin.push({
+	"prefix" : "3rdparty/jiandan001/responsiveslides",
+	"list" : [
+		"lib/responsiveslides.css",
+		"lib/responsiveslides.min.js",
+		"lib/jquery.min.js",
+		"lib/responsiveslides.js",
+		"themes/themes.html",
+		"themes/themes.gif",
+		"themes/themes.css",
+		"images/bg.png",
+		"index.html",
+		"demo.css"
+	]
+});
+
+// 多张图（无页码）
+FILES.zhanpin.push({
+	"prefix" : "3rdparty/jiandan001/responsiveslides_wuyema",
+	"list" : [
+		"lib/responsiveslides.css",
+		"lib/responsiveslides.min.js",
+		"lib/jquery.min.js",
+		"lib/responsiveslides.js",
+		"themes/themes.html",
+		"themes/themes.gif",
+		"themes/themes.css",
+		"images/bg.png",
+		"index.html",
+		"demo.css"
+	]
+});
+
+// 360, html版
+FILES.zhanpin.push({
+	"prefix" : "3rdparty/jiandan001/fake_360",
+	"list" : [
+		"images/bg.jpg",
+		"images/nextImgBtn.png",
+		"images/prevImgBtn.png",
+		"js/gallery.js",
+		"js/index.js",
+		"js/jquery.easing.1.3.js",
+		"json/data.js",
+		"libs/jquery.js",
+		"index.html"
+    ]
+});
+
+// 视频
+FILES.zhanpin.push({
+	"prefix" : "3rdparty/jiandan001/video",
+	"list" : [
+		"libs/video-js/video-js.css",
+		"libs/video-js/lang/de.js",
+		"libs/video-js/lang/ja.js",
+		"libs/video-js/lang/uk.js",
+		"libs/video-js/lang/es.js",
+		"libs/video-js/lang/nl.js",
+		"libs/video-js/lang/ru.js",
+		"libs/video-js/lang/it.js",
+		"libs/video-js/lang/zh.js",
+		"libs/video-js/lang/ko.js",
+		"libs/video-js/lang/fr.js",
+		"libs/video-js/lang/pt-BR.js",
+		"libs/video-js/video-js.less",
+		"libs/video-js/font/vjs.eot",
+		"libs/video-js/font/vjs.ttf",
+		"libs/video-js/font/vjs.woff",
+		"libs/video-js/font/vjs.svg",
+		"libs/video-js/video.js",
+		"libs/video-js/video.dev.js",
+		"libs/video-js/demo.captions.vtt",
+		"libs/video-js/video-js.swf",
+		"libs/video-js/demo.html",
+		"libs/video-js/fonts",
+		"libs/video-js/video-js.min.css",
+		"index.html"
+    ]
+});
+
+// 360，flash版
+FILES.zhanpin.push({
+	"prefix" : "3rdparty/jiandan001/swf_360",
+	"list" : [
+		"swfobject.js",
+		"index.html"
+    ]
+});
 
 /**
  * Common functions
@@ -141,6 +325,80 @@ r.split,e,f=0,g;a=b.use||b.define?p(b,a,c||{}):a;a=("var out='"+(b.strip?a.repla
 d,k,s){if(!d)return"';} } out+='";f+=1;g=s||"i"+f;d=m(d);return"';var arr"+f+"="+d+";if(arr"+f+"){var "+k+","+g+"=-1,l"+f+"=arr"+f+".length-1;while("+g+"<l"+f+"){"+k+"=arr"+f+"["+g+"+=1];out+='"}).replace(b.evaluate||i,function(h,d){return"';"+m(d)+"out+='"})+"';return out;").replace(/\n/g,"\\n").replace(/\t/g,"\\t").replace(/\r/g,"\\r").replace(/(\s|;|\}|^|\{)out\+='';/g,"$1").replace(/\+''/g,"").replace(/(\s|;|\}|^|\{)out\+=''\+/g,"$1out+=");if(e&&b.selfcontained)a="String.prototype.encodeHTML=("+
 o.toString()+"());"+a;try{return new Function(b.varname,a)}catch(n){typeof console!=="undefined"&&console.log("Could not create a template function: "+a);throw n;}};j.compile=function(a,b){return j.template(a,null,b)}})();
 
+/**
+ * Plugins
+ */
+
+// Enable or disable plugins?
+PLUGIN_GO_BACK_BUTTON = formvalue["pano_back_url"].trim() != "";
+PLUGIN_MUSIC = formvalue['pano_html_background_music_path'].trim() != "";
+PLUGIN_BEIAN = formvalue['pano_html_beian'].trim() != "";
+PLUGIN_CONTACT_US = formvalue['pano_contact_us_image_path'].trim() != "";
+PLUGIN_COMPANY_WEBSITE = formvalue['pano_company_website'].trim() != "";
+
+function print_go_back_button() {
+  if (!PLUGIN_GO_BACK_BUTTON) return;
+  document.write('<li><a href="' + formvalue['pano_back_url'] + '">');
+  document.writeEncoded("返回");
+  document.write('</a></li>');
+}
+
+function print_music_html() {
+  if (!PLUGIN_MUSIC) return;
+  document.write('<video id="background-music" controls="" autoplay="" name="media" style="display: none;">');
+  document.write('<source src="' + formvalue['pano_html_background_music_path'] + '" type="audio/mp3" ></source>')
+  document.write('</video>');
+}
+
+function print_music_switch() {
+  if (!PLUGIN_MUSIC) return;
+  document.write('<div class="music-switch on"></div>');
+}
+
+function print_beian_html() {
+  if (!PLUGIN_BEIAN) return;
+  document.write('<div class="beian"><p>');
+  document.writeEncoded(formvalue["pano_html_beian"]);
+  document.write('</p></div>');
+}
+
+function print_contact_us() {
+  if (!PLUGIN_CONTACT_US) return;
+
+  // Button on main page.
+  document.write('<li><a id="pano-contact" onclick="receiveUrl(10000);">');
+  document.writeEncoded("联系方式");
+  document.write('</a></li>');
+
+  // index page for iframe.
+  var data = {
+    image: formvalue["pano_contact_us_image_path"],
+    link: formvalue["pano_company_website"],
+    enable: PLUGIN_COMPANY_WEBSITE
+  };
+  var src = hereDoc(function() {/*!
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" href="./style.css" type="text/css" />
+</head>
+<body>
+<div id="img">
+  <img id="innerObj" src="../../{{=it.image}}">
+</div>
+{{? it.enable }}
+<a href="{{=it.link}}" target="_blank">
+  <div class="web-site-btn left"></div>
+  <div class="web-site-btn right"></div>
+</a>
+{{?}}
+</body>
+</html>
+*/});
+  var tmpl = doT.template(src);
+  document.createfile("source/hot_10000/index.html", tmpl(data));
+}
 ?>
 <?ggs 
 // Functions to write out HTML5 and Flash code
@@ -397,7 +655,13 @@ nav {
       <script src="lib/bootstrap_navbar/respond.min.js"></script>
     <![endif]-->
 
-	</head>
+<script type="text/javascript" src="js/GlobalVar.js"></script>
+<script type="text/javascript" src="js/HotSpot.js"></script>
+<script type="text/javascript" src="js/AC_RunActiveContent.js"></script>
+<script type="text/javascript" src="js/zhanting3d.js"></script>
+
+<link href="css/zhanting3d.css" rel="stylesheet" type="text/css">
+</head>
 <body>
 		<script type="text/javascript" src="pano2vr_player.js">
 		</script>
@@ -432,16 +696,30 @@ nav {
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">中国人民大学附属中学3D展览中心</a></li>
-        <li><a href="#about">特色教育展览馆</a></li>
-        <li><a href="#contact">教育教学展览馆</a></li>
+<?ggs
+var prefix = "", i;
+for (i = 1; i <= NAV_COUNT; i++) {
+  prefix = NAV_PREFIX + i + "_";
+  if(formvalue[prefix + 'title'] == '') {
+    continue;
+  }
+  //document.write('<li class="active"><a href="');
+  document.write('<li><a href="');
+  document.write(formvalue[prefix + 'url']);
+  document.write('">');
+  document.writeEncoded(formvalue[prefix + 'title']);
+  document.write("</a></li>\n");
+}
+?>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="../">返回</a></li>
+        <?ggs print_contact_us(); ?>
+        <?ggs print_go_back_button(); ?>
       </ul>
     </div><!--/.nav-collapse -->
   </div>
 </nav>
+<?ggs print_beian_html(); ?>
 		<script type="text/javascript">
 <?ggs if (formvalue["parseanchor"]=="true") {  ?>
 		var startNode=document.location.hash.substring(1);
@@ -506,13 +784,42 @@ if (formvalue["manifest"]=="true") {
 
 // 从模板中将3d展厅所依赖的文件复制到项目文件夹中。
 var fpath, from, to;
-for ( fi in FILES.zhanting.list )
-{
+for (fi in FILES.zhanting.list) {
   fpath = FILES.zhanting.list[fi];
   from = "../" + FILES.zhanting.prefix + "/" + fpath;
   to = fpath;
   xlog("From: " + from + "; To: " + to);
   document.addfile(from, to);
 }
+
+xlog("Copy js/css libs for this project.");
+for (fi in FILES.zhanting.libs) {
+  fpath = FILES.zhanting.libs[fi];
+  from = "../3rdparty/jiandan001/libs/" + fpath;
+  to = "lib/" + fpath;
+  xlog("From: " + from + "; To: " + to);
+  document.addfile(from, to);
+}
+
+// 从模板中将展品（hot spot）所依赖的文件复制到项目文件夹中。
+// 遍历form中所有展品，如果展品为“无”则跳过。
+for (var i = 1 ; i < ZHANBAN_COUNT ; i++) {
+    var zpid = formvalue['zt3d_zhanban_'+i];
+    if(!zpid) continue;
+    
+    var zhanpin_obj = FILES.zhanpin[zpid];
+    var zhanpin_file_list = zhanpin_obj["list"];
+    
+    for ( fi in zhanpin_file_list )
+    {
+        var fpath = zhanpin_file_list[fi];
+        var from = "../" + zhanpin_obj["prefix"] + "/" + fpath;
+        var to = "source/hot_" + i + "/" + fpath;
+        document.addfile(from, to);
+    }
+}
+
+// Dump all the log to log file.
+document.createfile("build.log", LOG);
 
 ?>
