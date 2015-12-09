@@ -1,0 +1,169 @@
+<?ggf
+/*
+	Create the form in the HTML dialog box
+*/
+  form.addLineEdit("jd_html_title", "网页标题", 100, "北京八一学校");
+  form.addLineEdit("jd_left_button_link", "zuo bian", 100, "bayizhongxueshijing360");
+  form.addLineEdit("jd_middle_button_link", "zhong jian", 100, "bayiwaijing_1");
+  form.addLineEdit("jd_right_button_link", "you bian", 100, "bayiwaijing");
+  
+  form.addText("shuju/zuo.png");
+  form.addText("shuju/zhong.png");
+  form.addText("shuju/you.png");
+?>
+<?ggs
+
+//
+// （1）3d展厅依赖的文件列表
+//
+
+FILES = {};
+
+FILES.shouye1 = {
+  "prefix" : "3rdparty/jiandan001/shouye1",
+  "list" : [
+  ],
+  "libs": [
+    "jquery-1.10.2.min.js",
+    "console.js"
+  ]
+};
+
+/**
+ * Common functions
+ */
+
+// A gloabl variable hold all the log, will dump to file at end of file.
+LOG = "";
+function xlog(msg) {
+  LOG += timeStamp() + " " + msg + "\n";
+}
+
+/**
+ * Return a timestamp with the format "m/d/yy h:MM:ss TT"
+ * @type {Date}
+ * @from https://gist.github.com/hurjas/2660489
+ */
+function timeStamp() {
+  // Create a date object with the current time
+  var now = new Date();
+
+  // Create an array with the current month, day and time
+  var date = [ now.getMonth() + 1, now.getDate(), now.getFullYear() ];
+
+  // Create an array with the current hour, minute and second
+  var time = [ now.getHours(), now.getMinutes(), now.getSeconds() ];
+
+  // Determine AM or PM suffix based on the hour
+  var suffix = ( time[0] < 12 ) ? "AM" : "PM";
+
+  // Convert hour from military time
+  time[0] = ( time[0] < 12 ) ? time[0] : time[0] - 12;
+
+  // If hour is 0, set it to 12
+  time[0] = time[0] || 12;
+
+  // If seconds and minutes are less than 10, add a zero
+  for ( var i = 1; i < 3; i++ ) {
+    if ( time[i] < 10 ) {
+      time[i] = "0" + time[i];
+    }
+  }
+
+  // Return the formatted string
+  return date.join("/") + " " + time.join(":") + " " + suffix;
+}
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title><?ggs document.writeEncoded(formvalue['jd_html_title']); ?></title>
+<style type="text/css">
+
+/* Apply to all theme */
+
+html, body {
+  margin: 0px auto;
+  width: 100%;
+  height: 100%;
+}
+
+img {
+  border: 0px;
+}
+
+/* Apply to current theme */
+
+body {
+  background: rgb(204, 255, 255);
+  text-align: center;
+}
+
+.bg-wrapper {
+  width: auto;
+  height: 100%;
+}
+.bg-wrapper img {
+  height: 100%;
+}
+
+.outer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: transparent;
+}
+.inner {
+  position: relative;
+  top: 83%;
+  height: 6%;
+  background: transparent;
+}
+.inner img {
+  height: 100%;
+  margin: 0 2%;
+}
+
+button {
+  height: 10%;
+}
+</style>
+</head>
+<body>
+<div class="bg-wrapper">
+  <img src="shuju/beijing.jpg" />
+</div>
+<div class="outer">
+  <div class="inner">
+    <a href="../<?ggs document.write(formvalue['jd_left_button_link']); ?>"><img src="shuju/zuo.png" /></a>
+    <a href="../<?ggs document.write(formvalue['jd_middle_button_link']); ?>"><img src="shuju/zhong.png" /></a>
+    <a href="../<?ggs document.write(formvalue['jd_right_button_link']); ?>"><img src="shuju/you.png" /></a>
+  </div>
+</div>
+</body>
+<script src="moban/jquery-1.10.2.min.js" ></script>
+<script src="moban/console.js" ></script>
+</html>
+<?ggs
+// Copy depent files.
+var fi, fpath, from, to;
+for (fi in FILES.shouye1.list) {
+  fpath = FILES.shouye1.list[fi];
+  from = "../" + FILES.shouye1.prefix + "/" + fpath;
+  to = "moban/" + fpath;
+  xlog("From: " + from + "; To: " + to);
+  document.addfile(from, to);
+}
+
+xlog("Copy js/css libs for this project.");
+for (fi in FILES.shouye1.libs) {
+  fpath = FILES.shouye1.libs[fi];
+  from = "../3rdparty/jiandan001/libs/" + fpath;
+  to = "moban/" + fpath;
+  xlog("From: " + from + "; To: " + to);
+  document.addfile(from, to);
+}
+?>

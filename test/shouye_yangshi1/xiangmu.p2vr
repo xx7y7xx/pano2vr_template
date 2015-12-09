@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- Pano2VR project file  -->
+<pano2vrconfig>
+  <panorama>
+    <input>
+      <patch/>
+      <type>auto</type>
+      <filename>xiangmu.jpg</filename>
+      <hfov>360</hfov>
+    </input>
+    <viewingparameter>
+      <pan>
+        <start>0.5</start>
+        <min>0</min>
+        <max>360</max>
+      </pan>
+      <tilt>
+        <start>0</start>
+        <min>-90</min>
+        <max>90</max>
+      </tilt>
+      <fov>
+        <start>60</start>
+        <min>45</min>
+        <max>75</max>
+      </fov>
+      <pannorth>0</pannorth>
+    </viewingparameter>
+    <userdata>
+      <datetime>2014:12:03 14:08:57</datetime>
+    </userdata>
+    <hotspots/>
+    <output>
+      <thumb>
+        <html>
+          <enabled>1</enabled>
+          <filename>index.html</filename>
+          <template>jiandan001-shouye1.ggt</template>
+          <values>
+            <value id="jd_html_title">北京八一学校</value>
+            <value id="jd_left_button_link">bayizhongxueshijing360</value>
+            <value id="jd_middle_button_link">bayiwaijing_1</value>
+            <value id="jd_right_button_link">bayiwaijing</value>
+          </values>
+        </html>
+        <facequality/>
+        <filename>moban/xiangmu_shuchu.jpg</filename>
+        <backgroundColor>#000000,0</backgroundColor>
+        <nooversampling>1</nooversampling>
+        <type>equirectangular</type>
+        <quality>1</quality>
+        <width>200</width>
+        <height>100</height>
+        <defaultview>1</defaultview>
+        <pan>0.5</pan>
+        <tilt>0</tilt>
+        <roll>0</roll>
+        <fov>60</fov>
+        <cubefacenaming>_5</cubefacenaming>
+        <progressivejpeg>0</progressivejpeg>
+      </thumb>
+    </output>
+    <sounds/>
+  </panorama>
+</pano2vrconfig>
