@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>CIPM</title>
+<style type="text/css">
+html, body {
+    margin: 0px auto;
+    width: 100%;
+    height: 100%;
+}
+img {
+  border: 0px;
+}
+.t, .lm, .cm, .rm, .f {
+    width: 100%;
+}
+.l {
+	display: block;
+	float: left;
+	width: 34.32%;
+}
+/*
+.l a{ background:url(shuju/l.jpg) top left no-repeat; width:659px; height:434px; display:block; float:left}
+.l a:hover{ background:url(shuju/l_h.jpg) top left no-repeat; width:659px; height:434px; display:block; float:left}*/
+.c {
+	display: block;
+	float: left;
+	width: 26.88%;
+}
+/*
+.c a{ background:url(shuju/c.jpg) top left no-repeat; width:516px; height:434px; display:block; float:left}
+.c a:hover{ background:url(shuju/c_h.jpg) top left no-repeat; width:516px; height:434px; display:block; float:left}*/
+.r {
+	display: block;
+	float: left;
+	width: 38.80%;
+}
+/*
+.r a{ background:url(shuju/r.jpg) top left no-repeat; width:745px; height:434px; display:block; float:left}
+.r a:hover{ background:url(shuju/r_h.jpg) top left no-repeat; width:745px; height:434px; display:block; float:left}*/
+</style>
+</head>
+<body>
+<div class="wrap">
+	<div style=""><img class="t" src="shuju/shang.jpg" /></div>
+	<div style="clear:both"></div>
+	<div class="l"><a href="../cape"><img class="lm" src="shuju/l.jpg" /></a></div>
+	<div class="c"><a href="../cape"><img class="cm" src="shuju/c.jpg" /></a></div>
+	<div class="r"><a href="../cape"><img class="rm" src="shuju/r.jpg" /></a></div>
+	<div style="clear:both"></div>
+	<div style=""><img class="f" src="shuju/xia.jpg" /></div>
+</div>
+<!--<div style="position:absolute;top:102%;left:44%;font-size:15px;font-family:'宋体';font-weight:normal;color:#FFFFFF;">
+    <p>京ICP备14058628号</p>
+</div>-->
+</body>
+<script src="moban/jquery-1.10.2.min.js" ></script>
+<script src="moban/console.js" ></script>
+<script>
+var top_image_height = 385;
+var middle_image_height = 434;
+var bottom_image_height = 121;
+// Background image resize ratio.
+var p = 0;
+$(function() {
+    var win_w = document.body.clientWidth - 2;
+    var win_h = document.body.clientHeight - 2;
+    console.log("Window size : " + win_w + "x" + win_h);
+    // Backgroud image is 1920x940
+    var pw = win_w / 1920;
+    var ph = win_h / 940;
+    //设置外边距
+    if (pw <= ph) {
+        console.log("White padding on top/bottom");
+        p = pw;	
+        var pad = Math.ceil((win_w - 1920*p)/2);
+        //$(".wrap").css("padding-left", pad);
+    } else {
+        console.log("White padding on left/right");
+        p = ph;
+        var pad = Math.ceil((win_h - 940*p)/2);
+        //$(".wrap").css("padding-top", pad);			
+    }
+    // Requirement changed, ticket:15554#comment:50
+    p = pw;
+    console.log("Resize ratio: " + p);
+    var top_image_resize_height = Math.ceil(top_image_height * p);
+    var middle_image_resize_height = Math.ceil(middle_image_height * p);
+    var bottom_image_resize_height = Math.ceil(bottom_image_height * p);
+    //$(".wrap").width(Math.ceil(1920*p));
+    //$(".t").attr("width", Math.ceil(1920*p));
+    $(".t").height(top_image_resize_height);
+    //$(".lm").width(Math.ceil($(".lm").width()*p));
+    $(".lm").height(middle_image_resize_height);
+    //$(".cm").width(Math.ceil($(".cm").width()*p));
+    $(".cm").height(middle_image_resize_height);
+    //$(".rm").width(Math.ceil($(".r").width()*p));
+    $(".rm").height(middle_image_resize_height);
+    
+    //$(".f").attr("width",  Math.ceil(1920*p));
+    $(".f").height(bottom_image_resize_height);
+});
+$(window).resize(function() {
+    location.reload(true);
+});
+$(".lm")
+	.mouseover(function(){
+		$(".lm").attr("src","shuju/l_h.jpg");
+	})
+	.mouseout(function(){
+		$(".lm").attr("src","shuju/l.jpg");
+	});
+		
+$(".cm")
+	.mouseover(function(){
+		$(".cm").attr("src","shuju/c_h.jpg");
+	})
+	.mouseout(function(){
+		$(".cm").attr("src","shuju/c.jpg");
+	});
+			
+	
+$(".rm")
+	.mouseover(function(){
+		$(".rm").attr("src","shuju/r_h.jpg");
+	})
+	.mouseout(function(){
+		$(".rm").attr("src","shuju/r.jpg");
+	});	
+			
+</script>
+</html>
