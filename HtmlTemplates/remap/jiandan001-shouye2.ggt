@@ -27,7 +27,6 @@ FILES.shouye2 = {
   "list" : [
   ],
   "libs": [
-    "jquery-1.10.2.min.js",
     "console.js"
   ]
 };
@@ -141,7 +140,7 @@ img {
     <p>京ICP备14058628号</p>
 </div>-->
 </body>
-<script src="moban/jquery-1.10.2.min.js" ></script>
+<script src="//libs.baidu.com/jquery/1.10.2/jquery.min.js" ></script>
 <script src="moban/console.js" ></script>
 <script>
 var top_image_height = 385;
