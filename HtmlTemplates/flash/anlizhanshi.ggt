@@ -151,7 +151,7 @@
 			<div class="logo_wrap">
 				<a class="logo"><img src="<?ggs document.writeEncoded(formvalue["zhanguan_html_logo"]); ?>" /></a>
 			</div>
-			<div class="search_wrap">
+			<div class="search_wrap" style="display: none;">
 				<input type="text" class="search_input" placeholder="<?ggs document.writeEncoded("搜索"); ?>" x-webkit-speech lang="zh-CN" />
 			</div>
 		</div><!-- end of header bar -->
@@ -174,7 +174,7 @@
 	</div>
 
 	<div class="header_bottom">
-		<div class="header_bottom_content">
+		<div class="header_bottom_content" style="display: none;">
 			<div class="header_nav">
 				<a href="index.html" style="border-left:none;">
 					<?ggs document.writeEncoded("首页"); ?>
