@@ -83,8 +83,8 @@ for(var i = 1 ; i <= NAV_COUNT ; i++)
     form.addLine();
 }
     
-form.addText("返回按钮");
-form.addLineEdit("pano_back_url", "链接地址", 200, "../index.html");
+form.addText("返回按钮。可以填写链接“../index.html”，也可以跳转回上一页。");
+form.addLineEdit("pano_back_url", "链接地址", 200, "javascript:window.history.back()");
 form.addLine();
 
 form.addText("联系方式");
