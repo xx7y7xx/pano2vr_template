@@ -103,7 +103,7 @@ html,body{
 
 #nabar{
     position : absolute;
-    right : 10px;
+    /*right : 10px;*/
     z-index : 9999;
     font-family: Microsoft YaHei;
     font-size: 1em;
