@@ -138,7 +138,7 @@ var NAV_PREFIX = "pano_nav";
 FILES = {};
 
 FILES.zhanting = {
-  "prefix" : "3rdparty/jiandan001/zhanting3d",
+  "prefix" : "3rdparty/jiandan001/html5_zhanting3d_ggt",
   "list" : [
     "css/zhanting3d.css",
     "lib/bootstrap_navbar/bootstrap.min.css",
@@ -149,7 +149,8 @@ FILES.zhanting = {
     "js/zhanting3d.js",
     "js/AC_RunActiveContent.js",
     "js/GlobalVar.js",
-    "js/HotSpot.js"
+    "js/HotSpot.js",
+    "img/caozuozhinan.png"
   ]
 };
 
@@ -719,6 +720,14 @@ for (i = 1; i <= NAV_COUNT; i++) {
     </div><!--/.nav-collapse -->
   </div>
 </nav>
+<div id="iframe_border">
+  <iframe class="innerObj" ></iframe>
+</div>
+<div id="footer">        
+  <div id="span1">
+    <div class="tutorial-btn" onclick="receiveUrl(9999);" style="color: #4D0BDA;"><img src="img/caozuozhinan.png"></div>
+  </div>
+</div>
 <?ggs print_beian_html(); ?>
 		<script type="text/javascript">
 <?ggs if (formvalue["parseanchor"]=="true") {  ?>
