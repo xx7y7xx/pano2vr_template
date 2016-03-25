@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<panorama id="">
+  <view fovmode="0" pannorth="0">
+    <start pan="0.5" fov="60" tilt="0"/>
+    <min pan="0" fov="45" tilt="-90"/>
+    <max pan="360" fov="75" tilt="90"/>
+  </view>
+  <userdata title="" datetime="2014:12:03 14:08:57" description="" copyright="" tags="" author="" source="" comment="" info="" longitude="" latitude=""/>
+  <hotspots width="180" height="20" wordwrap="1">
+    <label width="180" backgroundalpha="1" enabled="1" height="20" backgroundcolor="0xffffff" bordercolor="0x000000" border="1" textcolor="0x000000" background="1" borderalpha="1" borderradius="1" wordwrap="1" textalpha="1"/>
+    <polystyle mode="0" backgroundalpha="0.2509803921568627" backgroundcolor="0x0000ff" bordercolor="0x0000ff" borderalpha="1"/>
+    <polyhotspot title="" target="_self" url="javascript:receiveUrl(&quot;1&quot;)" id="Poly01">
+      <vertex pan="-78.6136" tilt="8.79949"/>
+      <vertex pan="-85.3344" tilt="8.86011"/>
+      <vertex pan="-85.914" tilt="-1.36005"/>
+      <vertex pan="-79.0919" tilt="-1.47327"/>
+    </polyhotspot>
+    <polyhotspot title="" target="_self" url="javascript:receiveUrl(&quot;2&quot;)" id="Poly02">
+      <vertex pan="-86.1761" tilt="8.70155"/>
+      <vertex pan="-92.7529" tilt="9.14104"/>
+      <vertex pan="-92.5005" tilt="-0.83638"/>
+      <vertex pan="-86.414" tilt="-1.36005"/>
+    </polyhotspot>
+    <polyhotspot title="" target="_self" url="javascript:receiveUrl(&quot;3&quot;)" id="Poly03">
+      <vertex pan="-93.3008" tilt="8.97688"/>
+      <vertex pan="-99.2618" tilt="8.73514"/>
+      <vertex pan="-99.61" tilt="-2.18468"/>
+      <vertex pan="-93.2277" tilt="-2.15253"/>
+    </polyhotspot>
+    <polyhotspot title="" target="_self" url="javascript:receiveUrl(&quot;4&quot;)" id="Poly04">
+      <vertex pan="-100.395" tilt="8.74756"/>
+      <vertex pan="-107.224" tilt="9.85178"/>
+      <vertex pan="-106.864" tilt="-0.661667"/>
+      <vertex pan="-100.565" tilt="-0.661304"/>
+    </polyhotspot>
+    <polyhotspot title="" target="_self" url="javascript:receiveUrl(&quot;5&quot;)" id="Poly05">
+      <vertex pan="-107.851" tilt="9.52297"/>
+      <vertex pan="-115.262" tilt="10.4236"/>
+      <vertex pan="-115.912" tilt="-0.948802"/>
+      <vertex pan="-108.266" tilt="-1.15847"/>
+    </polyhotspot>
+    <polyhotspot title="" target="_self" url="javascript:receiveUrl(&quot;6&quot;)" id="Poly06">
+      <vertex pan="-116.691" tilt="11.7733"/>
+      <vertex pan="-125.417" tilt="12.3963"/>
+      <vertex pan="-125.974" tilt="-1.4273"/>
+      <vertex pan="-116.83" tilt="-1.87483"/>
+    </polyhotspot>
+    <polyhotspot title="" target="_self" url="javascript:receiveUrl(&quot;7&quot;)" id="Poly07">
+      <vertex pan="-126.66" tilt="11.9889"/>
+      <vertex pan="-136.636" tilt="13.6141"/>
+      <vertex pan="-136.576" tilt="-2.51452"/>
+      <vertex pan="-126.298" tilt="-1.53267"/>
+    </polyhotspot>
+    <polyhotspot title="" target="_self" url="javascript:receiveUrl(&quot;8&quot;)" id="Poly08">
+      <vertex pan="-137.898" tilt="14.5696"/>
+      <vertex pan="-148.234" tilt="16.2768"/>
+      <vertex pan="-148.927" tilt="-1.83787"/>
+      <vertex pan="-137.643" tilt="-2.64195"/>
+    </polyhotspot>
+    <polyhotspot title="" target="_self" url="../zongheguanB/index.html" id="Poly09">
+      <vertex pan="-61.1689" tilt="-5.80499"/>
+      <vertex pan="-75.6629" tilt="-5.43484"/>
+      <vertex pan="-76.3417" tilt="-27.1021"/>
+      <vertex pan="-53.5764" tilt="-18.229"/>
+    </polyhotspot>
+    <polyhotspot title="" target="_self" url="javascript:receiveUrl(&quot;9&quot;)" id="Poly10">
+      <vertex pan="153.729" tilt="13.6414"/>
+      <vertex pan="138.215" tilt="12.1706"/>
+      <vertex pan="137.392" tilt="-0.084952"/>
+      <vertex pan="152.946" tilt="-0.661553"/>
+    </polyhotspot>
+    <polyhotspot title="" target="_self" url="javascript:receiveUrl(&quot;10&quot;)" id="Poly11">
+      <vertex pan="135.941" tilt="13.5309"/>
+      <vertex pan="126.549" tilt="12.9584"/>
+      <vertex pan="126.542" tilt="6.01413"/>
+      <vertex pan="135.843" tilt="6.28589"/>
+    </polyhotspot>
+    <polyhotspot title="" target="_self" url="javascript:receiveUrl(&quot;12&quot;)" id="Poly12">
+      <vertex pan="135.836" tilt="5.7395"/>
+      <vertex pan="127.033" tilt="5.50795"/>
+      <vertex pan="127.355" tilt="-2.51543"/>
+      <vertex pan="137.78" tilt="-1.68821"/>
+    </polyhotspot>
+    <polyhotspot title="" target="_self" url="javascript:receiveUrl(&quot;11&quot;)" id="Poly13">
+      <vertex pan="125.729" tilt="13.0552"/>
+      <vertex pan="118.445" tilt="12.3451"/>
+      <vertex pan="118.074" tilt="5.79251"/>
+      <vertex pan="126.873" tilt="5.85206"/>
+    </polyhotspot>
+    <polyhotspot title="" target="_self" url="javascript:receiveUrl(&quot;13&quot;)" id="Poly14">
+      <vertex pan="126.873" tilt="5.85206"/>
+      <vertex pan="118.504" tilt="5.4883"/>
+      <vertex pan="118.454" tilt="-0.497948"/>
+      <vertex pan="126.886" tilt="-0.710874"/>
+    </polyhotspot>
+    <polyhotspot title="" target="_self" url="javascript:receiveUrl(&quot;14&quot;)" id="Poly15">
+      <vertex pan="116.01" tilt="11.7599"/>
+      <vertex pan="109.538" tilt="10.7841"/>
+      <vertex pan="109.071" tilt="5.52821"/>
+      <vertex pan="116.496" tilt="5.86489"/>
+    </polyhotspot>
+    <polyhotspot title="" target="_self" url="javascript:receiveUrl(&quot;15&quot;)" id="Poly16">
+      <vertex pan="108.889" tilt="10.7519"/>
+      <vertex pan="102.215" tilt="10.0508"/>
+      <vertex pan="102.173" tilt="5.05362"/>
+      <vertex pan="107.914" tilt="5.29376"/>
+    </polyhotspot>
+    <polyhotspot title="" target="_self" url="javascript:receiveUrl(&quot;16&quot;)" id="Poly17">
+      <vertex pan="101.379" tilt="9.66718"/>
+      <vertex pan="96.7882" tilt="9.65557"/>
+      <vertex pan="96.9376" tilt="5.31226"/>
+      <vertex pan="102.77" tilt="5.47833"/>
+    </polyhotspot>
+    <polyhotspot title="" target="_self" url="javascript:receiveUrl(&quot;17&quot;)" id="Poly18">
+      <vertex pan="113.166" tilt="5.90512"/>
+      <vertex pan="106.26" tilt="5.47489"/>
+      <vertex pan="105.843" tilt="-1.01166"/>
+      <vertex pan="113.137" tilt="-1.06242"/>
+    </polyhotspot>
+    <polyhotspot title="" target="_self" url="javascript:receiveUrl(&quot;18&quot;)" id="Poly19">
+      <vertex pan="105.617" tilt="4.94574"/>
+      <vertex pan="98.7494" tilt="4.32296"/>
+      <vertex pan="99.203" tilt="-0.302483"/>
+      <vertex pan="105.083" tilt="-0.491001"/>
+    </polyhotspot>
+    <polyhotspot title="" target="_self" url="javascript:receiveUrl(&quot;19&quot;)" id="Poly20">
+      <vertex pan="94.4428" tilt="9.85723"/>
+      <vertex pan="86.6875" tilt="9.35549"/>
+      <vertex pan="86.4488" tilt="0.0224786"/>
+      <vertex pan="94.8365" tilt="-0.157156"/>
+    </polyhotspot>
+    <polyhotspot title="" target="_self" url="javascript:receiveUrl(&quot;20&quot;)" id="Poly21">
+      <vertex pan="86.0867" tilt="9.46936"/>
+      <vertex pan="79.0613" tilt="9.59152"/>
+      <vertex pan="79.0397" tilt="-0.774622"/>
+      <vertex pan="86.4062" tilt="-1.00393"/>
+    </polyhotspot>
+    <polyhotspot title="" target="_self" url="../shuziwenhuaguan/index.html" id="Poly22">
+      <vertex pan="74.6929" tilt="-6.27242"/>
+      <vertex pan="49.8055" tilt="-5.02397"/>
+      <vertex pan="52.6595" tilt="-26.3632"/>
+      <vertex pan="82.5826" tilt="-24.398"/>
+    </polyhotspot>
+  </hotspots>
+  <media/>
+  <input tile0url="images/pano_o_0.jpg" prev5url="images/pano_o_preview_5.jpg" prev4url="images/pano_o_preview_4.jpg" prev3url="images/pano_o_preview_3.jpg" prev2url="images/pano_o_preview_2.jpg" prev1url="images/pano_o_preview_1.jpg" prev0url="images/pano_o_preview_0.jpg" tile5url="images/pano_o_5.jpg" tilesize="1250" tile4url="images/pano_o_4.jpg" tile3url="images/pano_o_3.jpg" tilescale="1.008000" tile2url="images/pano_o_2.jpg" tile1url="images/pano_o_1.jpg">
+    <preview color="0x808080"/>
+  </input>
+  <control simulatemass="1" lockedmouse="0" lockedkeyboard="0" dblclickfullscreen="0" invertwheel="0" lockedwheel="0" invertcontrol="1" speedwheel="1" sensitivity="8"/>
+</panorama>
