@@ -27,6 +27,7 @@ TEMPLATE.push("多张图（无页码）");
 TEMPLATE.push("360(html)"); // 使用js间隔1s来更换图片，实现的旋转效果。
 TEMPLATE.push("视频");
 TEMPLATE.push("360(swf)"); // 旋转逻辑放在flash中了。
+TEMPLATE.push("图文"); // 旋转逻辑放在flash中了。
 // 这里存储的是下拉菜单显示的文字，下拉菜单存储的数值是数组下标
 
 //
@@ -273,6 +274,14 @@ FILES.zhanpin.push({
 		"swfobject.js",
 		"index.html"
     ]
+});
+
+// 图文
+FILES.zhanpin.push({
+	"prefix" : "3rdparty/jiandan001/tuwen",
+	"list" : [
+		"index.html"
+	]
 });
 
 /**

@@ -692,87 +692,79 @@
       </hotspot>
     </hotspots>
     <output>
-      <htmlcss>
+      <flash>
         <html>
           <enabled>1</enabled>
           <filename>index.html</filename>
           <template>zhanting3d.ggt</template>
           <values>
-            <value id="gyro">false</value>
-            <value id="jsxml">false</value>
-            <value id="manifest">false</value>
-            <value id="pano_back_url">../index.html</value>
-            <value id="pano_company_website"/>
-            <value id="pano_contact_us_image_path"/>
-            <value id="pano_html_background_music_path"/>
-            <value id="pano_html_beian"/>
+            <value id="pano_back_url">javascript:window.history.back()</value>
+            <value id="pano_company_website"></value>
+            <value id="pano_contact_us_image_path"></value>
+            <value id="pano_html_background_music_path"></value>
+            <value id="pano_html_beian"></value>
             <value id="pano_html_title">中国人民大学附属中学3D展览中心</value>
-            <value id="pano_nav10_title"/>
-            <value id="pano_nav10_url"/>
-            <value id="pano_nav11_title"/>
-            <value id="pano_nav11_url"/>
-            <value id="pano_nav12_title"/>
-            <value id="pano_nav12_url"/>
-            <value id="pano_nav13_title"/>
-            <value id="pano_nav13_url"/>
-            <value id="pano_nav14_title"/>
-            <value id="pano_nav14_url"/>
-            <value id="pano_nav15_title"/>
-            <value id="pano_nav15_url"/>
-            <value id="pano_nav16_title"/>
-            <value id="pano_nav16_url"/>
-            <value id="pano_nav17_title"/>
-            <value id="pano_nav17_url"/>
-            <value id="pano_nav18_title"/>
-            <value id="pano_nav18_url"/>
-            <value id="pano_nav19_title"/>
-            <value id="pano_nav19_url"/>
+            <value id="pano_nav10_title"></value>
+            <value id="pano_nav10_url"></value>
+            <value id="pano_nav11_title"></value>
+            <value id="pano_nav11_url"></value>
+            <value id="pano_nav12_title"></value>
+            <value id="pano_nav12_url"></value>
+            <value id="pano_nav13_title"></value>
+            <value id="pano_nav13_url"></value>
+            <value id="pano_nav14_title"></value>
+            <value id="pano_nav14_url"></value>
+            <value id="pano_nav15_title"></value>
+            <value id="pano_nav15_url"></value>
+            <value id="pano_nav16_title"></value>
+            <value id="pano_nav16_url"></value>
+            <value id="pano_nav17_title"></value>
+            <value id="pano_nav17_url"></value>
+            <value id="pano_nav18_title"></value>
+            <value id="pano_nav18_url"></value>
+            <value id="pano_nav19_title"></value>
+            <value id="pano_nav19_url"></value>
             <value id="pano_nav1_title">中国人民大学附属中学3D展览中心</value>
             <value id="pano_nav1_url">../zhongguorenmindaxuefushuzhongxuesandzhanlanzhongxin/index.html</value>
-            <value id="pano_nav20_title"/>
-            <value id="pano_nav20_url"/>
-            <value id="pano_nav21_title"/>
-            <value id="pano_nav21_url"/>
-            <value id="pano_nav22_title"/>
-            <value id="pano_nav22_url"/>
-            <value id="pano_nav23_title"/>
-            <value id="pano_nav23_url"/>
-            <value id="pano_nav24_title"/>
-            <value id="pano_nav24_url"/>
-            <value id="pano_nav25_title"/>
-            <value id="pano_nav25_url"/>
-            <value id="pano_nav26_title"/>
-            <value id="pano_nav26_url"/>
-            <value id="pano_nav27_title"/>
-            <value id="pano_nav27_url"/>
-            <value id="pano_nav28_title"/>
-            <value id="pano_nav28_url"/>
-            <value id="pano_nav29_title"/>
-            <value id="pano_nav29_url"/>
-            <value id="pano_nav2_title"/>
-            <value id="pano_nav2_url"/>
-            <value id="pano_nav30_title"/>
-            <value id="pano_nav30_url"/>
-            <value id="pano_nav3_title"/>
-            <value id="pano_nav3_url"/>
-            <value id="pano_nav4_title"/>
-            <value id="pano_nav4_url"/>
-            <value id="pano_nav5_title"/>
-            <value id="pano_nav5_url"/>
-            <value id="pano_nav6_title"/>
-            <value id="pano_nav6_url"/>
-            <value id="pano_nav7_title"/>
-            <value id="pano_nav7_url"/>
-            <value id="pano_nav8_title"/>
-            <value id="pano_nav8_url"/>
-            <value id="pano_nav9_title"/>
-            <value id="pano_nav9_url"/>
-            <value id="parseanchor">false</value>
-            <value id="swf"/>
-            <value id="swffirst">false</value>
-            <value id="swfgeneric">false</value>
-            <value id="touchicon"/>
-            <value id="zt3d_zhanban_1">0</value>
+            <value id="pano_nav20_title"></value>
+            <value id="pano_nav20_url"></value>
+            <value id="pano_nav21_title"></value>
+            <value id="pano_nav21_url"></value>
+            <value id="pano_nav22_title"></value>
+            <value id="pano_nav22_url"></value>
+            <value id="pano_nav23_title"></value>
+            <value id="pano_nav23_url"></value>
+            <value id="pano_nav24_title"></value>
+            <value id="pano_nav24_url"></value>
+            <value id="pano_nav25_title"></value>
+            <value id="pano_nav25_url"></value>
+            <value id="pano_nav26_title"></value>
+            <value id="pano_nav26_url"></value>
+            <value id="pano_nav27_title"></value>
+            <value id="pano_nav27_url"></value>
+            <value id="pano_nav28_title"></value>
+            <value id="pano_nav28_url"></value>
+            <value id="pano_nav29_title"></value>
+            <value id="pano_nav29_url"></value>
+            <value id="pano_nav2_title"></value>
+            <value id="pano_nav2_url"></value>
+            <value id="pano_nav30_title"></value>
+            <value id="pano_nav30_url"></value>
+            <value id="pano_nav3_title"></value>
+            <value id="pano_nav3_url"></value>
+            <value id="pano_nav4_title"></value>
+            <value id="pano_nav4_url"></value>
+            <value id="pano_nav5_title"></value>
+            <value id="pano_nav5_url"></value>
+            <value id="pano_nav6_title"></value>
+            <value id="pano_nav6_url"></value>
+            <value id="pano_nav7_title"></value>
+            <value id="pano_nav7_url"></value>
+            <value id="pano_nav8_title"></value>
+            <value id="pano_nav8_url"></value>
+            <value id="pano_nav9_title"></value>
+            <value id="pano_nav9_url"></value>
+            <value id="zt3d_zhanban_1">7</value>
             <value id="zt3d_zhanban_10">0</value>
             <value id="zt3d_zhanban_11">0</value>
             <value id="zt3d_zhanban_12">0</value>
@@ -880,9 +872,15 @@
           <delay>5</delay>
           <returntohorizon>0</returntohorizon>
           <afterloaded>0</afterloaded>
+          <onlyinfocus>0</onlyinfocus>
           <nodedelay>0</nodedelay>
           <noderandom>1</noderandom>
         </autorotate>
+        <loading>
+          <text/>
+          <bar/>
+          <image/>
+        </loading>
         <hotspottext>
           <enabled>1</enabled>
           <width>180</width>
@@ -901,38 +899,74 @@
           <backgroundcolor>#0000ff,64</backgroundcolor>
           <bordercolor>#0000ff</bordercolor>
         </hotspotstyle>
-        <filename>index.xml</filename>
-        <tilesize>2000</tilesize>
-        <quality>100</quality>
-        <progressivejpeg>0</progressivejpeg>
+        <cursor>
+          <ownonmovement>1</ownonmovement>
+          <ownondefault>1</ownondefault>
+        </cursor>
+        <lock>
+          <domainenabled>0</domainenabled>
+          <domainmessage>wrong domain</domainmessage>
+          <dateenabled>0</dateenabled>
+          <date>2016-05-18</date>
+          <datemessage>expired</datemessage>
+        </lock>
+        <transition>
+          <enabled>0</enabled>
+          <transitiontype>crossdissolve</transitiontype>
+          <transitioncolor>#000000</transitioncolor>
+          <transitiontime>1</transitiontime>
+          <zoominenabled>1</zoominenabled>
+          <zoomoutenabled>1</zoomoutenabled>
+          <zoomoutwait>1</zoomoutwait>
+          <zoomfov>5</zoomfov>
+          <zoomspeed>2</zoomspeed>
+        </transition>
+        <filename>pano.swf</filename>
+        <quality>90</quality>
+        <subtiles>1</subtiles>
+        <externalimage>0</externalimage>
         <cubefilename>images/$n_o.jpg</cubefilename>
         <cubefacenaming>_5</cubefacenaming>
-        <windowwidth>320</windowwidth>
-        <windowheight>568</windowheight>
+        <windowwidth>640</windowwidth>
+        <windowheight>480</windowheight>
+        <scaling>stage</scaling>
         <fovmode>vertical</fovmode>
+        <framerate>60</framerate>
+        <changestagequality>0</changestagequality>
+        <changesmoothing>0</changesmoothing>
         <sensitivity>8</sensitivity>
         <masssimulation>1</masssimulation>
         <locked>0</locked>
-        <invertcontrol>1</invertcontrol>
-        <dblclickfullscreen>0</dblclickfullscreen>
+        <invertcontrol>0</invertcontrol>
         <lockedwheel>0</lockedwheel>
         <invertwheel>0</invertwheel>
         <speedwheel>1</speedwheel>
+        <trapwheel>1</trapwheel>
         <keyboardlocked>0</keyboardlocked>
+        <keyboardzoomlocked>0</keyboardzoomlocked>
+        <networkaccess>0</networkaccess>
+        <fullscreencontext>0</fullscreencontext>
         <hideaboutbox>0</hideaboutbox>
-        <skinSvgToPng>0</skinSvgToPng>
+        <externalskin>0</externalskin>
         <skinimagepath>images</skinimagepath>
-        <preview>grayscale</preview>
-        <previewresolution>4</previewresolution>
-        <previewcolor>#808080</previewcolor>
         <leveltileenabled>0</leveltileenabled>
         <leveltilesize>512</leveltilesize>
+        <leveltileformat>0</leveltileformat>
         <leveltilefilename>tiles/$n/c%c_l%r_%y_%x.jpg</leveltilefilename>
         <leveltilegeneratefiles>1</leveltilegeneratefiles>
         <leveltileoverlap>1</leveltileoverlap>
+        <levelmemraw>300</levelmemraw>
+        <levelmembmp>200</levelmembmp>
         <levelswitchbias>0.4</levelswitchbias>
+        <levelqueueraw>20</levelqueueraw>
+        <levelqueuebmp>5</levelqueuebmp>
+        <tilesize>1250</tilesize>
+        <previewresolution>4</previewresolution>
+        <preview>grayscale</preview>
+        <previeworder>defaultview</previeworder>
+        <previewcolor>#808080</previewcolor>
         <previewquality>25</previewquality>
-      </htmlcss>
+      </flash>
     </output>
     <sounds/>
   </panorama>
