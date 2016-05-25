@@ -7,14 +7,16 @@
 // 全局变量（如果修改，请同步ggs）
 // 
 
-// 导航栏总数
-var NAV_COUNT = 30;
+// 横向导航栏
+var H_NAV_COUNT = 30; // 总数
+var H_NAV_PREFIX = "pano_nav"; // formvalue id 前缀，为了向前兼容老的项目(*.p2vr)，尽量不要修改这个值。
 
-// 展板总数
-var ZHANBAN_COUNT = 100;
+// 下拉导航栏
+var V_NAV_COUNT = 30; // 总数
+var V_NAV_PREFIX = "pano_v_nav"; // formvalue id 前，为了向前兼容老的项目(*.p2vr)，尽量不要修改这个值。缀
 
-// 导航栏变量名前缀
-var NAV_PREFIX = "pano_nav";
+// 展板
+var ZHANBAN_COUNT = 100; // 总数
 
 // 如果修改
 // 1. 请同步ggs中的FILES.zhanpin全局变量(模板依赖的文件列表)，保持数组下标一致。
@@ -34,14 +36,13 @@ TEMPLATE.push("图文"); // 旋转逻辑放在flash中了。
 // 定义函数
 //
 	
-function addTitle(str)
-{
+function addTitle(str) {
     form.addText("======================================");
     form.addText("             " + str);
     form.addText("======================================");
 }
-function addTitle2(str)
-{
+
+function addTitle2(str) {
     form.addText("-------------------------");
     form.addText("         " + str);
     form.addText("-------------------------");
@@ -62,22 +63,37 @@ form.addLine();
 form.addLineEdit("pano_html_beian", "备案信息", 100, "");
 form.addLine();
 
-addTitle('导航栏');
-
 form.addText('Logo应该放在"img/logo.png"，尺寸必须是55x30。');
 form.addLine();
 
-for(var i = 1 ; i <= NAV_COUNT ; i++)
-{
-  var prefix = NAV_PREFIX + i + "_";
-    form.addText("导航栏"+i);
-    if(i == 1)
-    {
+addTitle('横向导航栏');
+
+form.addCheckBox('pano_h_navbar_show', '是否显示横向导航栏', true);
+
+for(var i = 1 ; i <= H_NAV_COUNT ; i++) {
+  var prefix = H_NAV_PREFIX + i + "_";
+    form.addText("横向导航栏-" + i);
+    if(i == 1) {
         form.addLineEdit(prefix + "title", "链接标题", 100, "中国人民大学附属中学3D展览中心");
         form.addLineEdit(prefix + "url", "链接地址", 200, "../zhongguorenmindaxuefushuzhongxuesandzhanlanzhongxin/index.html");
+    } else {
+        form.addLineEdit(prefix + "title", "链接标题", 100, "");
+        form.addLineEdit(prefix + "url", "链接地址", 200, "");
     }
-    else
-    {
+    form.addLine();
+}
+
+addTitle('下拉导航栏');
+
+form.addCheckBox('pano_v_navbar_show', '是否显示下拉导航栏', true);
+
+for(var i = 1 ; i <= V_NAV_COUNT ; i++) {
+  var prefix = V_NAV_PREFIX + i + "_";
+    form.addText("下拉导航栏-" + i);
+    if(i == 1) {
+        form.addLineEdit(prefix + "title", "链接标题", 100, "中国人民大学附属中学3D展览中心");
+        form.addLineEdit(prefix + "url", "链接地址", 200, "../zhongguorenmindaxuefushuzhongxuesandzhanlanzhongxin/index.html");
+    } else {
         form.addLineEdit(prefix + "title", "链接标题", 100, "");
         form.addLineEdit(prefix + "url", "链接地址", 200, "");
     }
@@ -110,14 +126,16 @@ form.addOutputFormat("HTML (.htm)","htm");
 // 全局变量（如果修改，请同步ggs）
 //
 
-// 导航栏总数
-var NAV_COUNT = 30;
+// 横向导航栏
+var H_NAV_COUNT = 30; // 总数
+var H_NAV_PREFIX = "pano_nav"; // formvalue id 前缀，为了向前兼容老的项目(*.p2vr)，尽量不要修改这个值。
+
+// 下拉导航栏
+var V_NAV_COUNT = 30; // 总数
+var V_NAV_PREFIX = "pano_v_nav"; // formvalue id 前，为了向前兼容老的项目(*.p2vr)，尽量不要修改这个值。缀
 
 // 展板总数
 var ZHANBAN_COUNT = 100;
-
-// 导航栏变量名前缀
-var NAV_PREFIX = "pano_nav";
 
 //
 // （1）3d展厅依赖的文件列表
@@ -354,6 +372,7 @@ PLUGIN_MUSIC = formvalue['pano_html_background_music_path'].trim() != "";
 PLUGIN_BEIAN = formvalue['pano_html_beian'].trim() != "";
 PLUGIN_CONTACT_US = formvalue['pano_contact_us_image_path'].trim() != "";
 PLUGIN_COMPANY_WEBSITE = formvalue['pano_company_website'].trim() != "";
+PLUGIN_H_NAVBAR = formvalue['pano_h_navbar_show'] === "true";
 
 function print_go_back_button() {
   if (!PLUGIN_GO_BACK_BUTTON) return;
@@ -418,6 +437,38 @@ function print_contact_us() {
   var tmpl = doT.template(src);
   document.createfile("source/hot_10000/index.html", tmpl(data));
 }
+
+function print_h_navbar_html() {
+  if (!PLUGIN_H_NAVBAR) return;
+
+  var prefix = "", i, navArr = [];
+  for (i = 1; i <= V_NAV_COUNT; i++) {
+    prefix = V_NAV_PREFIX + i + "_";
+    if(formvalue[prefix + 'title'] == '') {
+      continue;
+    }
+    navArr.push({
+      "title": encode(formvalue[prefix + 'title']),
+      "url": formvalue[prefix + 'url']
+    });
+  }
+
+  var src = hereDoc(function() {/*!
+<div class="dropdown" style="position: absolute;     float: right;     z-index: 9999; right: 100px; top: 100px; display: none;">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    菜单
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+  {{~it.array :item:index}}
+    <li><a href="{{=item.url}}">{{=item.title}}</a></li>
+  {{~}}
+  </ul>
+</div><!-- /.dropdown -->
+*/});
+  var tmpl = doT.template(src);
+  document.write(tmpl(navArr));
+}
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -460,8 +511,8 @@ function print_contact_us() {
                     <li><img src="img/logo.png" style="width:55px;height:30px;margin-top:5px;"></li>
 <?ggs
 var prefix = "", i;
-for (i = 1; i <= NAV_COUNT; i++) {
-  prefix = NAV_PREFIX + i + "_";
+for (i = 1; i <= H_NAV_COUNT; i++) {
+  prefix = H_NAV_PREFIX + i + "_";
   if(formvalue[prefix + 'title'] == '') {
     continue;
   }
@@ -478,7 +529,8 @@ for (i = 1; i <= NAV_COUNT; i++) {
                     </li>
                 </ul>
             </div>
-        </div>
+        </div><!-- /.navbar -->
+        <?ggs print_h_navbar_html(); ?>
         <div id="hoverArea"></div>
         <div style="display: none">
             <img id="logoImg" src="img/logo.png" style="position:absolute;left:0px;width:55px;height:30px;margin-top:5px;margin-left:20px;z-index:9998;">
