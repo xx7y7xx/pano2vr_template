@@ -373,6 +373,7 @@ PLUGIN_BEIAN = formvalue['pano_html_beian'].trim() != "";
 PLUGIN_CONTACT_US = formvalue['pano_contact_us_image_path'].trim() != "";
 PLUGIN_COMPANY_WEBSITE = formvalue['pano_company_website'].trim() != "";
 PLUGIN_H_NAVBAR = formvalue['pano_h_navbar_show'] === "true";
+PLUGIN_V_NAVBAR = formvalue['pano_v_navbar_show'] === "true";
 
 function print_go_back_button() {
   if (!PLUGIN_GO_BACK_BUTTON) return;
@@ -442,6 +443,30 @@ function print_h_navbar_html() {
   if (!PLUGIN_H_NAVBAR) return;
 
   var prefix = "", i, navArr = [];
+  for (i = 1; i <= H_NAV_COUNT; i++) {
+    prefix = H_NAV_PREFIX + i + "_";
+    if(formvalue[prefix + 'title'] == '') {
+      continue;
+    }
+    newArr.push({
+      "title": encode(formvalue[prefix + 'title']),
+      "url": formvalue[prefix + 'url']
+    });
+  }
+
+  var src = hereDoc(function() {/*!
+  {{~it.array :item:index}}
+    <li class="submenu"><a class="submenulink" target="_self" href="{{=item.url}}">{{=item.title}}</a></li>
+  {{~}}
+*/});
+  var tmpl = doT.template(src);
+  document.write(tmpl(navArr));
+}
+
+function print_v_navbar_html() {
+  if (!PLUGIN_V_NAVBAR) return;
+
+  var prefix = "", i, navArr = [];
   for (i = 1; i <= V_NAV_COUNT; i++) {
     prefix = V_NAV_PREFIX + i + "_";
     if(formvalue[prefix + 'title'] == '') {
@@ -469,6 +494,7 @@ function print_h_navbar_html() {
   var tmpl = doT.template(src);
   document.write(tmpl(navArr));
 }
+
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -509,20 +535,7 @@ function print_h_navbar_html() {
             <div class="navbar-inner">
                 <ul class="nav" style="width:100%;">
                     <li><img src="img/logo.png" style="width:55px;height:30px;margin-top:5px;"></li>
-<?ggs
-var prefix = "", i;
-for (i = 1; i <= H_NAV_COUNT; i++) {
-  prefix = H_NAV_PREFIX + i + "_";
-  if(formvalue[prefix + 'title'] == '') {
-    continue;
-  }
-  document.write('<li class="submenu"><a class="submenulink" target="_self" href="');
-  document.write(formvalue[prefix + 'url']);
-  document.write('">');
-  document.writeEncoded(formvalue[prefix + 'title']);
-  document.write("</a></li>\n");
-}
-?>
+                    <?ggs print_h_navbar_html(); ?>
                     <li class="submenu" style="position: absolute;right: 0;">
                       <?ggs print_contact_us(); ?>
                       <?ggs print_go_back_button(); ?>
@@ -530,7 +543,7 @@ for (i = 1; i <= H_NAV_COUNT; i++) {
                 </ul>
             </div>
         </div><!-- /.navbar -->
-        <?ggs print_h_navbar_html(); ?>
+        <?ggs print_v_navbar_html(); ?>
         <div id="hoverArea"></div>
         <div style="display: none">
             <img id="logoImg" src="img/logo.png" style="position:absolute;left:0px;width:55px;height:30px;margin-top:5px;margin-left:20px;z-index:9998;">
