@@ -448,7 +448,7 @@ function print_h_navbar_html() {
     if(formvalue[prefix + 'title'] == '') {
       continue;
     }
-    newArr.push({
+    navArr.push({
       "title": document.encode(formvalue[prefix + 'title']),
       "url": formvalue[prefix + 'url']
     });
@@ -479,7 +479,7 @@ function print_v_navbar_html() {
   }
 
   var src = hereDoc(function() {/*!
-<div class="dropdown" style="position: absolute;     float: right;     z-index: 9999; right: 100px; top: 100px;">
+<div class="dropdown" style="position: absolute;     float: right;     z-index: 9999; right: 100px; top: 45px;     text-align: left;     font-family: '黑体';">
   <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
   {{=it.button}}
     <span class="caret"></span>
@@ -493,7 +493,7 @@ function print_v_navbar_html() {
 */});
   var tmpl = doT.template(src);
   document.write(tmpl({
-	"button": document.encode("菜单"),
+	"button": document.encode("参观导览"),
 	"nav": navArr
   }));
 }
