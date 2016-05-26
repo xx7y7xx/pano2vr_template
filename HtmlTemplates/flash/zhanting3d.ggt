@@ -455,7 +455,7 @@ function print_h_navbar_html() {
   }
 
   var src = hereDoc(function() {/*!
-  {{~it.array :item:index}}
+  {{~it :item:index}}
     <li class="submenu"><a class="submenulink" target="_self" href="{{=item.url}}">{{=item.title}}</a></li>
   {{~}}
 */});
